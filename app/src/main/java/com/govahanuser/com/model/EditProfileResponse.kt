@@ -1,0 +1,51 @@
+package com.govahan.com.model
+
+data class EditProfileResponse(
+    val `data`: EditProfileData,
+    val message: String,
+    val status: Int
+)
+
+data class EditProfileData(
+    val address: String,
+    val amount: String,
+    val api_token: String,
+    val complete_profile: Int,
+    val created_at: String,
+    val device_id: String,
+    val device_name: String,
+    val device_token: String,
+    val device_type: String,
+    val driving_licence: Any,
+    val email: String,
+    val email_verified_at: Any,
+    val experience: Any,
+    val franchise_name: String,
+    val gst_number: Any,
+    val id: Int,
+    val id_proof_doc: Any,
+    val invoice_filename: Any,
+    val is_approved: Int,
+    val is_deleted: Int,
+    val last_logedin_date: Any,
+    val latitude: Any,
+    val licence_number: Any,
+    val login_status: Int,
+    val longtitude: Any,
+    val mobile_number: String,
+    val name: String,
+    val otp: String,
+    val payment_status: Int,
+    val profile_image: String,
+    val referal_code: Any,
+    val refered_by: Any,
+    val role: Int,
+    val service_id: Any,
+    val sms_email: Int,
+    val status: Int,
+    val updated_at: String,
+    val user_type: Int,
+    val v_id: Any,
+    val vendor_driver: Any,
+    val whatsapp_status: Int
+)

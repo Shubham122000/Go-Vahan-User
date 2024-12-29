@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    >
+    <TextView
+        android:id="@+id/bullet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="•"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"/>
+<TextView
+    android:id="@+id/vehicle_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="sfsdf"
+    android:textStyle="bold"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_toEndOf="@+id/bullet"
+    android:layout_centerVertical="true"
+    android:textColor="@color/black"
+    android:textSize="@dimen/_12sdp"
+    />
+
+</RelativeLayout>
+</layout>
