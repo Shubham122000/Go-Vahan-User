@@ -44,7 +44,7 @@ import com.govahan.com.model.loaderwalletlistmodel.LoaderWalletListResponseModel
 import com.govahan.com.model.loginOtpModel.LoginOtpResponseModel
 import com.govahan.com.model.loginResponse.LoginResponseModel
 import com.govahan.com.model.myoffersmodel.MyOffersResponseModel
-import com.govahan.com.model.noOfTyrePModel.GetNoOfTyrePModel
+import com.govahanuser.com.model.noOfTyrePModel.GetNoOfTyrePModel
 import com.govahan.com.model.notificationmodel.NotificationResponseModel
 import com.govahan.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerTripHistoryResponseModel
 import com.govahan.com.model.ongoingloadertriphistorymodel.OngoingLoaderTripHistoryResponseModel
@@ -64,7 +64,7 @@ import com.govahan.com.model.passengerpaymentsuccessmodel.PassengerPaymentSucces
 import com.govahan.com.model.passengertripmanagementmodel.PassengerTripManagementDetailResponse
 import com.govahan.com.model.searchPassengerVehicle.SearchPassengerVehicleResponseModel
 import com.govahan.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesResponseModel
-import com.govahan.com.model.searchvehiclemodel.SearchVehicleResponseModel
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleResponseModel
 import com.govahan.com.model.seatingcapacitymodel.GetSeatingCapacityModel
 import com.govahan.com.model.sendmailmodel.LoaderSendMailResponseModel
 import com.govahan.com.model.settingsmsemailmodel.SettingSmsEmailResponseModel
@@ -76,7 +76,7 @@ import com.govahan.com.model.truckbodytypeget.TruckBodyTypeModel
 import com.govahan.com.model.truckcapacityget.TruckCapacityGetModel
 import com.govahan.com.model.truckpricefor_get.TruckPriceForModel
 import com.govahan.com.model.trucktypegetmodel.TruckTypeModel
-import com.govahan.com.model.vehicletypemodel.GetVehicleTypeModel
+import com.govahanuser.com.model.vehicletypemodel.GetVehicleTypeModel
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -105,28 +105,39 @@ interface MainRepository {
     suspend fun add_my_wallet(token: String,amount : String,transactionId:String): Response<WalletResponse>
     suspend fun razorpayPayment(
         token: String,
-        pick_up_location: String,
-        pick_up_lat: String,
-        pick_up_long: String,
-        drop_location: String,
-        drop_lat: String,
-        drop_long: String,
-        vechicle_id: String,
-        fare: String,total_fare : String,
-        payment_mode: String,
-        booking_date: String,
-        booking_time: String,
-        driver_id: String,
-        dis: String,
-        body_type: String,
-        capacity: String,
-        distance: String,
-        vehicle_numbers: String,
-        transaction_id: String,
-        payment_status: String,
-        currency: String,
-        booking_relation_id: String
+        tripId : String,
+        bookingFor : String,// 1: Loader, 2: Passenger
+        paymentMode : String,// !: Online, 2: Wallet
+        transactionId : String,// If payment from wallet so accept string "walletTrasactionId"
+        invoice : String,// If payment from wallet so accept string "walletInvoice"
+        currency : String,
+        amount : String,
     ): Response<RazorpaystatusResponse>
+
+//    suspend fun razorpayPayment(
+//        token: String,
+//        pick_up_location: String,
+//        pick_up_lat: String,
+//        pick_up_long: String,
+//        drop_location: String,
+//        drop_lat: String,
+//        drop_long: String,
+//        vechicle_id: String,
+//        fare: String,total_fare : String,
+//        payment_mode: String,
+//        booking_date: String,
+//        booking_time: String,
+//        driver_id: String,
+//        dis: String,
+//        body_type: String,
+//        capacity: String,
+//        distance: String,
+//        vehicle_numbers: String,
+//        transaction_id: String,
+//        payment_status: String,
+//        currency: String,
+//        booking_relation_id: String
+//    ): Response<RazorpaystatusResponse>
 
     suspend fun userLogin(mobile : String,
                           device_id: String,
@@ -153,19 +164,17 @@ interface MainRepository {
     suspend fun truckPriceForApi(token : String) : Response<TruckPriceForModel>
 
     suspend fun searchLoaderVehicleApi(token : String,
-                                 task : String,
-                                 pickup_location : String,
-                                 pickup_lat : String,
-                                 pickup_long : String,
-                                 dropup_location : String,
-                                 dropup_lat : String,
-                                 dropup_long : String,
-                                 truck_type : String,
-                                 capacity : String,
-                                 body_type : String,
-                                 wheel : String,
-                                 booking_date : String,
-                                       booking_time : String,
+                                       pickup_lat: String,
+                                       pickup_long: String,
+                                       dropup_lat: String,
+                                       dropup_long: String,
+                                       loader_type: String,
+                                       vehicle_category: String,
+                                       body_type: String,
+                                       seat: String,
+                                       wheels: String,
+                                       booking_date: String,
+                                       booking_time: String,
                               ) : Response<SearchVehicleResponseModel>
 
     suspend fun searchLoaderDetailApi(token : String ,

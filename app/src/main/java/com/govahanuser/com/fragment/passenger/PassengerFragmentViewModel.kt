@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.govahan.com.data.MainRepository
-import com.govahan.com.model.noOfTyrePModel.GetNoOfTyrePModel
+import com.govahanuser.com.model.noOfTyrePModel.GetNoOfTyrePModel
 import com.govahan.com.model.seatingcapacitymodel.GetSeatingCapacityModel
-import com.govahan.com.model.vehicletypemodel.GetVehicleTypeModel
+import com.govahanuser.com.model.vehicletypemodel.GetVehicleTypeModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

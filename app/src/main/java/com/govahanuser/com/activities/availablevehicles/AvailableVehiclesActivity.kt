@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -15,17 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.govahan.com.R
 import com.govahan.com.activities.ReviewsActivity
 import com.govahan.com.activities.bookingreview.BookingReviewActivity
-import com.govahan.com.activities.wallet.LoaderWalletActivity
 import com.govahan.com.adapters.AvailableVehiclesAdapter
 import com.govahan.com.baseClasses.BaseActivity
 import com.govahan.com.databinding.ActivityAvailableVehiclesBinding
-import com.govahan.com.databinding.InsufficientWalletBinding
 import com.govahan.com.databinding.RecordSavedBinding
-import com.govahan.com.model.searchvehiclemodel.SearchVehicleData
-import com.govahan.com.util.toast
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 @AndroidEntryPoint
@@ -60,34 +55,34 @@ class AvailableVehiclesActivity : BaseActivity(), AvailableVehiclesAdapter.OnCli
             finish()
         })
         binding.header.tvHeaderText.setText("Available Vehicles")
-        pickupLat = intent.getStringExtra("pickupLatitude")!!
-        pickupLong = intent.getStringExtra("pickupLongitude")!!
-        dropLat = intent.getStringExtra("dropLatitude")!!
-        dropLong = intent.getStringExtra("dropLongitude")!!
-        g_triptask = intent.getStringExtra("triptask")!!
-        g_pickupLocation = intent.getStringExtra("pickupLocation")!!
-            g_dropLocation = intent.getStringExtra("dropLocation")!!
-        g_truckType = intent.getStringExtra("truckType")!!
-        g_capacity = intent.getStringExtra("capacity")!!
-        g_body_type = intent.getStringExtra("body_type")!!
-        g_wheel = intent.getStringExtra("wheel")!!
-        g_price_for = intent.getStringExtra("price_for")!!
-        g_booking_date = intent.getStringExtra("booking_date")!!
-        g_booking_time = intent.getStringExtra("booking_time")!!
+        pickupLat = intent.getStringExtra("pickupLatitude").toString()
+        pickupLong = intent.getStringExtra("pickupLongitude").toString()
+        dropLat = intent.getStringExtra("dropLatitude").toString()
+        dropLong = intent.getStringExtra("dropLongitude").toString()
+        g_triptask = intent.getStringExtra("triptask").toString()
+        g_pickupLocation = intent.getStringExtra("pickupLocation").toString()
+            g_dropLocation = intent.getStringExtra("dropLocation").toString()
+        g_truckType = intent.getStringExtra("truckType").toString()
+        g_capacity = intent.getStringExtra("capacity").toString()
+        g_body_type = intent.getStringExtra("body_type").toString()
+        g_wheel = intent.getStringExtra("wheel").toString()
+        g_price_for = intent.getStringExtra("price_for").toString()
+        g_booking_date = intent.getStringExtra("booking_date").toString()
+        g_booking_time = intent.getStringExtra("booking_time").toString()
+
+
         viewModel.searchLoaderVehicleApi("Bearer " + userPref.user.apiToken,
-            intent.getStringExtra("triptask")!!,
-            intent.getStringExtra("pickupLocation")!!/*"28.6068"*/,
-            intent.getStringExtra("pickupLatitude")!!/*"28.6068"*/,
-            intent.getStringExtra("pickupLongitude")!!/*"77.3218"*/,
-            intent.getStringExtra("dropLocation")!!,
-            intent.getStringExtra("dropLatitude")!!/*"28.7041"*/,
-            intent.getStringExtra("dropLongitude")!!/*"77.1025"*/,
-            intent.getStringExtra("truckType")!!,
-            intent.getStringExtra("capacity")!!,
-            intent.getStringExtra("body_type")!!,
-            intent.getStringExtra("wheel")!!,
-            intent.getStringExtra("booking_date")!!,
-            intent.getStringExtra("booking_time")!!
+            pickupLat,
+            pickupLong,
+            dropLat,
+            dropLong,
+            "1",
+            g_truckType,
+            g_body_type,
+            "",
+            g_wheel,
+            g_booking_date,
+            g_booking_time
            )
 
 
@@ -100,12 +95,12 @@ class AvailableVehiclesActivity : BaseActivity(), AvailableVehiclesAdapter.OnCli
             }
         }
         viewModel.availableVehicleListResponse.observe(this) {
-            if (it.status == 1) {
-                availableVehiclesAdapter =  AvailableVehiclesAdapter(it.data,
-                    this,this)
-
-
-
+            if (it.error == false) {
+                availableVehiclesAdapter = it.result?.trips?.let { it1 ->
+                    AvailableVehiclesAdapter(
+                        it1,
+                        this,this)
+                }
                 binding.rvAvailableVehicles.apply {
                     adapter = availableVehiclesAdapter
                     layoutManager = LinearLayoutManager(this@AvailableVehiclesActivity)
@@ -113,8 +108,6 @@ class AvailableVehiclesActivity : BaseActivity(), AvailableVehiclesAdapter.OnCli
 
             } else {
                 InsufficientWallet(it.message.toString())
-//                Log.d("Response", it.toString())
-//                toast(it.message!!)
             }
         }
 
@@ -154,13 +147,7 @@ class AvailableVehiclesActivity : BaseActivity(), AvailableVehiclesAdapter.OnCli
 
     override fun onProceedClicked(searchListModelData: SearchVehicleData) {
         startActivity(Intent(this, BookingReviewActivity :: class.java).also {
-            it.putExtra("vehicleDetails", searchListModelData)
-            it.putExtra("pickupLatitude", pickupLat)
-            it.putExtra("pickupLongitude", pickupLong)
-            it.putExtra("dropLatitude", dropLat)
-            it.putExtra("dropLongitude", dropLong)
-            it.putExtra("dropLongitude", dropLong)
-            it.putExtra("g_booking_date", g_booking_date)
+            it.putExtra("ModelData", searchListModelData)
 
 
         })

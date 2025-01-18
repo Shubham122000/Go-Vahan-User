@@ -29,11 +29,11 @@ import com.govahan.com.activities.bookvehicle.BookAVehicleActivity
 import com.govahan.com.baseClasses.BaseFragment
 import com.govahan.com.databinding.FragmentLoaderBinding
 import com.govahan.com.fragment.passenger.PassengerFragmentViewModel
-import com.govahan.com.model.noOfTyrePModel.NoOfTyrePData
+import com.govahanuser.com.model.noOfTyrePModel.NoOfTyrePData
 import com.govahan.com.model.truckbodytypeget.TruckBodyTypeData
 import com.govahan.com.model.truckcapacityget.TruckCapacityData
 import com.govahan.com.model.truckpricefor_get.PriceForData
-import com.govahan.com.model.vehicletypemodel.VehicleTypeData
+import com.govahanuser.com.model.vehicletypemodel.VehicleTypeData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -109,10 +109,11 @@ class LoaderFragment : BaseFragment() {
         }
 
         viewModel.vehicleTypeListResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 truckTypeList.clear()
                 truckTypeListData.clear()
-                truckTypeListData.addAll(it.data)
+                truckTypeListData.add(VehicleTypeData(id = -1, vType = "SELECT")) // Add Select at the first position
+                it.result?.data?.let { it1 -> truckTypeListData.addAll(it1) }
 
                 for (i in truckTypeListData) {
                     i.vType?.let { it1 -> truckTypeList.add(it1) }
@@ -174,10 +175,11 @@ class LoaderFragment : BaseFragment() {
         }
 
         viewModel1.noOfTyresPListResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 truckNumberOfTyreList.clear()
                 truckNumberOfTyreListData.clear()
-                truckNumberOfTyreListData.addAll(it.data)
+                truckNumberOfTyreListData.add(NoOfTyrePData(id = -1, wheel = "SELECT"))
+                it.result?.data?.let { it1 -> truckNumberOfTyreListData.addAll(it1) }
 
                 for (i in truckNumberOfTyreListData) {
                     i.wheel?.let { it1 -> truckNumberOfTyreList.add(it1) }
@@ -241,9 +243,7 @@ class LoaderFragment : BaseFragment() {
         }
 
         binding.btnSearch.setOnClickListener {
-            if (binding.etTriptask.text.toString() == "") {
-                toast(requireContext(), "Please enter your trip task")
-            } else if (binding.fromLocation.text == "") {
+             if (binding.fromLocation.text == "") {
                 toast(requireContext(), "Please enter your pickup location")
             } else if (binding.dropLocation.text == "") {
                 toast(requireContext(), "Please enter your drop location")
@@ -261,7 +261,6 @@ class LoaderFragment : BaseFragment() {
                 toast(requireContext(), "Please select date.")
             } else {
                 startActivity(Intent(requireContext(), AvailableVehiclesActivity::class.java).also {
-                    it.putExtra("triptask", binding.etTriptask.text.toString())
                     it.putExtra("pickupLocation", binding.fromLocation.text.toString())
                     it.putExtra("pickupLatitude", pickupLatitude.toString())
                     it.putExtra("pickupLongitude", pickupLongitude.toString())
@@ -269,7 +268,7 @@ class LoaderFragment : BaseFragment() {
                     it.putExtra("dropLongitude", dropLongitude.toString())
                     it.putExtra("dropLocation", binding.dropLocation.text.toString())
                     it.putExtra("truckType", selectedTruckType)
-                    it.putExtra("capacity", binding.spinnerCapacity.text.toString())
+//                    it.putExtra("capacity", binding.spinnerCapacity.text.toString())
                     it.putExtra("body_type", selectedBodyType)
                     it.putExtra("wheel", selectedNoOfTyre)
                     it.putExtra("price_for", selectedPriceFor)

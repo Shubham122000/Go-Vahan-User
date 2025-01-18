@@ -43,7 +43,7 @@ import com.govahan.com.model.loaderwalletlistmodel.LoaderWalletListResponseModel
 import com.govahan.com.model.loginOtpModel.LoginOtpResponseModel
 import com.govahan.com.model.loginResponse.LoginResponseModel
 import com.govahan.com.model.myoffersmodel.MyOffersResponseModel
-import com.govahan.com.model.noOfTyrePModel.GetNoOfTyrePModel
+import com.govahanuser.com.model.noOfTyrePModel.GetNoOfTyrePModel
 import com.govahan.com.model.notificationmodel.NotificationResponseModel
 import com.govahan.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerTripHistoryResponseModel
 import com.govahan.com.model.ongoingloadertriphistorymodel.OngoingLoaderTripHistoryResponseModel
@@ -63,7 +63,7 @@ import com.govahan.com.model.passengerpaymentsuccessmodel.PassengerPaymentSucces
 import com.govahan.com.model.passengertripmanagementmodel.PassengerTripManagementDetailResponse
 import com.govahan.com.model.searchPassengerVehicle.SearchPassengerVehicleResponseModel
 import com.govahan.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesResponseModel
-import com.govahan.com.model.searchvehiclemodel.SearchVehicleResponseModel
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleResponseModel
 import com.govahan.com.model.seatingcapacitymodel.GetSeatingCapacityModel
 import com.govahan.com.model.sendmailmodel.LoaderSendMailResponseModel
 import com.govahan.com.model.settingsmsemailmodel.SettingSmsEmailResponseModel
@@ -76,7 +76,7 @@ import com.govahan.com.model.truckcapacityget.TruckCapacityGetModel
 import com.govahan.com.model.trucknooftyreget.TruckNoOfTyreModel
 import com.govahan.com.model.truckpricefor_get.TruckPriceForModel
 import com.govahan.com.model.trucktypegetmodel.TruckTypeModel
-import com.govahan.com.model.vehicletypemodel.GetVehicleTypeModel
+import com.govahanuser.com.model.vehicletypemodel.GetVehicleTypeModel
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -199,19 +199,17 @@ interface ApiService {
     suspend fun truckPriceForApi(@Header("Authorization") token : String): Response<TruckPriceForModel>
 
     @FormUrlEncoded
-    @POST("search_loader")
+    @POST("search_trip")
     suspend fun searchLoaderVehicleApi(@Header("Authorization") token : String,
-                                 @Field("task") task : String,
-                                 @Field("pickup_location") pickup_location : String,
                                  @Field("pickup_lat") pickup_lat : String,
                                  @Field("pickup_long") pickup_long : String,
-                                 @Field("dropup_location") dropup_location : String,
                                  @Field("dropup_lat") dropup_lat : String,
                                  @Field("dropup_long") dropup_long : String,
-                                 @Field("truck_type") truck_type : String,
-                                 @Field("capacity") capacity : String,
+                                 @Field("loader_type") loader_type : String,
+                                 @Field("vehicle_category") vehicle_category : String,
                                  @Field("body_type") body_type : String,
-                                 @Field("tyres") tyres : String,
+                                 @Field("seat") seat : String,
+                                 @Field("wheels") wheels : String,
                                  @Field("booking_date") booking_date : String,
                                  @Field("booking_time") booking_time : String,
                             ) : Response<SearchVehicleResponseModel>
@@ -435,32 +433,45 @@ interface ApiService {
                                               @Field("booking_id") booking_id : String
     ) : Response<UploadDocumentsResponse>
 
+//    @FormUrlEncoded
+//    @POST("razorpay_payment")
+//    suspend fun razorpayPayment(@Header("Authorization") token : String,
+//                                        @Field("pick_up_location") pick_up_location : String,
+//                                        @Field("pick_up_lat") pick_up_lat : String,
+//                                        @Field("pick_up_long") pick_up_long : String,
+//                                        @Field("drop_location") drop_location : String,
+//                                        @Field("drop_lat") drop_lat : String,
+//                                        @Field("drop_long") drop_long : String,
+//                                        @Field("vechicle_id") vechicle_id : String,
+//                                        @Field("fare") fare : String,
+//                                     @Field("fare_total") fare_total : String,
+//                                        @Field("payment_mode") payment_mode : String,
+//                                        @Field("booking_date") booking_date : String,
+//                                     @Field("booking_time") booking_time : String,
+//                                        @Field("driver_id") driver_id : String,
+//                                     @Field("type") dis : String,
+//                                     @Field("body_type") body_type : String,
+//                                     @Field("capacity") capacity : String,
+//                                     @Field("distance") distance : String,
+//                                     @Field("vehicle_numbers") vehicle_numbers : String,
+//                                        @Field("transaction_id") transaction_id : String,
+//                                        @Field("payment_status") payment_status : String,
+//                                        @Field("currency") currency : String,
+//                                        @Field("booking_relation_id") booking_relation_id : String
+//    ) : Response<RazorpaystatusResponse>
+
     @FormUrlEncoded
     @POST("razorpay_payment")
     suspend fun razorpayPayment(@Header("Authorization") token : String,
-                                        @Field("pick_up_location") pick_up_location : String,
-                                        @Field("pick_up_lat") pick_up_lat : String,
-                                        @Field("pick_up_long") pick_up_long : String,
-                                        @Field("drop_location") drop_location : String,
-                                        @Field("drop_lat") drop_lat : String,
-                                        @Field("drop_long") drop_long : String,
-                                        @Field("vechicle_id") vechicle_id : String,
-                                        @Field("fare") fare : String,
-                                     @Field("fare_total") fare_total : String,
-                                        @Field("payment_mode") payment_mode : String,
-                                        @Field("booking_date") booking_date : String,
-                                     @Field("booking_time") booking_time : String,
-                                        @Field("driver_id") driver_id : String,
-                                     @Field("type") dis : String,
-                                     @Field("body_type") body_type : String,
-                                     @Field("capacity") capacity : String,
-                                     @Field("distance") distance : String,
-                                     @Field("vehicle_numbers") vehicle_numbers : String,
-                                        @Field("transaction_id") transaction_id : String,
-                                        @Field("payment_status") payment_status : String,
+                                        @Field("trip_id") tripId : String,
+                                        @Field("booking_for") bookingFor : String,// 1: Loader, 2: Passenger
+                                        @Field("payment_mode") paymentMode : String,// !: Online, 2: Wallet
+                                        @Field("transaction_id") transactionId : String,// If payment from wallet so accept string "walletTrasactionId"
+                                        @Field("invoice") invoice : String,// If payment from wallet so accept string "walletInvoice"
                                         @Field("currency") currency : String,
-                                        @Field("booking_relation_id") booking_relation_id : String
+                                        @Field("amount") amount : String,
     ) : Response<RazorpaystatusResponse>
+
 
     @FormUrlEncoded
     @POST("loader_payment")

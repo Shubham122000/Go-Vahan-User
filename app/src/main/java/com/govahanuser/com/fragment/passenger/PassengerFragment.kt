@@ -26,9 +26,9 @@ import com.govahan.com.R
 import com.govahan.com.activities.passengers.passengervailablevehicle.PassengerAvailableVehicleActivity
 import com.govahan.com.baseClasses.BaseFragment
 import com.govahan.com.databinding.FragmentPassengerBinding
-import com.govahan.com.model.noOfTyrePModel.NoOfTyrePData
+import com.govahanuser.com.model.noOfTyrePModel.NoOfTyrePData
 import com.govahan.com.model.seatingcapacitymodel.SeatingCapacityData
-import com.govahan.com.model.vehicletypemodel.VehicleTypeData
+import com.govahanuser.com.model.vehicletypemodel.VehicleTypeData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -82,11 +82,10 @@ class PassengerFragment : BaseFragment() {
         // for Passenger & "2" for Loader
         }
         viewModel.vehicleTypeListResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 vehicleTypeList.clear()
                 vehicleTypeListData.clear()
-                vehicleTypeListData.addAll(it.data)
-
+                it.result?.data?.let { it1 -> vehicleTypeListData.addAll(it1) }
                 for (i in vehicleTypeListData){
                     i.vType?.let { it1 -> vehicleTypeList.add(it1) }
                 }
@@ -108,10 +107,11 @@ class PassengerFragment : BaseFragment() {
             //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
         }
         viewModel.noOfTyresPListResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 noOfTyresPList.clear()
                 noOfTyresPListData.clear()
-                noOfTyresPListData.addAll(it.data)
+                noOfTyresPListData.add(NoOfTyrePData(id = -1, wheel = "SELECT"))
+                it.result?.data?.let { it1 -> noOfTyresPListData.addAll(it1) }
 
                 for (i in noOfTyresPListData){
                     i.wheel?.let { it1 -> noOfTyresPList.add(it1) }

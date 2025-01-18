@@ -58,34 +58,39 @@ class BookingConfirmationAndStatusActivity : BaseActivity() {
             }else{
                 binding.llBodyType.visibility = View.GONE
             }
-                    binding.tvRideCode.text = modelDataList?.data?.startCode
-                    binding.bookingid.text = "Booking Id: #"+ modelDataList?.data?.bookingId
-                    binding.tvBookingCreatedate.text = modelDataList?.data?.createdAt
-                    binding.tvFrom.text = modelDataList?.data?.picupLocation
-                    binding.tvTo.text = modelDataList?.data?.dropLocation
-                    binding.tvVehicleNumber.text = modelDataList?.data?.vehicleNumbers
-                    binding.tvRating.text = "4.0" /* modelDataList?.data?.rating*/
-                    binding.tvType.text = modelDataList?.data?.bodyType
-                    binding.tvCapacity.text = modelDataList?.data?.capacity
-                    binding.tvDistance.text = modelDataList?.data?.distance
-                    binding.tvOwner.text = modelDataList?.data?.owner_name
-                    binding.tvBookingdate.text = modelDataList?.data?.bookingDate
-                    binding.tvBookingtime.text = modelDataList?.data?.bookingTime
-                    binding.tvVehicleName.text = modelDataList?.data?.vehicle_name
-                    binding.tvAmount.text = "₹${modelDataList?.data?.fare}"
-                    binding.tvPaymentmode.text = "Online"
+                    binding.tvRideCode.text = modelDataList?.result?.data?.rideCode
+                    binding.bookingid.text = "Booking Id: "+ modelDataList?.result?.data?.bookingId
+//                    binding.tvBookingCreatedate.text = modelDataList?.result?.data?.tripDetails?.bookingDateFrom
+                    binding.tvFrom.text = modelDataList?.result?.data?.tripDetails?.fromTrip
+                    binding.tvTo.text = modelDataList?.result?.data?.tripDetails?.toTrip
+                    binding.tvVehicleNumber.text = modelDataList?.result?.data?.tripDetails?.vehicle?.vehicleNumber
+                    binding.tvRating.text = "4.0" /* modelDataList?.result?.data?.rating*/
+                    binding.tvType.text = modelDataList?.result?.data?.tripDetails?.vehicle?.bodyType?.name.toString()
+                    binding.tvCapacity.text = modelDataList?.result?.data?.tripDetails?.vehicle?.capacity.toString()
+                    binding.tvDistance.text = modelDataList?.result?.data?.tripDetails?.totalDistance
+                    binding.tvOwner.text = modelDataList?.result?.data?.tripDetails?.user?.name
+                    binding.tvBookingdate.text = modelDataList?.result?.data?.tripDetails?.bookingDateFrom
+                    binding.tvBookingtime.text = modelDataList?.result?.data?.tripDetails?.time
+                    binding.tvVehicleName.text = modelDataList?.result?.data?.tripDetails?.vehicle?.vehicleName
+                    binding.tvAmount.text = "₹${modelDataList?.result?.data?.tripDetails?.freightAmount.toString()}"
+            if (modelDataList?.result?.data?.paymentDetails?.paymentMode == "2"){
+                binding.tvPaymentmode.text = "Wallet"
+            }else{
+                binding.tvPaymentmode.text = "Online"
+            }
+
                     binding.tvBookingStatus.text = "Partial Payment Completed"
-                    Glide.with(this).load(modelDataList?.data?.main_image).into(binding.vehicleImage)
+                    Glide.with(this).load(modelDataList?.result?.data?.tripDetails?.vehicle?.vehicleImage).into(binding.vehicleImage)
 //                }
 //                for (i in 0 until  BookingReviewActivity.bookingLoaderOnlineUserList.size) {
-                    binding.tvUsreName.text = modelDataList?.data?.user_name
-                    binding.tvUserPhone.text = modelDataList?.data?.user_mobile_no
-                    binding.tvUserEmail.text = modelDataList?.data?.user_email
+                    binding.tvUsreName.text = modelDataList?.result?.data?.tripDetails?.user?.name
+                    binding.tvUserPhone.text = modelDataList?.result?.data?.tripDetails?.user?.mobileNumber
+                    binding.tvUserEmail.text = modelDataList?.result?.data?.tripDetails?.user?.email
 //                }
 //                for (i in 0 until  BookingReviewActivity.bookingLoaderOnlineDriverList.size) {
-                    binding.tvDriverNam.text = modelDataList?.data?.driver_name
-                    binding.tvDrivername.text = modelDataList?.data?.driver_name
-                    binding.tvDriverphone.text = modelDataList?.data?.driver_mobile_no
+                    binding.tvDriverNam.text = modelDataList?.result?.data?.tripDetails?.driver?.name
+                    binding.tvDrivername.text = modelDataList?.result?.data?.tripDetails?.driver?.name
+                    binding.tvDriverphone.text = modelDataList?.result?.data?.tripDetails?.driver?.mobileNumber
 //                }
 //            }
         }

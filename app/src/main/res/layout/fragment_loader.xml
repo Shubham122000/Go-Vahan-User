@@ -23,39 +23,39 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/triptask"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="@string/triptask"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
-                    <EditText
-                        android:id="@+id/et_triptask"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@android:color/transparent"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="center_vertical"
-                        android:hint="@string/officeshifting"
-                        android:imeOptions="actionNext"
-                        android:inputType="textPersonName"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12sdp" />
+<!--                    <EditText-->
+<!--                        android:id="@+id/et_triptask"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@android:color/transparent"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="center_vertical"-->
+<!--                        android:hint="@string/officeshifting"-->
+<!--                        android:imeOptions="actionNext"-->
+<!--                        android:inputType="textPersonName"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp" />-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@color/lightgray" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_1sdp"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@color/lightgray" />-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -223,7 +223,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto_regular"
-                        android:text="@string/truck_type_head"
+                        android:text="@string/category"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_11sdp" />
 
@@ -236,7 +236,7 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="start"
-                        android:hint="@string/select_truck_type"
+                        android:hint="@string/select_category"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
@@ -279,41 +279,41 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:background="@color/lightgray" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="Capacity (In tons)"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="Capacity (In tons)"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
-                    <EditText
-                        android:id="@+id/spinnerCapacity"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="start"
-                        android:inputType="number"
-                        android:hint="Enter Capacity"
-                        android:padding="10dp"
-                        android:background="@android:color/transparent"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                     />
+<!--                    <EditText-->
+<!--                        android:id="@+id/spinnerCapacity"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="start"-->
+<!--                        android:inputType="number"-->
+<!--                        android:hint="Enter Capacity"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:background="@android:color/transparent"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                     />-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@color/lightgray" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_1sdp"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@color/lightgray" />-->
 
                     <TextView
                         android:layout_width="wrap_content"

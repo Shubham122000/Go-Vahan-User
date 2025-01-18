@@ -201,38 +201,63 @@ class BookingReviewViewModel   @Inject constructor(private val mainRepository: M
 //        }
 //    }
 
+//    fun razorpayPayment(
+//        token : String,
+//                                pick_up_location : String,
+//                                pick_up_lat : String,
+//                                pick_up_long : String,
+//                                drop_location : String,
+//                                drop_lat : String,
+//                                drop_long : String,
+//                                vechicle_id : String,
+//                                fare : String,total_fare : String,
+//                                payment_mode : String,
+//                                booking_date : String,
+//                                booking_time : String,
+//                                driver_id : String,
+//                                dis : String,
+//                                body_type : String,
+//                                capacity : String,
+//                                distance : String,
+//                                vehicle_numbers : String,
+//                                transaction_id : String,
+//                                payment_status : String,
+//                                currency : String,
+//                                passengerPaymentSuccessApi : String
+//    ) {
+//
+//        progressBarStatus.value = true
+//        viewModelScope.launch {
+//            val response = mainRepository.razorpayPayment(token,pick_up_location ,pick_up_lat ,pick_up_long , drop_location, drop_lat,drop_long
+//                , vechicle_id,fare ,total_fare, payment_mode,booking_date ,booking_time ,driver_id ,dis  , body_type , capacity , distance , vehicle_numbers
+//                , transaction_id, payment_status , currency ,passengerPaymentSuccessApi)
+//
+//            if (response.isSuccessful) {
+//                progressBarStatus.value = false
+//                razorpayStatusResponse.postValue(response.body())
+//            }
+//            else {
+//                progressBarStatus.value = false
+//                Log.d("TAG", response.body().toString())
+//            }
+//        }
+//    }
 
 
-
-    fun razorpayPayment(token : String,
-                                pick_up_location : String,
-                                pick_up_lat : String,
-                                pick_up_long : String,
-                                drop_location : String,
-                                drop_lat : String,
-                                drop_long : String,
-                                vechicle_id : String,
-                                fare : String,total_fare : String,
-                                payment_mode : String,
-                                booking_date : String,
-                                booking_time : String,
-                                driver_id : String,
-                                dis : String,
-                                body_type : String,
-                                capacity : String,
-                                distance : String,
-                                vehicle_numbers : String,
-                                transaction_id : String,
-                                payment_status : String,
-                                currency : String,
-                                passengerPaymentSuccessApi : String
+    fun razorpayPayment(
+        token: String,
+        tripId : String,
+        bookingFor : String,// 1: Loader, 2: Passenger
+        paymentMode : String,// !: Online, 2: Wallet
+        transactionId : String,// If payment from wallet so accept string "walletTrasactionId"
+        invoice : String,// If payment from wallet so accept string "walletInvoice"
+        currency : String,
+        amount : String,
     ) {
 
         progressBarStatus.value = true
         viewModelScope.launch {
-            val response = mainRepository.razorpayPayment(token,pick_up_location ,pick_up_lat ,pick_up_long , drop_location, drop_lat,drop_long
-                , vechicle_id,fare ,total_fare, payment_mode,booking_date ,booking_time ,driver_id ,dis  , body_type , capacity , distance , vehicle_numbers
-                , transaction_id, payment_status , currency ,passengerPaymentSuccessApi)
+            val response = mainRepository.razorpayPayment(token,tripId, bookingFor, paymentMode, transactionId, invoice, currency, amount)
 
             if (response.isSuccessful) {
                 progressBarStatus.value = false
@@ -244,9 +269,6 @@ class BookingReviewViewModel   @Inject constructor(private val mainRepository: M
             }
         }
     }
-
-
-
 
 
 

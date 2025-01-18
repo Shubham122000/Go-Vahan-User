@@ -239,7 +239,6 @@ class DashboardActivity : BaseActivity(),  NavigationView.OnNavigationItemSelect
             }
         }
     }
-
     private fun showNotification() {
         // Your code to display a notification
         Toast.makeText(this, "Notifications are ready to be shown", Toast.LENGTH_SHORT).show()
@@ -488,6 +487,9 @@ class DashboardActivity : BaseActivity(),  NavigationView.OnNavigationItemSelect
 
     override fun onResume() {
         super.onResume()
+        if(complete_profilee.equals("0")){
+            completeDialog()
+        }
         Glide.with(this).load(userPref.user.profileImage)
             .apply(RequestOptions.placeholderOf(R.drawable.user_image_place_holder))
             .apply(RequestOptions.errorOf(R.drawable.user_image_place_holder))

@@ -111,49 +111,24 @@ class PaymentThroughActivity : BaseActivity(),
            if (flag.equals("loader")){
                viewModel.razorpayPayment(
                    "Bearer " + userPref.user.apiToken,
-                   pickupLocation,
-                   pickupLat, pickupLong,
-                   dropLocation,
-                   dropLat,
-                   dropLong,
-                   vehicle_id,
-                   amount1,
-                   total_fare,
-                   "3",
-                   selectedDate,
-                   pretime,
-                   driverId,
+                   id,
                    "1",
-                   bodytype,
-                   capacity,
-                   distance,
-                   vehicleNumber,
-                   "",
                    "2",
-                   "INR", id
+                   "walletTrasactionId",
+                   "walletInvoice",
+                   "INR",
+                   amount1
                )
            }else{
                viewModel.razorpayPayment(
                    "Bearer " + userPref.user.apiToken,
-                   pickupLocation,
-                   pickupLat, pickupLong,
-                   dropLocation,
-                   dropLat,
-                   dropLong,
-                   vehicle_id,
-                   amount1,
-                   total_fare,
-                   "3",
-                   selectedDate, pretime,
-                   driverId,
+                   id,
                    "2",
-                   bodytype,
-                   capacity,
-                   distance,
-                   vehicleNumber,
-                   "",
                    "2",
-                   "INR", id
+                   "walletTrasactionId",
+                   "walletInvoice",
+                   "INR",
+                   amount1
                )
            }
         }
@@ -306,7 +281,7 @@ class PaymentThroughActivity : BaseActivity(),
             }
         }
         viewModel.razorpayStatusResponse.observe(this){
-            if (it.status == 1){
+            if (it.error == false){
                 toast(it.message.toString())
                 finish()
 //                BookingReviewActivity.bookingLoaderOnlineDataList.add(it.data!!)
@@ -324,25 +299,10 @@ class PaymentThroughActivity : BaseActivity(),
                     }
                 )
 
-
-//                startActivity(
-//                    Intent(this, BookingSuccessActivity::class.java)
-//                        .putExtra("modelDataList",viewModel.razorpayStatusResponse.value
-////                            BookingReviewActivity.bookingLoaderOnlineDataList
-//                        )
-//                        .putExtra("modelUserList",
-//                            BookingReviewActivity.bookingLoaderOnlineUserList
-//                        )
-//                        .putExtra("modelDriverList",
-//                            BookingReviewActivity.bookingLoaderOnlineDriverList
-//                        )
-//                        .putExtra("modelRideCode1",
-//                            BookingReviewActivity.bookingLoaderOnlineRideCode
-//                        )
-//                        .putExtra("online", "ONLINE")
-//                )
-            }else if (it.status == 2){
+            }else if (it.error == true && it.statusCode == 109){
                 InsufficientWallet(it.message.toString())
+            }else{
+                toast(this,it.message.toString())
             }
         }
 
@@ -412,49 +372,24 @@ class PaymentThroughActivity : BaseActivity(),
         if (flag.equals("loader")) {
             viewModel.razorpayPayment(
                 "Bearer " + userPref.user.apiToken,
-                pickupLocation,
-                pickupLat, pickupLong,
-                dropLocation,
-                dropLat,
-                dropLong,
-                vehicle_id,
-                amount1,
-                total_fare,
-                "2",
-                selectedDate, pretime,
-                driverId,
+                id,
                 "1",
-                bodytype,
-                capacity,
-                distance,
-                vehicleNumber,
-                p1!!.paymentId.toString(),
-                "2",
+                "1",
+                p1?.paymentId.toString(),
+                "",
                 "INR",
-                id
+                amount1
             )
         }else{
             viewModel.razorpayPayment(
                 "Bearer " + userPref.user.apiToken,
-                pickupLocation,
-                pickupLat, pickupLong,
-                dropLocation,
-                dropLat,
-                dropLong,
-                vehicle_id,
-                amount1,
-                total_fare,
+                id,
                 "2",
-                selectedDate, pretime,
-                driverId,
-                "2",
-                bodytype,
-                capacity,
-                distance,
-                vehicleNumber,
-                p1!!.paymentId.toString(),
-                "2",
-                "INR", id
+                "1",
+                p1?.paymentId.toString(),
+                "",
+                "INR",
+                amount1
             )
         }
 

@@ -29,6 +29,7 @@
     <string name="fitnesspapers">"वाहन फिटनेस पेपर "</string>
     <string name="rcphoto">आरसी फोटो</string>
     <string name="vehiclenname">वाहन का नाम</string>
+    <string name="category">Category</string>
     <string name="referralcode">रेफरल कोड (वैकल्पिक)</string>
     <string name="addPassengerVehicle">"Add Passenger Vehicle "</string>
     <string name="role">भूमिका</string>
@@ -236,9 +237,10 @@
     <string name="rides_completed">" सवारी पूर्ण"</string>
     <string name="call_driver">" कॉल ड्राइवर"</string>
     <string name="reschedule_trip">" पुनर्निर्धारित यात्रा"</string>
+    <string name="select_category">Select Category</string>
     <string name="wheeler">" व्हीलर"</string>
     <string name="demo">डेमो</string>
-    <string name="truck_type_head">" ट्रक का प्रकार"</string>
+    <string name="truck_type_head">"ट्रक का प्रकार"</string>
     <string name="select_truck_type">" ट्रक का प्रकार चुनें"</string>
     <string name="select_capacity">" क्षमता का चयन करें"</string>
     <string name="body_type">" शरीर के प्रकार"</string>

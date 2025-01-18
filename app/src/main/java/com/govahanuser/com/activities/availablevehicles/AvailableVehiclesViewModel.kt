@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.govahan.com.data.MainRepository
-import com.govahan.com.model.searchvehiclemodel.SearchVehicleResponseModel
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleResponseModel
 import com.govahan.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -20,40 +20,26 @@ class AvailableVehiclesViewModel  @Inject constructor(private val mainRepository
     var availableVehicleListResponse = MutableLiveData<SearchVehicleResponseModel>()
     val progressBarStatus = MutableLiveData<Boolean>()
 
-    fun searchLoaderVehicleApi(token: String,
-                         task: String,
-                            pick_up_location: String,
-                            pick_up_lat: String,
-                            pick_up_long: String,
-                            drop_location: String,
-                            drop_lat: String,
-                            drop_long: String,
-                            truck_type: String,
-                             capacity: String,
-                             body_type: String,
-                             wheel: String,
-
-                             booking_date: String,
-                               booking_time: String,
+    fun searchLoaderVehicleApi(
+        token : String,
+        pickup_lat: String,
+        pickup_long: String,
+        dropup_lat: String,
+        dropup_long: String,
+        loader_type: String,
+        vehicle_category: String,
+        body_type: String,
+        seat: String,
+        wheels: String,
+        booking_date: String,
+        booking_time: String,
                             ) {
         progressBarStatus.value = true
         try {
         viewModelScope.launch {
             val response = mainRepository.searchLoaderVehicleApi(
                 token,
-                task,
-                pick_up_location,
-                pick_up_lat,
-                pick_up_long,
-                drop_location,
-                drop_lat,
-                drop_long,
-                truck_type,
-                capacity,
-                body_type,
-                wheel,
-                booking_date,
-                booking_time,
+                pickup_lat, pickup_long, dropup_lat, dropup_long, loader_type, vehicle_category, body_type, seat, wheels, booking_date, booking_time
 
 
 

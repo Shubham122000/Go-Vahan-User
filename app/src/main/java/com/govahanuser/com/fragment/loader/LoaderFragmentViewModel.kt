@@ -10,7 +10,7 @@ import com.govahan.com.model.truckcapacityget.TruckCapacityGetModel
 import com.govahan.com.model.trucknooftyreget.TruckNoOfTyreModel
 import com.govahan.com.model.truckpricefor_get.TruckPriceForModel
 import com.govahan.com.model.trucktypegetmodel.TruckTypeModel
-import com.govahan.com.model.vehicletypemodel.GetVehicleTypeModel
+import com.govahanuser.com.model.vehicletypemodel.GetVehicleTypeModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

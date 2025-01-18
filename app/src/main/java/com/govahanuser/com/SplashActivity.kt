@@ -51,11 +51,9 @@ class SplashActivity : BaseActivity() {
 
     private fun moveForword(){
         changeLanguage(userPref.getLocale())
-
         Handler().postDelayed({
             if (userPref.isLogin) {
-                Log.e("@@token",userPref.getFcmToken().toString())
-
+                Log.e("@@token",userPref.getToken().toString())
                 Intent(this, DashboardActivity::class.java).also {
                     startActivity(it)
                     finish()

@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.govahan.com.R
 import com.govahan.com.databinding.RowAvailableVehiclesBinding
-import com.govahan.com.model.searchvehiclemodel.SearchVehicleData
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleData
 
 class AvailableVehiclesAdapter(private val list: ArrayList<SearchVehicleData>,
-                               private val listener : OnClick,var reviewsclick: OnClick) : RecyclerView.Adapter<AvailableVehiclesAdapter.ViewHolder>() {
+                               private val listener : OnClick, var reviewsclick: OnClick) : RecyclerView.Adapter<AvailableVehiclesAdapter.ViewHolder>() {
 
 
     inner  class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -24,46 +24,46 @@ class AvailableVehiclesAdapter(private val list: ArrayList<SearchVehicleData>,
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.binding.vehicleName.text = data.vehicleName
-        holder.binding.tvAvailableat.text = data.avl_time
+        holder.binding.vehicleName.text = data.vehicle?.vehicleName
+        holder.binding.tvAvailableat.text = data.time
        // holder.binding.tvAvailable.text = data.available
 //        holder.binding.wheelerType.text = data.noOfTyres.toString()
-        holder.binding.tvFrom.text = data.pickupLocation
-        holder.binding.tvTo.text = data.dropupLocation
-        holder.binding.vehicleNumber.text = data.vehicleNumber.toString()
-        holder.binding.tvBodytype.text = data.bodytype
-        holder.binding.tvCapacity.text = data.capacity
-        holder.binding.tvDistance.text = data.distance
-        holder.binding.tvDrivername.text = data.driverName.toString()
-        holder.binding.tvFinalFare.text = "₹" + data.totalFare
-        holder.binding.tvCompletedtrips.text= data.driver_total_booking.toString()
-        holder.binding.tvRating.text=data.rating.toString()
-        holder.binding.tvOwnername.text=data.vehicleOwnerName.toString()
+        holder.binding.tvFrom.text = data.fromTrip
+        holder.binding.tvTo.text = data.toTrip
+        holder.binding.vehicleNumber.text = data.vehicle?.vehicleNumber
+        holder.binding.tvBodytype.text = data.vehicle?.bodyType?.name
+        holder.binding.tvCapacity.text = data.vehicle?.capacity
+        holder.binding.tvDistance.text = data.totalDistance
+        holder.binding.tvDrivername.text = data.driver?.name
+        holder.binding.tvFinalFare.text = "₹" + data.freightAmount
+//        holder.binding.tvCompletedtrips.text= data.driver_total_booking.toString()
+//        holder.binding.tvRating.text=data.rating.toString()
+        holder.binding.tvOwnername.text=data.user?.name
 
 
 
-        if(data.available.toString().equals("0")){
-            holder.binding.tvAvailable.text = "Not Available"
-            holder.binding.ivCheck.visibility = View.GONE
-        }
-        else if(data.available.toString().equals("1")){
-            holder.binding.tvAvailable.text = "Available"
-            holder.binding.ivCheck.visibility = View.VISIBLE
-        }
+//        if(data.available.toString().equals("0")){
+//            holder.binding.tvAvailable.text = "Not Available"
+//            holder.binding.ivCheck.visibility = View.GONE
+//        }
+//        else if(data.available.toString().equals("1")){
+//            holder.binding.tvAvailable.text = "Available"
+//            holder.binding.ivCheck.visibility = View.VISIBLE
+//        }
 
 
-        Glide.with(holder.itemView.context).load(data.mainImage).into(holder.binding.vehicleImage)
+        Glide.with(holder.itemView.context).load(data.vehicle?.imageUrl).into(holder.binding.vehicleImage)
 
         holder.binding.btnCallNow.setOnClickListener {
-            data.mobile_number.toString().let { it1 -> listener.onCallNowClicked(it1) }
+            data.driver?.mobileNumber.toString().let { it1 -> listener.onCallNowClicked(it1) }
         }
 
         holder.binding.btnProceed.setOnClickListener {
-            listener.onProceedClicked(data  )
+            listener.onProceedClicked(data)
         }
 
         holder.binding.reviews.setOnClickListener {
-            reviewsclick.reviewsclick(data.driverId.toString()  )
+            data.driver?.toString()?.let { it1 -> reviewsclick.reviewsclick(it1) }
         }
     }
 

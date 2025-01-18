@@ -310,7 +310,9 @@ Cancellation &amp; Refund Policy</string>
 
     <string name="demo">demo</string>
     <string name="truck_type_head">Truck Type</string>
+    <string name="category">Category</string>
     <string name="select_truck_type">Select Truck Type</string>
+    <string name="select_category">Select Category</string>
     <string name="select_capacity">Select capacity</string>
     <string name="body_type">Body Type : </string>
     <string name="select_body_type">Select body type</string>

@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -20,8 +19,6 @@ import com.govahan.com.baseClasses.BaseActivity
 import com.govahan.com.databinding.ActivityPassengerAvailableVehicleBinding
 import com.govahan.com.databinding.RecordSavedBinding
 import com.govahan.com.model.searchPassengerVehicle.SearchPassengerData
-import com.govahan.com.model.searchvehiclemodel.SearchVehicleData
-import com.govahan.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 
