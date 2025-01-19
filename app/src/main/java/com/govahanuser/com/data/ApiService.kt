@@ -69,7 +69,7 @@ import com.govahan.com.model.sendmailmodel.LoaderSendMailResponseModel
 import com.govahan.com.model.settingsmsemailmodel.SettingSmsEmailResponseModel
 import com.govahan.com.model.settingwhatsappmodel.SettingWhatsappResponseModel
 import com.govahan.com.model.transportownerget.TransportOwnerModel
-import com.govahan.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementResponseModel
 import com.govahan.com.model.truckbodytypeget.TruckBodyTypeModel
 import com.govahan.com.model.truckcapacityget.TruckCapacityGetModel
@@ -355,8 +355,16 @@ interface ApiService {
     @GET("notification_list")
     suspend fun getNotificationListApi(@Header("Authorization") token : String): Response<NotificationResponseModel>
 
-    @GET("trip_management_loader")
-    suspend fun getLoaderTripManagementApi(@Header("Authorization") token : String): Response<LoaderTripManagementResponseModel>
+    @FormUrlEncoded
+    @POST("get_booked_trip")
+    suspend fun getLoaderTripManagementApi(
+        @Header("Authorization") token : String,
+        @Field("for_passenger") forPassenger : String,
+        @Field("booking_status") bookingString : String,
+    ): Response<LoaderTripManagementResponseModel>
+
+//    @GET("trip_management_loader")
+//    suspend fun getLoaderTripManagementApi(@Header("Authorization") token : String): Response<LoaderTripManagementResponseModel>
 
     @FormUrlEncoded
     @POST("trip_management_loader_details")

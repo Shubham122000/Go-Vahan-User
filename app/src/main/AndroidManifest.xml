@@ -213,7 +213,7 @@
             android:name="com.govahanuser.com.activities.bookingsuccess.BookingSuccessActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahan.com.activities.tripdetails.TripDetailsActivity"
+            android:name="com.govahanuser.com.activities.tripdetails.TripDetailsActivity"
             android:exported="false" />
         <activity
             android:name="com.govahan.com.activities.tripmanagement.TripManagementActivity"

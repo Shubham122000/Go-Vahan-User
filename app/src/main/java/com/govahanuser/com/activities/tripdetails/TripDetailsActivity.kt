@@ -1,4 +1,4 @@
-package com.govahan.com.activities.tripdetails
+package com.govahanuser.com.activities.tripdetails
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.icu.text.SimpleDateFormat
 import android.net.Uri
-import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -29,38 +28,31 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.gson.Gson
 import com.govahan.com.R
 import com.govahan.com.activities.ridecompleted.RideCompletedActivity
 import com.govahan.com.adapters.LoaderCancelTripReasonAdapter
 import com.govahan.com.baseClasses.BaseActivity
 import com.govahan.com.databinding.ActivityTripDetailsBinding
-import com.govahan.com.model.DirectionsResponse
 import com.govahan.com.model.loadercancelreasonmodel.LoaderCancelReasonData
 import com.govahan.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okio.IOException
-import retrofit2.Call
-import retrofit2.Response
 import java.util.*
 import okhttp3.*
-import org.json.JSONObject
 
 
-import androidx.appcompat.app.AppCompatActivity
 import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
 import com.google.maps.PendingResult
 import com.google.maps.model.DirectionsResult
 import com.google.maps.model.TravelMode
 import com.google.maps.android.PolyUtil
+import com.govahan.com.activities.tripdetails.TripDetailsViewModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 
 @AndroidEntryPoint
 class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
     private lateinit var binding: ActivityTripDetailsBinding
-    var selectedLoaderTripData=""
+    private lateinit var selectedLoaderTripData : LoaderTripManagementData
     private val viewModel: TripDetailsViewModel by viewModels()
     private var listData: ArrayList<LoaderCancelReasonData> = ArrayList()
     private var loaderCancelReasonAdapter: LoaderCancelTripReasonAdapter? = null
@@ -106,7 +98,8 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         })
         binding.header.tvHeaderText.text = "Trip Details"
         if (intent != null) {
-            selectedLoaderTripData = intent.getStringExtra("loaderTripDetails").toString()
+            val data = intent.extras
+            selectedLoaderTripData = data?.getParcelable("loaderTripDetails")!!
         }
 
         val options = PolylineOptions()
@@ -133,9 +126,9 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
             }
         }
 
-        viewModel.loaderTripManagementDetailApi("Bearer " + userPref.user.apiToken,selectedLoaderTripData)
+//        viewModel.loaderTripManagementDetailApi("Bearer " + userPref.user.apiToken,selectedLoaderTripData)
         viewModel.getLoaderCancelReasonListApi("Bearer " + userPref.user.apiToken)
-        loaderTripDetailsDialog()
+
 //        var origin = LatLng(originLatitude,originLongitude)
 //        var destination = LatLng(25.4484,78.5685)
 //        getRoute(origin,destination)
@@ -192,64 +185,63 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         val llCallDriver: LinearLayout = bottomSheetLoaderTripDetails.findViewById(R.id.llCallDriver)!!
         val status: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.status)!!
 
-        viewModel.loaderTripDetailResponse.observe(this) {
-            if (it.status == 1) {
-                // toast("booking Successful")
-                toast(it.message!!)
+//        viewModel.loaderTripDetailResponse.observe(this) {
+//            if (it.status == 1) {
+//                // toast("booking Successful")
+//                toast(it.message!!)
 
-                userPref.setDriverId(it.data[0]!!.driverId.toString())
+                userPref.setDriverId(selectedLoaderTripData.tripDetails?.driver?.id.toString())
 
-                callDriverNumber = it.data[0].driverMobileNumber.toString()
+                callDriverNumber = selectedLoaderTripData.tripDetails?.driver?.mobileNumber.toString()
 
-                if(it.rideCancelStatus.toString().equals("0")){
-                    cancel.visibility=View.GONE
-                }
-                else if(it.rideCancelStatus.toString().equals("1")){
+                if(selectedLoaderTripData.status == 3){
                     cancel.visibility=View.VISIBLE
+                } else{
+                    cancel.visibility=View.GONE
                 }
                 val vehicleImage: ImageView = bottomSheetLoaderTripDetails.findViewById(R.id.vehicle_image)!!
                 val ivDriverImage: ImageView = bottomSheetLoaderTripDetails.findViewById(R.id.iv_DriverImage)!!
 
-                tvTripCode.text = it.data[0].startCode
-                tvBookingRDate.text = it.data[0].bookingDate
-                tvBookingRTime.text = it.data[0].bookingTime
-                vehicleName.text = it.data[0].vehicleName
-                tvRating.text = it.data[0].rating.toString()
-                tvBodytype.text = it.data[0].bodytype
-                vehicleNumber.text = it.data[0].vehicleNumber
-                tvCapacity.text = it.data[0].capacity
-                tvDistance.text = it.data[0].distance.toString()
-                tvDriverName.text = it.data[0].driverName
-                tvOwner.text = it.data[0].ownerName
-                tvFrom.text = it.data[0].picupLocation
-                tvTo.text = it.data[0].dropLocation
-                tvDriverNamee.text = it.data[0].driverName
-                tvDriverRating.text = it.data[0].rating.toString()
-                //  binding.wheelerType.text = it.data[0]..toString()+" Wheeler"
+                tvTripCode.text = selectedLoaderTripData.rideCode
+                tvBookingRDate.text = selectedLoaderTripData.tripDetails?.bookingDateFrom
+                tvBookingRTime.text = selectedLoaderTripData.tripDetails?.time
+                vehicleName.text = selectedLoaderTripData.tripDetails?.vehicle?.vehicleName
+//                tvRating.text = selectedLoaderTripData.tripDetails?.rating
+                tvBodytype.text = selectedLoaderTripData.tripDetails?.vehicle?.bodyType?.name
+                vehicleNumber.text = selectedLoaderTripData.tripDetails?.vehicle?.vehicleNumber
+                tvCapacity.text = selectedLoaderTripData.tripDetails?.vehicle?.capacity
+                tvDistance.text = selectedLoaderTripData.tripDetails?.totalDistance
+                tvDriverName.text = selectedLoaderTripData.tripDetails?.driver?.name
+                tvOwner.text = selectedLoaderTripData.tripDetails?.user?.name
+                tvFrom.text = selectedLoaderTripData.tripDetails?.fromTrip
+                tvTo.text = selectedLoaderTripData.tripDetails?.toTrip
+                tvDriverNamee.text = selectedLoaderTripData.tripDetails?.driver?.name
+//                tvDriverRating.text = it.data[0].rating.toString()
+//                  binding.wheelerType.text = selectedLoaderTripData.tripDetails?.vehicle?.wheels?.wheel.toString()+" Wheeler"
                 // binding.tvRidesNumber.text = it.data[0].r
-                tvPickLocation.text = it.data[0].picupLocation
-                tvDropLocation.text = it.data[0].dropLocation
-                tv_ridesNumber.text = it.data[0].completed_rides
-                tvAmount.text = "₹${it.data[0].fare}"
-                Glide.with(this).load(it.data[0].mainImage).into(vehicleImage)
-                Glide.with(this).load(it.data[0].image).into(ivDriverImage)
+                tvPickLocation.text =selectedLoaderTripData.tripDetails?.fromTrip
+                tvDropLocation.text = selectedLoaderTripData.tripDetails?.toTrip
+                tv_ridesNumber.text = selectedLoaderTripData.rideCode
+                tvAmount.text = "₹${selectedLoaderTripData.tripDetails?.freightAmount}"
+                Glide.with(this).load(selectedLoaderTripData.tripDetails?.vehicle?.vehicleImage).into(vehicleImage)
+                Glide.with(this).load(selectedLoaderTripData.tripDetails?.driver?.profileImage).into(ivDriverImage)
 
-                if (it.data[0].bookingStatus == "1"){
+                if (selectedLoaderTripData.status == 1){
                     status.text  = "Ride Pending"
                     llBtnCancel.visibility = View.VISIBLE
                     btnReschedule.visibility = View.VISIBLE
 //                    cancel.visibility=View.GONE
-                }else if (it.data[0].bookingStatus == "2"){
+                }else if (selectedLoaderTripData.status == 2){
                     status.text  = "Ride Ongoing"
                     llBtnCancel.visibility = View.GONE
                     btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
-                }else if (it.data[0].bookingStatus == "3"){
+                }else if (selectedLoaderTripData.status == 3){
                     status.text  = "Ride Cancelled"
                     llBtnCancel.visibility = View.GONE
                     btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
-                }else if (it.data[0].bookingStatus == "4"){
+                }else if (selectedLoaderTripData.status == 4){
                     status.text  = "Ride Completed"
                     llBtnCancel.visibility = View.GONE
                     btnReschedule.visibility = View.GONE
@@ -260,19 +252,30 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
                 destinationLongitude = it.data[0].dropLong!!.toDouble()
                 Log.d(TAG, "loaderTripDetailsDialog: "+destinationLatitude+destinationLongitude)*/
 
-                val originLocation = LatLng(it.data[0].picupLat!!.toDouble(), it.data[0].picupLong!!.toDouble())
-                mMap.addMarker(MarkerOptions().position(originLocation))
-                val destinationLocation = LatLng(it.data[0].dropLat!!.toDouble(), it.data[0].dropLong!!.toDouble())
+                val originLocation =
+                    selectedLoaderTripData.tripDetails?.pickupLat?.toDouble()
+                        ?.let { selectedLoaderTripData.tripDetails?.pickupLong?.toDouble()
+                            ?.let { it1 -> LatLng(it, it1) } }
+        originLocation?.let { MarkerOptions().position(it) }?.let { mMap.addMarker(it) }
+                val destinationLocation =
+                    selectedLoaderTripData.tripDetails?.dropupLat?.toDouble()
+                        ?.let { selectedLoaderTripData.tripDetails?.dropupLong?.toDouble()
+                            ?.let { it1 -> LatLng(it, it1) } }
 
-                mMap.addMarker(MarkerOptions().position(destinationLocation))
+        destinationLocation?.let { MarkerOptions().position(it) }?.let { mMap.addMarker(it) }
 //                val urll = getDirectionURL(originLocation, destinationLocation, "AIzaSyCHl8Ff_ghqPjWqlT2BXJH5BOYH1q-sw0E")
 //                GetDirection(urll).execute()
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLocation, 14F))
+        originLocation?.let { CameraUpdateFactory.newLatLngZoom(it, 14F) }
+            ?.let { mMap.animateCamera(it) }
+        if (originLocation != null) {
+            if (destinationLocation != null) {
                 getDirections(originLocation,destinationLocation)
-            } else {
-                toast(it.message!!)
             }
         }
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
 
         tvTripCode.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, RideCompletedActivity :: class.java).also {
@@ -498,11 +501,11 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
 
             viewModel.loaderTripCancelApi(
                 "Bearer " + userPref.user.apiToken,
-                selectedLoaderTripData!!,
+                selectedLoaderTripData.bookingId.toString(),
                 str,
                 etFeedback.text.toString()
             )
-            Log.d("CheckBoxInfo",selectedLoaderTripData!!+str+etFeedback.text.toString())
+//            Log.d("CheckBoxInfo",selectedLoaderTripData!!+str+etFeedback.text.toString())
 
         }
         ivClose.setOnClickListener {
@@ -568,7 +571,7 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         }
         btnOk.setOnClickListener {
             viewModel.loaderRescheduleTripApi("Bearer " + userPref.user.apiToken,
-                selectedLoaderTripData!!,
+                selectedLoaderTripData.bookingId.toString(),
                 selectedDateFormat2,
                 spinner_timeslots.selectedItem.toString())
             timeslots.dismiss()
@@ -635,5 +638,6 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         val opera = LatLng(-33.9320447,151.1597271)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.addMarker(MarkerOptions().position(opera).title("Opera House"))
+        loaderTripDetailsDialog()
     }
 }

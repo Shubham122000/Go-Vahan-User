@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.govahan.com.fragment.loadertripmanagement.LoaderTripManagementFragment
-import com.govahan.com.fragment.passengertripmanagement.PassengerTripManagementFragment
+import com.govahanuser.com.fragment.loadertripmanagement.LoaderTripManagementFragment
+import com.govahanuser.com.fragment.passengertripmanagement.PassengerTripManagementFragment
 
 
 class ViewPagerInvoicesAdapter(

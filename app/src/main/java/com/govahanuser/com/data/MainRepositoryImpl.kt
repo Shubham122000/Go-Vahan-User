@@ -69,7 +69,7 @@ import com.govahan.com.model.sendmailmodel.LoaderSendMailResponseModel
 import com.govahan.com.model.settingsmsemailmodel.SettingSmsEmailResponseModel
 import com.govahan.com.model.settingwhatsappmodel.SettingWhatsappResponseModel
 import com.govahan.com.model.transportownerget.TransportOwnerModel
-import com.govahan.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementResponseModel
 import com.govahan.com.model.truckbodytypeget.TruckBodyTypeModel
 import com.govahan.com.model.truckcapacityget.TruckCapacityGetModel
@@ -80,7 +80,6 @@ import com.govahanuser.com.data.ApiService
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.Field
 import javax.inject.Inject
 
 class MainRepositoryImpl @Inject constructor(private val apiService: ApiService) : MainRepository {
@@ -437,8 +436,12 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     override suspend fun getNotificationListApi(token: String): Response<NotificationResponseModel> =
         apiService.getNotificationListApi(token)
 
-    override suspend fun getLoaderTripManagementApi(token: String): Response<LoaderTripManagementResponseModel> =
-        apiService.getLoaderTripManagementApi(token)
+    override suspend fun getLoaderTripManagementApi(
+        token: String,
+        forPassenger : String,
+        bookingString : String
+    ): Response<LoaderTripManagementResponseModel> =
+        apiService.getLoaderTripManagementApi(token,forPassenger,bookingString)
 
     override suspend fun getPassengerTripManagementApi(token: String): Response<PassengerTripManagementResponseModel> =
         apiService.getPassengerTripManagementApi(token)

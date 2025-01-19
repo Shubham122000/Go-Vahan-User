@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.govahan.com.data.MainRepository
 import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementResponseModel
 import com.govahan.com.util.Utils
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
@@ -20,20 +21,24 @@ class PassengerTripManagementFragmentViewModel @Inject constructor(private val m
 
 
     val progressBarStatus = MutableLiveData<Boolean>()
-    val getPassengerTripManagementResponse = MutableLiveData<PassengerTripManagementResponseModel>()
+    val getLoaderTripManagementResponse = MutableLiveData<LoaderTripManagementResponseModel>()
 
 
-    fun getPassengerTripManagementApi(token: String) {
+    fun getLoaderTripManagementApi(
+        token: String,
+        forPassenger : String,
+        bookingString : String
+    ) {
         progressBarStatus.value = true
         try {
             viewModelScope.launch {
-                val response = mainRepository.getPassengerTripManagementApi(
-                    token
+                val response = mainRepository.getLoaderTripManagementApi(
+                    token,forPassenger, bookingString
                 )
                 if (response.isSuccessful) {
                     progressBarStatus.value = false
 //                Log.d("TAG", response.body().toString())
-                    getPassengerTripManagementResponse.postValue(response.body())
+                    getLoaderTripManagementResponse.postValue(response.body())
                 } else {
                     progressBarStatus.value = false
                     Log.d("TAG", response.body().toString())
@@ -54,8 +59,6 @@ class PassengerTripManagementFragmentViewModel @Inject constructor(private val m
 
         }
     }
-
-
 
 
 

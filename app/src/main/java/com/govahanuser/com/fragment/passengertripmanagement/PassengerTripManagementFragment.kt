@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.passengertripmanagement
+package com.govahanuser.com.fragment.passengertripmanagement
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,10 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.govahan.com.R
 import com.govahanuser.com.activities.passengers.passengertripdetails.PassengerTripDetailsActivity
-import com.govahan.com.adapters.PassengerTripManagementAdapter
+import com.govahanuser.com.adapters.PassengerTripManagementAdapter
 import com.govahan.com.baseClasses.BaseFragment
 import com.govahan.com.databinding.FragmentPassengerTripManagementBinding
+import com.govahan.com.fragment.passengertripmanagement.PassengerTripManagementFragmentViewModel
 import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -25,7 +27,7 @@ class PassengerTripManagementFragment : BaseFragment(), PassengerTripManagementA
     private lateinit var binding : FragmentPassengerTripManagementBinding
     private val viewModel : PassengerTripManagementFragmentViewModel by viewModels()
     private var tripManagementAdapter : PassengerTripManagementAdapter?= null
-    private var listData: ArrayList<PassengerTripManagementData> = ArrayList()
+    private var listData: ArrayList<LoaderTripManagementData> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +35,7 @@ class PassengerTripManagementFragment : BaseFragment(), PassengerTripManagementA
     ): View? {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_passenger_trip_management, container, false)
-        viewModel.getPassengerTripManagementApi("Bearer " + userPref.user.apiToken)
+//        viewModel.getPassengerTripManagementApi("Bearer " + userPref.user.apiToken)
 
         viewModel.progressBarStatus.observe(requireActivity()) {
             if (it) {
@@ -43,18 +45,17 @@ class PassengerTripManagementFragment : BaseFragment(), PassengerTripManagementA
             }
         }
 
-        viewModel.getPassengerTripManagementResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+        viewModel.getLoaderTripManagementResponse.observe(requireActivity()) {
+            if (it.error == false) {
                 listData.clear()
-                // listData!!.addAll(it.getFavLocdata)
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvPassengerTrip.visibility = View.GONE
                 }
                 else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvPassengerTrip.visibility = View.VISIBLE
-                    listData.addAll(it.data)
+                    it.result?.data?.let { it1 -> listData.addAll(it1) }
                     tripManagementAdapter = PassengerTripManagementAdapter(listData,this@PassengerTripManagementFragment)
                     binding.rvPassengerTrip.apply {
                         adapter = tripManagementAdapter
@@ -74,10 +75,10 @@ class PassengerTripManagementFragment : BaseFragment(), PassengerTripManagementA
 
     override fun onResume() {
         super.onResume()
-        viewModel.getPassengerTripManagementApi("Bearer " + userPref.user.apiToken)
+        viewModel.getLoaderTripManagementApi("Bearer " + userPref.user.apiToken,"2","1")
     }
 
-    override fun onProceedPassengerClicked(passengerTripListModelData: PassengerTripManagementData) {
+    override fun onProceedPassengerClicked(passengerTripListModelData: LoaderTripManagementData) {
         startActivity(Intent(requireContext(), PassengerTripDetailsActivity :: class.java).also {
             it.putExtra("passengerTripDetails", passengerTripListModelData)
 

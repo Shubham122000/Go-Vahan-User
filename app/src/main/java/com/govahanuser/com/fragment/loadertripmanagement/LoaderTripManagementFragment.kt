@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.loadertripmanagement
+package com.govahanuser.com.fragment.loadertripmanagement
 
 import android.content.Intent
 import android.os.Build
@@ -12,11 +12,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.govahan.com.R
-import com.govahan.com.activities.tripdetails.TripDetailsActivity
-import com.govahan.com.adapters.LoaderTripManagementAdapter
+import com.govahanuser.com.activities.tripdetails.TripDetailsActivity
+import com.govahanuser.com.adapters.LoaderTripManagementAdapter
 import com.govahan.com.baseClasses.BaseFragment
 import com.govahan.com.databinding.FragmentLoaderTripManagementBinding
-import com.govahan.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahan.com.fragment.loadertripmanagement.LoaderTripManagementFragmentViewModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -46,18 +47,18 @@ class LoaderTripManagementFragment : BaseFragment(), LoaderTripManagementAdapter
         }
 
         viewModel.getLoaderTripManagementResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 listData.clear()
                 // listData!!.addAll(it.getFavLocdata)
 
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvTrip.visibility = View.GONE
 
                 } else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvTrip.visibility = View.VISIBLE
-                    listData.addAll(it.data)
+                    it.result?.data?.let { it1 -> listData.addAll(it1) }
                     tripManagementAdapter = LoaderTripManagementAdapter(listData,this@LoaderTripManagementFragment)
                     binding.rvTrip.apply {
                         adapter = tripManagementAdapter
@@ -77,15 +78,15 @@ class LoaderTripManagementFragment : BaseFragment(), LoaderTripManagementAdapter
 
 
 
-    override fun onProceedClicked(booking_id: String?) {
+    override fun onProceedClicked(booking: LoaderTripManagementData?) {
         startActivity(Intent(requireContext(), TripDetailsActivity :: class.java).also {
-            it.putExtra("loaderTripDetails", booking_id)
+            it.putExtra("loaderTripDetails", booking)
         })
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.getLoaderTripManagementApi("Bearer " + userPref.user.apiToken)
+        viewModel.getLoaderTripManagementApi("Bearer " + userPref.user.apiToken,"1","1")
 
     }
 

@@ -70,7 +70,7 @@ import com.govahan.com.model.sendmailmodel.LoaderSendMailResponseModel
 import com.govahan.com.model.settingsmsemailmodel.SettingSmsEmailResponseModel
 import com.govahan.com.model.settingwhatsappmodel.SettingWhatsappResponseModel
 import com.govahan.com.model.transportownerget.TransportOwnerModel
-import com.govahan.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementResponseModel
 import com.govahan.com.model.truckbodytypeget.TruckBodyTypeModel
 import com.govahan.com.model.truckcapacityget.TruckCapacityGetModel
@@ -285,7 +285,11 @@ interface MainRepository {
 
     suspend fun getNotificationListApi(token : String) : Response<NotificationResponseModel>
 
-    suspend fun getLoaderTripManagementApi(token : String) : Response<LoaderTripManagementResponseModel>
+    suspend fun getLoaderTripManagementApi(
+        token : String,
+        forPassenger : String,
+        bookingString : String
+    ) : Response<LoaderTripManagementResponseModel>
     suspend fun getPassengerTripManagementApi(token : String) : Response<PassengerTripManagementResponseModel>
 
     suspend fun loaderTripManagementDetailApi(token : String ,

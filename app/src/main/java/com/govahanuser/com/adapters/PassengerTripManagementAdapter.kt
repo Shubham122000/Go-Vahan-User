@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.govahan.com.R
 import com.govahan.com.databinding.RowTripManagementBinding
 import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 
 class PassengerTripManagementAdapter (
-    val list: List<PassengerTripManagementData>,
+
+    val list: List<LoaderTripManagementData>,
     private val listener: OnClick
 ) : RecyclerView.Adapter<PassengerTripManagementAdapter.ViewHolder>() {
     inner  class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -25,16 +27,17 @@ class PassengerTripManagementAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val data = list[position]
-        holder.binding.tvDate.text = data.bookingDate
-        holder.binding.tvPartyname.text = data.fare
-        holder.binding.tvUsername.text = data.vehicleName
-        holder.binding.tvVehicleName.text = data.vehicleName
-        holder.binding.tvBodytype.text = data.fare
-        holder.binding.tvVehicleNumber.text = data.vehicleNumber
-        holder.binding.tvFrom.text = data.picupLocation
-        holder.binding.tvTo.text = data.dropLocation
-        holder.binding.tvTime.text = data.bookingTime
-        holder.binding.tvAmount.text = data.fare
+
+        holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
+        holder.binding.tvTime.text = data.tripDetails?.time
+//        holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
+        holder.binding.tvUsername.text = data.tripDetails?.driver?.name
+        holder.binding.tvVehicleName.text = data.tripDetails?.vehicle?.vehicleName
+        holder.binding.tvBodytype.text = data.tripDetails?.vehicle?.bodyType?.name
+        holder.binding.tvVehicleNumber.text = data.tripDetails?.vehicle?.vehicleNumber
+        holder.binding.tvFrom.text = data.tripDetails?.fromTrip
+        holder.binding.tvTo.text = data.tripDetails?.toTrip
+        holder.binding.tvAmount.text = data.tripDetails?.freightAmount
 
         /*holder.binding.llViewdetails.setOnClickListener(View.OnClickListener {
           val intent = Intent(context, TripDetailsActivity::class.java)
@@ -55,7 +58,7 @@ class PassengerTripManagementAdapter (
     }
 
     interface OnClick{
-        fun onProceedPassengerClicked(passengerTripListModelData: PassengerTripManagementData)
+        fun onProceedPassengerClicked(passengerTripListModelData: LoaderTripManagementData)
     }
 
 }
