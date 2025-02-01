@@ -147,7 +147,7 @@
             android:name="com.govahan.com.activities.referearn.ReferEarnActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahan.com.com.govahanuser.com.activities.aboutus.AboutUsActivity"
+            android:name="com.govahanuser.com.activities.aboutus.AboutUsActivity"
             android:exported="false" />
         <activity
             android:name="com.govahan.com.activities.contactus.ContactUsActivity"
