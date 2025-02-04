@@ -147,48 +147,48 @@ class LoaderFragment : BaseFragment() {
 
         // GetBodyType
         viewModel.truckBodyTypeApi("Bearer " + userPref.user.apiToken)
-        binding.spinnerBodytype.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newText ->
-            toast(requireContext(), truckBodyTypeListData[newIndex].id.toString())
-            selectedBodyType = truckBodyTypeListData[newIndex].id.toString()
-            //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
-        }
-        viewModel.truckBodyTypeListResponse.observe(requireActivity()) {
-            if (it.status == 1) {
-                truckBodyTypeList.clear()
-                truckBodyTypeListData.clear()
-                truckBodyTypeListData.addAll(it.data)
-
-                for (i in truckBodyTypeListData) {
-                    i.name?.let { it1 -> truckBodyTypeList.add(it1) }
-                }
-
-                binding.spinnerBodytype.setItems(truckBodyTypeList)
-            } else {
-                it.message?.let { it1 -> toast(requireContext(), it1) }
-            }
-        }
+//        binding.spinnerBodytype.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newText ->
+//            toast(requireContext(), truckBodyTypeListData[newIndex].id.toString())
+//            selectedBodyType = truckBodyTypeListData[newIndex].id.toString()
+//            //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
+//        }
+//        viewModel.truckBodyTypeListResponse.observe(requireActivity()) {
+//            if (it.status == 1) {
+//                truckBodyTypeList.clear()
+//                truckBodyTypeListData.clear()
+//                truckBodyTypeListData.addAll(it.data)
+//
+//                for (i in truckBodyTypeListData) {
+//                    i.name?.let { it1 -> truckBodyTypeList.add(it1) }
+//                }
+//
+//                binding.spinnerBodytype.setItems(truckBodyTypeList)
+//            } else {
+//                it.message?.let { it1 -> toast(requireContext(), it1) }
+//            }
+//        }
         //  GetNoOfTyre
-        viewModel1.noOfTyrePApi("Bearer " + userPref.user.apiToken,"1")
-        binding.spinnerNumberoftyres.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newText ->
-            selectedNoOfTyre = truckNumberOfTyreListData[newIndex].id.toString()
-            //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
-        }
-
-        viewModel1.noOfTyresPListResponse.observe(requireActivity()) {
-            if (it.error == false) {
-                truckNumberOfTyreList.clear()
-                truckNumberOfTyreListData.clear()
-                truckNumberOfTyreListData.add(NoOfTyrePData(id = -1, wheel = "SELECT"))
-                it.result?.data?.let { it1 -> truckNumberOfTyreListData.addAll(it1) }
-
-                for (i in truckNumberOfTyreListData) {
-                    i.wheel?.let { it1 -> truckNumberOfTyreList.add(it1) }
-                }
-                binding.spinnerNumberoftyres.setItems(truckNumberOfTyreList)
-            } else {
-                it.message?.let { it1 -> toast(requireContext(), it1) }
-            }
-        }
+//        viewModel1.noOfTyrePApi("Bearer " + userPref.user.apiToken,"1")
+//        binding.spinnerNumberoftyres.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newText ->
+//            selectedNoOfTyre = truckNumberOfTyreListData[newIndex].id.toString()
+//            //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
+//        }
+//
+//        viewModel1.noOfTyresPListResponse.observe(requireActivity()) {
+//            if (it.error == false) {
+//                truckNumberOfTyreList.clear()
+//                truckNumberOfTyreListData.clear()
+//                truckNumberOfTyreListData.add(NoOfTyrePData(id = -1, wheel = "SELECT"))
+//                it.result?.data?.let { it1 -> truckNumberOfTyreListData.addAll(it1) }
+//
+//                for (i in truckNumberOfTyreListData) {
+//                    i.wheel?.let { it1 -> truckNumberOfTyreList.add(it1) }
+//                }
+//                binding.spinnerNumberoftyres.setItems(truckNumberOfTyreList)
+//            } else {
+//                it.message?.let { it1 -> toast(requireContext(), it1) }
+//            }
+//        }
 
         //  GetPriceFor
         viewModel.truckPriceForApi("Bearer " + userPref.user.apiToken)

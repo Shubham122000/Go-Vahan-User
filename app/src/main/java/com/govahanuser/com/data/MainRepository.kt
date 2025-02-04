@@ -170,9 +170,9 @@ interface MainRepository {
                                        dropup_long: String,
                                        loader_type: String,
                                        vehicle_category: String,
-                                       body_type: String,
-                                       seat: String,
-                                       wheels: String,
+//                                       body_type: String,
+//                                       seat: String,
+//                                       wheels: String,
                                        booking_date: String,
                                        booking_time: String,
                               ) : Response<SearchVehicleResponseModel>

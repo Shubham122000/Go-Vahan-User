@@ -75,17 +75,32 @@ class PassengerAvailableVehicleActivity : BaseActivity(), AvailablePVehiclesAdap
         pickup_location = intent.getStringExtra("pickup_location")!!
         dropup_location = intent.getStringExtra("dropup_location")!!
 
-        viewModel.searchPassengerVehicleApi("Bearer " + userPref.user.apiToken,
-            intent.getStringExtra("pickupLatitude")!!,
-            intent.getStringExtra("pickupLongitude")!!,
-            intent.getStringExtra("dropLatitude")!!,
-            intent.getStringExtra("dropLongitude")!!,
-            intent.getStringExtra("vehicle_type")!!,
-            intent.getStringExtra("tyers")!!,
-            intent.getStringExtra("booking_date")!!,
-            intent.getStringExtra("booking_time")!!,
-            intent.getStringExtra("pickup_location")!!,
-            intent.getStringExtra("dropup_location")!!,)
+//        viewModel.searchPassengerVehicleApi("Bearer " + userPref.user.apiToken,
+//            intent.getStringExtra("pickupLatitude")!!,
+//            intent.getStringExtra("pickupLongitude")!!,
+//            intent.getStringExtra("dropLatitude")!!,
+//            intent.getStringExtra("dropLongitude")!!,
+//            intent.getStringExtra("vehicle_type")!!,
+//            intent.getStringExtra("tyers")!!,
+//            intent.getStringExtra("booking_date")!!,
+//            intent.getStringExtra("booking_time")!!,
+//            intent.getStringExtra("pickup_location")!!,
+//            intent.getStringExtra("dropup_location")!!,)
+
+        viewModel.searchLoaderVehicleApi("Bearer " + userPref.user.apiToken,
+            pickupLat,
+            pickupLong,
+            dropLat,
+            dropLong,
+            "2",
+            g_vehicle_type,
+//            g_body_type,
+//            "",
+//            g_wheel,
+            g_booking_date,
+            g_booking_time
+        )
+
 
         viewModel.progressBarStatus.observe(this) {
             if (it) {

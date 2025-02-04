@@ -315,92 +315,92 @@
 <!--                        android:layout_marginEnd="@dimen/_10sdp"-->
 <!--                        android:background="@color/lightgray" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/body_type"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="@string/body_type"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinner_bodytype"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="start"
-                        android:hint="@string/select_body_type"
+<!--                    <com.skydoves.powerspinner.PowerSpinnerView-->
+<!--                        android:id="@+id/spinner_bodytype"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="start"-->
+<!--                        android:hint="@string/select_body_type"-->
 
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        app:spinner_arrow_gravity="end"
-                        app:spinner_arrow_padding="8dp"
-                        app:spinner_arrow_show="true"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_color="@color/white"
-                        app:spinner_divider_show="true"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/theme_yellow"
-                        app:spinner_popup_elevation="14dp" />
+<!--                        android:padding="10dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        app:spinner_arrow_gravity="end"-->
+<!--                        app:spinner_arrow_padding="8dp"-->
+<!--                        app:spinner_arrow_show="true"-->
+<!--                        app:spinner_arrow_tint="@color/black"-->
+<!--                        app:spinner_divider_color="@color/white"-->
+<!--                        app:spinner_divider_show="true"-->
+<!--                        app:spinner_divider_size="0.4dp"-->
+<!--                        app:spinner_popup_animation="dropdown"-->
+<!--                        app:spinner_popup_background="@color/theme_yellow"-->
+<!--                        app:spinner_popup_elevation="14dp" />-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@color/lightgray" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_1sdp"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@color/lightgray" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/no_of_tyres"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="@string/no_of_tyres"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinner_numberoftyres"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="start"
-                        android:hint="@string/select_no_of_tyres"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        app:spinner_arrow_gravity="end"
-                        app:spinner_arrow_padding="8dp"
-                        app:spinner_arrow_show="true"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_color="@color/white"
-                        app:spinner_divider_show="true"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/theme_yellow"
-                        app:spinner_popup_elevation="14dp" />
+<!--                    <com.skydoves.powerspinner.PowerSpinnerView-->
+<!--                        android:id="@+id/spinner_numberoftyres"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="start"-->
+<!--                        android:hint="@string/select_no_of_tyres"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        app:spinner_arrow_gravity="end"-->
+<!--                        app:spinner_arrow_padding="8dp"-->
+<!--                        app:spinner_arrow_show="true"-->
+<!--                        app:spinner_arrow_tint="@color/black"-->
+<!--                        app:spinner_divider_color="@color/white"-->
+<!--                        app:spinner_divider_show="true"-->
+<!--                        app:spinner_divider_size="0.4dp"-->
+<!--                        app:spinner_popup_animation="dropdown"-->
+<!--                        app:spinner_popup_background="@color/theme_yellow"-->
+<!--                        app:spinner_popup_elevation="14dp" />-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@color/lightgray" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_1sdp"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@color/lightgray" />-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

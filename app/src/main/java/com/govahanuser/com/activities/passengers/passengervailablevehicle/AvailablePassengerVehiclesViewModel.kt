@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.govahan.com.data.MainRepository
 import com.govahan.com.model.searchPassengerVehicle.SearchPassengerVehicleResponseModel
 import com.govahan.com.util.Utils
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleResponseModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
@@ -18,48 +19,43 @@ import javax.inject.Inject
 class AvailablePassengerVehiclesViewModel  @Inject constructor(private val mainRepository: MainRepository, private val utils : Utils, @ApplicationContext val context: Context) : ViewModel() {
 
     var availablePassengerVehicleListResponse = MutableLiveData<SearchPassengerVehicleResponseModel>()
+    var availableVehicleListResponse = MutableLiveData<SearchVehicleResponseModel>()
     val progressBarStatus = MutableLiveData<Boolean>()
 
-    fun searchPassengerVehicleApi(token: String,
-                            pick_up_lat: String,
-                            pick_up_long: String,
-                            drop_lat: String,
-                            drop_long: String,
-                                  vehicle_type: String,
-
-                                  tyers: String,
-                             booking_date: String,
-                                  booking_time: String,
-                                  pickup_location : String,
-                                  dropup_location : String,) {
+    fun searchLoaderVehicleApi(
+        token : String,
+        pickup_lat: String,
+        pickup_long: String,
+        dropup_lat: String,
+        dropup_long: String,
+        loader_type: String,
+        vehicle_category: String,
+//        body_type: String,
+//        seat: String,
+//        wheels: String,
+        booking_date: String,
+        booking_time: String,
+    ) {
         progressBarStatus.value = true
         try {
-        viewModelScope.launch {
-            val response = mainRepository.searchPassengerVehicleApi(
-                token,
-                pick_up_lat,
-                pick_up_long,
-                drop_lat,
-                drop_long,
-                vehicle_type,
-
-                tyers,
-                booking_date,booking_time,
-                pickup_location,
-                dropup_location,
+            viewModelScope.launch {
+                val response = mainRepository.searchLoaderVehicleApi(
+                    token,
+                    pickup_lat, pickup_long, dropup_lat, dropup_long, loader_type, vehicle_category/*, body_type, seat, wheels*/, booking_date, booking_time
 
 
-            )
-            if (response.isSuccessful) {
-                progressBarStatus.value = false
+
+                )
+                if (response.isSuccessful) {
+                    progressBarStatus.value = false
 //                Log.d("TAG", response.body().toString())
-                availablePassengerVehicleListResponse.postValue(response.body())
-            } else {
-                progressBarStatus.value = false
-                Log.d("TAG", response.body().toString())
-            }
+                    availableVehicleListResponse.postValue(response.body())
+                } else {
+                    progressBarStatus.value = false
+                    Log.d("TAG", response.body().toString())
+                }
 
-        }
+            }
 
         }
         catch (e: Exception) {

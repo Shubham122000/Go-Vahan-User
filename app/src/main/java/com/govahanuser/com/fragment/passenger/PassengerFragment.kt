@@ -101,26 +101,26 @@ class PassengerFragment : BaseFragment() {
         viewModel.seatingCapacityApi("Bearer " + userPref.user.apiToken)
         //  NoOfTyresPassenger
         viewModel.noOfTyrePApi("Bearer " + userPref.user.apiToken,"2")
-        binding.spinnerNooftyresP.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newText ->
-//            toast(requireContext(), noOfTyresPListData[newIndex].id.toString())
-            selectednoOfTyresPType = noOfTyresPListData[newIndex].id.toString()
-            //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
-        }
-        viewModel.noOfTyresPListResponse.observe(requireActivity()) {
-            if (it.error == false) {
-                noOfTyresPList.clear()
-                noOfTyresPListData.clear()
-                noOfTyresPListData.add(NoOfTyrePData(id = -1, wheel = "SELECT"))
-                it.result?.data?.let { it1 -> noOfTyresPListData.addAll(it1) }
-
-                for (i in noOfTyresPListData){
-                    i.wheel?.let { it1 -> noOfTyresPList.add(it1) }
-                }
-                binding.spinnerNooftyresP.setItems(noOfTyresPList)
-            } else {
-                it.message?.let { it1 -> toast(requireContext(), it1) }
-            }
-        }
+//        binding.spinnerNooftyresP.setOnSpinnerItemSelectedListener<String> { oldIndex, oldItem, newIndex, newText ->
+////            toast(requireContext(), noOfTyresPListData[newIndex].id.toString())
+//            selectednoOfTyresPType = noOfTyresPListData[newIndex].id.toString()
+//            //  viewModel.truckFeetAndTonApi("Bearer " + userPref.user.api_token, truckTypeListData[newIndex].id.toString())
+//        }
+//        viewModel.noOfTyresPListResponse.observe(requireActivity()) {
+//            if (it.error == false) {
+//                noOfTyresPList.clear()
+//                noOfTyresPListData.clear()
+//                noOfTyresPListData.add(NoOfTyrePData(id = -1, wheel = "SELECT"))
+//                it.result?.data?.let { it1 -> noOfTyresPListData.addAll(it1) }
+//
+//                for (i in noOfTyresPListData){
+//                    i.wheel?.let { it1 -> noOfTyresPList.add(it1) }
+//                }
+//                binding.spinnerNooftyresP.setItems(noOfTyresPList)
+//            } else {
+//                it.message?.let { it1 -> toast(requireContext(), it1) }
+//            }
+//        }
 
         val apiKey = getString(R.string.api_key)
         if (!Places.isInitialized()) {
@@ -148,33 +148,12 @@ class PassengerFragment : BaseFragment() {
 
         binding.btnSearch.setOnClickListener {
 
-            if (binding.etTriptask.text.toString() == ""){
-                toast(requireContext() , "Please enter your trip task.")
-            }
-            else if (binding.fromLocation.text == ""){
+            if (binding.fromLocation.text == ""){
                 toast(requireContext() , "Please enter your pickup location.")
-            }
-            else if (binding.dropLocation.text == ""){
+            } else if (binding.dropLocation.text == ""){
                 toast(requireContext() , "Please enter your drop location.")
-            }
-            /*else if (selectedTruckType == ""){
-                toast(requireContext() , "Please Select Truck Type")
-            }
-            else if (binding.spinnerTrucktype.text == ""){
-                toast(requireContext() , "Please Select Truck Weight in Ton")
-            }
-            else if (binding.spinnerBodytype.text == ""){
-                toast(requireContext() , "Please Select Truck height")
-            }*/
-
-            else if (selectedVehicleType == ""){
+            } else if (selectedVehicleType == ""){
                 toast(requireContext() , "Please Select Vehicle Type.")
-            }
-            else if (binding.etSeatingCapacity.text.equals("") ){
-                toast(requireContext() , "Please Select Seat Capacity.")
-            }
-            else if (selectednoOfTyresPType == ""){
-                toast(requireContext() , "Please Select Number of Tyres.")
             }
             else if (binding.tvSelectedDate.text == ""){
                 toast(requireContext() , "Please select date.")
@@ -186,8 +165,6 @@ class PassengerFragment : BaseFragment() {
                     it.putExtra("dropLatitude", dropLatitude.toString())
                     it.putExtra("dropLongitude", dropLongitude.toString())
                     it.putExtra("vehicle_type", selectedVehicleType)
-                    it.putExtra("seat", binding.etSeatingCapacity.text.toString())
-                    it.putExtra("tyers", selectednoOfTyresPType)
                     it.putExtra("booking_date", binding.tvSelectedDate.text.toString())
                     it.putExtra("booking_time", binding.spinnerTimeslots.selectedItem.toString())
                     it.putExtra("pickup_location", binding.fromLocation.text.toString())

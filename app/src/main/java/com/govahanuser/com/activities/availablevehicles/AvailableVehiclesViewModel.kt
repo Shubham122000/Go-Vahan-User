@@ -28,9 +28,9 @@ class AvailableVehiclesViewModel  @Inject constructor(private val mainRepository
         dropup_long: String,
         loader_type: String,
         vehicle_category: String,
-        body_type: String,
-        seat: String,
-        wheels: String,
+//        body_type: String,
+//        seat: String,
+//        wheels: String,
         booking_date: String,
         booking_time: String,
                             ) {
@@ -39,7 +39,7 @@ class AvailableVehiclesViewModel  @Inject constructor(private val mainRepository
         viewModelScope.launch {
             val response = mainRepository.searchLoaderVehicleApi(
                 token,
-                pickup_lat, pickup_long, dropup_lat, dropup_long, loader_type, vehicle_category, body_type, seat, wheels, booking_date, booking_time
+                pickup_lat, pickup_long, dropup_lat, dropup_long, loader_type, vehicle_category,/* body_type, seat, wheels,*/ booking_date, booking_time
 
 
 

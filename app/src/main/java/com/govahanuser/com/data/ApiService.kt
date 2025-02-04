@@ -207,9 +207,6 @@ interface ApiService {
                                  @Field("dropup_long") dropup_long : String,
                                  @Field("loader_type") loader_type : String,
                                  @Field("vehicle_category") vehicle_category : String,
-                                 @Field("body_type") body_type : String,
-                                 @Field("seat") seat : String,
-                                 @Field("wheels") wheels : String,
                                  @Field("booking_date") booking_date : String,
                                  @Field("booking_time") booking_time : String,
                             ) : Response<SearchVehicleResponseModel>

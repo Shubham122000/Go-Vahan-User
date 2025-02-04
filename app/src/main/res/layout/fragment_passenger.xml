@@ -26,42 +26,42 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/triptask"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="@string/triptask"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
-                    <EditText
-                        android:id="@+id/et_triptask"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@android:color/transparent"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="center_vertical"
-                        android:hint="@string/enter_trip_task"
-                        android:imeOptions="actionNext"
-                        android:inputType="textPersonName"
-                        android:singleLine="true"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        app:hintAnimationEnabled="false"
-                        app:hintEnabled="false" />
+<!--                    <EditText-->
+<!--                        android:id="@+id/et_triptask"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@android:color/transparent"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="center_vertical"-->
+<!--                        android:hint="@string/enter_trip_task"-->
+<!--                        android:imeOptions="actionNext"-->
+<!--                        android:inputType="textPersonName"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        app:hintAnimationEnabled="false"-->
+<!--                        app:hintEnabled="false" />-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:background="@color/lightgray" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_1sdp"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:background="@color/lightgray" />-->
 
 
 
@@ -304,82 +304,82 @@
                         />
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/seatingcapacity"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="@string/seatingcapacity"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
 
-                    <EditText
-                        android:id="@+id/et_seatingCapacity"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="start"
-                        android:inputType="number"
-                        android:background="@android:color/transparent"
-                        android:hint="@string/seatingcapacity"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                      />
+<!--                    <EditText-->
+<!--                        android:id="@+id/et_seatingCapacity"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="start"-->
+<!--                        android:inputType="number"-->
+<!--                        android:background="@android:color/transparent"-->
+<!--                        android:hint="@string/seatingcapacity"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                      />-->
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_1sdp"
-                        android:background="@color/lightgray"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/no_of_tyres"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_11sdp" />
+<!--                    <View-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_1sdp"-->
+<!--                        android:background="@color/lightgray"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        />-->
 
 
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:text="@string/no_of_tyres"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_11sdp" />-->
 
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/spinner_nooftyresP"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:gravity="start"
-                        android:hint="@string/no_of_tyres"
-                        android:padding="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="@dimen/_12sdp"
-                        app:spinner_arrow_gravity="end"
-                        app:spinner_arrow_padding="8dp"
-                        app:spinner_arrow_show="true"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_color="@color/white"
-                        app:spinner_divider_show="true"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/theme_yellow"
-                        app:spinner_popup_elevation="14dp" />
+
+
+<!--                    <com.skydoves.powerspinner.PowerSpinnerView-->
+<!--                        android:id="@+id/spinner_nooftyresP"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_35sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/_10sdp"-->
+<!--                        android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:gravity="start"-->
+<!--                        android:hint="@string/no_of_tyres"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textColorHint="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        app:spinner_arrow_gravity="end"-->
+<!--                        app:spinner_arrow_padding="8dp"-->
+<!--                        app:spinner_arrow_show="true"-->
+<!--                        app:spinner_arrow_tint="@color/black"-->
+<!--                        app:spinner_divider_color="@color/white"-->
+<!--                        app:spinner_divider_show="true"-->
+<!--                        app:spinner_divider_size="0.4dp"-->
+<!--                        app:spinner_popup_animation="dropdown"-->
+<!--                        app:spinner_popup_background="@color/theme_yellow"-->
+<!--                        app:spinner_popup_elevation="14dp" />-->
 
 
 

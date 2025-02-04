@@ -78,9 +78,9 @@ class AvailableVehiclesActivity : BaseActivity(), AvailableVehiclesAdapter.OnCli
             dropLong,
             "1",
             g_truckType,
-            g_body_type,
+          /*  g_body_type,
             "",
-            g_wheel,
+            g_wheel,*/
             g_booking_date,
             g_booking_time
            )
