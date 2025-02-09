@@ -1,4 +1,4 @@
-package com.govahan.com.model.trucktypegetmodel
+package com.govahanuser.com.model.trucktypegetmodel
 
 import com.google.gson.annotations.SerializedName
 

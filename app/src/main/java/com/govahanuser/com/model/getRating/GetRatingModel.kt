@@ -1,4 +1,4 @@
-package com.govahan.com.model.getRating
+package com.govahanuser.com.model.getRating
 
 import com.google.gson.annotations.SerializedName
 

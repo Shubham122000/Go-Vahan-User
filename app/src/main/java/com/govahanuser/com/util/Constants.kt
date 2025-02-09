@@ -1,4 +1,4 @@
-package com.govahan.com.util
+package com.govahanuser.com.util
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.app.Activity

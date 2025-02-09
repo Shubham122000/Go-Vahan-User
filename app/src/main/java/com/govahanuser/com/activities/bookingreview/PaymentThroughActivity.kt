@@ -1,4 +1,4 @@
-package com.govahan.com.activities.bookingreview
+package com.govahanuser.com.activities.bookingreview
 
 import android.app.Dialog
 import android.content.Intent
@@ -10,17 +10,17 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
+import com.govahanuser.com.R
 import com.govahanuser.com.activities.bookingsuccess.BookingSuccessActivity
-import com.govahan.com.activities.bookingsuccessp.BookingSuccessPActivity
-import com.govahan.com.activities.passengers.passengerbookingreview.BookingReviewPActivity
-import com.govahan.com.activities.passengers.passengerbookingreview.BookingReviewPViewModel
-import com.govahan.com.activities.wallet.LoaderWalletActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPaymentThroughBinding
-import com.govahan.com.databinding.InsufficientWalletBinding
-import com.govahan.com.util.DateFormat
-import com.govahan.com.util.toast
+import com.govahanuser.com.activities.bookingsuccessp.BookingSuccessPActivity
+import com.govahanuser.com.activities.passengers.passengerbookingreview.BookingReviewPActivity
+import com.govahanuser.com.activities.passengers.passengerbookingreview.BookingReviewPViewModel
+import com.govahanuser.com.activities.wallet.LoaderWalletActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPaymentThroughBinding
+import com.govahanuser.com.databinding.InsufficientWalletBinding
+import com.govahanuser.com.util.DateFormat
+import com.govahanuser.com.util.toast
 import com.razorpay.Checkout
 import com.razorpay.PaymentData
 import com.razorpay.PaymentResultWithDataListener

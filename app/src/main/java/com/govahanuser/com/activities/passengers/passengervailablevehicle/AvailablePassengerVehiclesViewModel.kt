@@ -1,13 +1,13 @@
-package com.govahan.com.activities.passengers.passengervailablevehicle
+package com.govahanuser.com.activities.passengers.passengervailablevehicle
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.searchPassengerVehicle.SearchPassengerVehicleResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.searchPassengerVehicle.SearchPassengerVehicleResponseModel
+import com.govahanuser.com.util.Utils
 import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleResponseModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext

@@ -1,13 +1,13 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.ReviewsItemsBinding
-import com.govahan.com.model.ReviewsData
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.ReviewsItemsBinding
+import com.govahanuser.com.model.ReviewsData
 
 
 class ReviewsAdapter(private val list: List<ReviewsData>

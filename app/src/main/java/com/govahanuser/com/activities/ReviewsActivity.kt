@@ -1,16 +1,16 @@
-package com.govahan.com.activities
+package com.govahanuser.com.activities
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailViewModel
-import com.govahan.com.adapters.ReviewsAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityReviewsBinding
-import com.govahan.com.model.ReviewsData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailViewModel
+import com.govahanuser.com.adapters.ReviewsAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityReviewsBinding
+import com.govahanuser.com.model.ReviewsData
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

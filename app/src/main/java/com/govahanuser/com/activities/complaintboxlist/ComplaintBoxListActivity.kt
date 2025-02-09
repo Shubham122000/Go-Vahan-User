@@ -1,13 +1,13 @@
-package com.govahan.com.activities.complaintboxlist
+package com.govahanuser.com.activities.complaintboxlist
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.adapters.ViewPagerComplaintBoxAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityComplaintBoxListBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.ViewPagerComplaintBoxAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityComplaintBoxListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

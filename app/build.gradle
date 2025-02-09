@@ -12,11 +12,11 @@ android {
 //    configurations.all {
 //        resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
 //    }
-    namespace 'com.govahan.com'
+    namespace 'com.govahanuser.com'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.govahan.com"
+        applicationId "com.govahanuser.com"
         minSdk 23
         targetSdk 33
         versionCode 1

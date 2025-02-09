@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.loadercompletedtriphistory
+package com.govahanuser.com.fragment.loadercompletedtriphistory
 
 
 import android.content.Context
@@ -6,9 +6,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.completedloadertriphistorymodel.CompletedLoaderTripHistoryResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.completedloadertriphistorymodel.CompletedLoaderTripHistoryResponseModel
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

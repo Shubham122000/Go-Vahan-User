@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.passengerongoingtriphistory
+package com.govahanuser.com.fragment.passengerongoingtriphistory
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,12 +11,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.passengerOngoingBookingDetails.PassengerOngoingBookingDetailsActivity
-import com.govahan.com.adapters.OngoingPassengerTripHistoryAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentOngoingPassengerTripHistoryBinding
-import com.govahan.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.passengerOngoingBookingDetails.PassengerOngoingBookingDetailsActivity
+import com.govahanuser.com.adapters.OngoingPassengerTripHistoryAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentOngoingPassengerTripHistoryBinding
+import com.govahanuser.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

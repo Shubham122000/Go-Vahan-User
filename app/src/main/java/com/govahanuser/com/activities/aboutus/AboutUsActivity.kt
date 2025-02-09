@@ -5,11 +5,11 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.privacypolicy.PrivacyPolicyViewModel
-import com.govahan.com.databinding.ActivityAboutUsBinding
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.privacypolicy.PrivacyPolicyViewModel
+import com.govahanuser.com.databinding.ActivityAboutUsBinding
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

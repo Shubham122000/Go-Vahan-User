@@ -8,14 +8,14 @@ import android.os.Looper
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
+import com.govahanuser.com.R
 import com.govahanuser.com.activities.bookingconfirmationstatus.BookingConfirmationAndStatusActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityBookingSuccessBinding
-import com.govahan.com.model.RazorpaystatusResponse
-import com.govahan.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessData
-import com.govahan.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessDriver
-import com.govahan.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessUser
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityBookingSuccessBinding
+import com.govahanuser.com.model.RazorpaystatusResponse
+import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessData
+import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessDriver
+import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessUser
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

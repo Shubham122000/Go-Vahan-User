@@ -1,4 +1,4 @@
-package com.govahan.com.model.loadercanceltripmodel
+package com.govahanuser.com.model.loadercanceltripmodel
 
 import com.google.gson.annotations.SerializedName
 

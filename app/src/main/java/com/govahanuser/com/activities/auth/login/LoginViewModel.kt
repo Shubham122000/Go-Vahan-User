@@ -1,15 +1,15 @@
-package com.govahan.com.activities.auth.login
+package com.govahanuser.com.activities.auth.login
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.activities.ReferNEarnResponse
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.loginOtpModel.LoginOtpResponseModel
-import com.govahan.com.model.loginResponse.LoginResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.activities.ReferNEarnResponse
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.loginOtpModel.LoginOtpResponseModel
+import com.govahanuser.com.model.loginResponse.LoginResponseModel
+import com.govahanuser.com.util.Utils
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext

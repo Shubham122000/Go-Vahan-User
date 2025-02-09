@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderinvoicelistmodel
+package com.govahanuser.com.model.loaderinvoicelistmodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

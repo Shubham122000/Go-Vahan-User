@@ -1,7 +1,7 @@
-package com.govahan.com
+package com.govahanuser.com
 
 import android.os.Bundle
-import com.govahan.com.baseClasses.BaseActivity
+import com.govahanuser.com.baseClasses.BaseActivity
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

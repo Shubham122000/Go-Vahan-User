@@ -1,4 +1,4 @@
-package com.govahan.com.activities.favouritelocations
+package com.govahanuser.com.activities.favouritelocations
 
 import android.app.Activity
 import android.content.Intent
@@ -16,13 +16,13 @@ import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
-import com.govahan.com.R
-import com.govahan.com.activities.bookvehicle.BookAVehicleActivity
-import com.govahan.com.adapters.FavouriteLocationAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityFavouriteLocationsBinding
-import com.govahan.com.model.getfavouritelocation.GetFavouriteLocationData
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.bookvehicle.BookAVehicleActivity
+import com.govahanuser.com.adapters.FavouriteLocationAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityFavouriteLocationsBinding
+import com.govahanuser.com.model.getfavouritelocation.GetFavouriteLocationData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.govahan.com.model.deletefavlocation
+package com.govahanuser.com.model.deletefavlocation
 
 import com.google.gson.annotations.SerializedName
 

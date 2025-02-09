@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.loaderongoingtriphistory
+package com.govahanuser.com.fragment.loaderongoingtriphistory
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -12,12 +12,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.loaderongoingbookingdetails.LoaderOngoingBookingDetailsActivity
-import com.govahan.com.adapters.OngoingLoaderTripHistoryAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentOngoingTripHistoryBinding
-import com.govahan.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.loaderongoingbookingdetails.LoaderOngoingBookingDetailsActivity
+import com.govahanuser.com.adapters.OngoingLoaderTripHistoryAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentOngoingTripHistoryBinding
+import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 

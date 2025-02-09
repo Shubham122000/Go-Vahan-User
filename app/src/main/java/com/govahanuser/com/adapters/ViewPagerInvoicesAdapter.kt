@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

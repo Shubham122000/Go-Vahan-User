@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
+import com.govahanuser.com.R
 import com.govahanuser.com.activities.tripdetails.TripDetailsActivity
 import com.govahanuser.com.adapters.LoaderTripManagementAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentLoaderTripManagementBinding
-import com.govahan.com.fragment.loadertripmanagement.LoaderTripManagementFragmentViewModel
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentLoaderTripManagementBinding
+import com.govahanuser.com.fragment.loadertripmanagement.LoaderTripManagementFragmentViewModel
 import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList

@@ -1,4 +1,4 @@
-package com.govahan.com.activities.invoicesummarypassenger
+package com.govahanuser.com.activities.invoicesummarypassenger
 
 import android.app.DownloadManager
 import android.content.Intent
@@ -8,13 +8,13 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.invoicesummaryloader.InvoiceSummaryDetailsViewModel
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPassengerInvoiceSummaryBinding
-import com.govahan.com.model.passengerinvoicelistmodel.PassengerInvoiceData
-import com.govahan.com.util.DateFormat
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.invoicesummaryloader.InvoiceSummaryDetailsViewModel
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPassengerInvoiceSummaryBinding
+import com.govahanuser.com.model.passengerinvoicelistmodel.PassengerInvoiceData
+import com.govahanuser.com.util.DateFormat
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.DecimalFormat
 

@@ -1,15 +1,15 @@
-package com.govahan.com.activities.invoicesummaryloader
+package com.govahanuser.com.activities.invoicesummaryloader
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.loaderInvoiceDetailModel.LoaderInvoiceDetailResponseModel
-import com.govahan.com.model.loaderInvoiceDownloadModel.LoaderDownloadInvoiceUrlResponseModel
-import com.govahan.com.model.sendmailmodel.LoaderSendMailResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.loaderInvoiceDetailModel.LoaderInvoiceDetailResponseModel
+import com.govahanuser.com.model.loaderInvoiceDownloadModel.LoaderDownloadInvoiceUrlResponseModel
+import com.govahanuser.com.model.sendmailmodel.LoaderSendMailResponseModel
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

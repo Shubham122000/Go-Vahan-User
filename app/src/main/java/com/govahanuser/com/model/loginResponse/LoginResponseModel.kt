@@ -1,4 +1,4 @@
-package com.govahan.com.model.loginResponse
+package com.govahanuser.com.model.loginResponse
 
 import com.google.gson.annotations.SerializedName
 

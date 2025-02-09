@@ -1,17 +1,17 @@
-package com.govahan.com.activities.loaderCancelledbookingdetails
+package com.govahanuser.com.activities.loaderCancelledbookingdetails
 
-import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityLoaderCancelledBookingDetailsBinding
-import com.govahan.com.model.cancelledloadertriphistorymodel.CancelledLoaderTripHistoryData
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.loaderCancelledbookingdetails.LoaderCancelledBookingDetailsViewModel
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityLoaderCancelledBookingDetailsBinding
+import com.govahanuser.com.model.cancelledloadertriphistorymodel.CancelledLoaderTripHistoryData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

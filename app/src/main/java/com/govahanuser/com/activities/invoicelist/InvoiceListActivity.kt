@@ -1,13 +1,13 @@
-package com.govahan.com.activities.invoicelist
+package com.govahanuser.com.activities.invoicelist
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.adapters.ViewPagerInvoiceListAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityInvoiceListBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.ViewPagerInvoiceListAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityInvoiceListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 

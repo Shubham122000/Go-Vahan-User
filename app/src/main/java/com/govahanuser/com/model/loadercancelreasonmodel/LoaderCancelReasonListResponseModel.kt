@@ -1,4 +1,4 @@
-package com.govahan.com.model.loadercancelreasonmodel
+package com.govahanuser.com.model.loadercancelreasonmodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

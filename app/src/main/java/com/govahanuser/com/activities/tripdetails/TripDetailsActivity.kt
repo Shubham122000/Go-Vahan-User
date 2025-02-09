@@ -28,13 +28,13 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.govahan.com.R
-import com.govahan.com.activities.ridecompleted.RideCompletedActivity
-import com.govahan.com.adapters.LoaderCancelTripReasonAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityTripDetailsBinding
-import com.govahan.com.model.loadercancelreasonmodel.LoaderCancelReasonData
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.ridecompleted.RideCompletedActivity
+import com.govahanuser.com.adapters.LoaderCancelTripReasonAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityTripDetailsBinding
+import com.govahanuser.com.model.loadercancelreasonmodel.LoaderCancelReasonData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import okhttp3.*
@@ -46,7 +46,7 @@ import com.google.maps.PendingResult
 import com.google.maps.model.DirectionsResult
 import com.google.maps.model.TravelMode
 import com.google.maps.android.PolyUtil
-import com.govahan.com.activities.tripdetails.TripDetailsViewModel
+import com.govahanuser.com.activities.tripdetails.TripDetailsViewModel
 import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 
 @AndroidEntryPoint

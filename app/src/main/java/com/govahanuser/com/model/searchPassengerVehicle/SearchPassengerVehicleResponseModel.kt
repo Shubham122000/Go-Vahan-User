@@ -1,4 +1,4 @@
-package com.govahan.com.model.searchPassengerVehicle
+package com.govahanuser.com.model.searchPassengerVehicle
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

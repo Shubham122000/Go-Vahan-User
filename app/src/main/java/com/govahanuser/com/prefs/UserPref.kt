@@ -1,9 +1,9 @@
-package com.govahan.com.prefs
+package com.govahanuser.com.prefs
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
-import com.govahan.com.model.loginOtpModel.LoginOtpData
+import com.govahanuser.com.model.loginOtpModel.LoginOtpData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

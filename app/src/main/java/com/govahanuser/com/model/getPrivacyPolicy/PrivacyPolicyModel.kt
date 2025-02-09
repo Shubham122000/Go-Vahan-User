@@ -1,4 +1,4 @@
-package com.govahan.com.model.getPrivacyPolicy
+package com.govahanuser.com.model.getPrivacyPolicy
 
 import com.google.gson.annotations.SerializedName
 

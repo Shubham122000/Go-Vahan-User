@@ -1,4 +1,4 @@
-package com.govahan.com.model.bookingpassengelmodel
+package com.govahanuser.com.model.bookingpassengelmodel
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

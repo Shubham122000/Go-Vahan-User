@@ -1,11 +1,11 @@
-package com.govahan.com.activities.editprofile
+package com.govahanuser.com.activities.editprofile
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.EditProfileResponse
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.EditProfileResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

@@ -1,9 +1,9 @@
-package com.govahan.com.module
+package com.govahanuser.com.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.govahanuser.com.data.ApiService
-import com.govahan.com.util.Constants
+import com.govahanuser.com.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

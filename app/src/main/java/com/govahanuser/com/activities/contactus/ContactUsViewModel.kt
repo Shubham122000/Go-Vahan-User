@@ -1,11 +1,11 @@
-package com.govahan.com.activities.contactus
+package com.govahanuser.com.activities.contactus
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.contactusmodel.ContactUsModel
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.contactusmodel.ContactUsModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

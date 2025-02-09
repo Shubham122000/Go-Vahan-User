@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderrescheduletripmodel
+package com.govahanuser.com.model.loaderrescheduletripmodel
 
 import com.google.gson.annotations.SerializedName
 

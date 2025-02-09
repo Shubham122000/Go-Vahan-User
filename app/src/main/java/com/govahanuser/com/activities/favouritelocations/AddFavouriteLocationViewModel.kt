@@ -1,15 +1,15 @@
-package com.govahan.com.activities.favouritelocations
+package com.govahanuser.com.activities.favouritelocations
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.addfavouritelocation.AddFavouriteLocationModel
-import com.govahan.com.model.deletefavlocation.DeleteFavLocationModel
-import com.govahan.com.model.getfavouritelocation.GetFavouriteLocationModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.addfavouritelocation.AddFavouriteLocationModel
+import com.govahanuser.com.model.deletefavlocation.DeleteFavLocationModel
+import com.govahanuser.com.model.getfavouritelocation.GetFavouriteLocationModel
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

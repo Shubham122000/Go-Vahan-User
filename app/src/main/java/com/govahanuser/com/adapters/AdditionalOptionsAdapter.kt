@@ -1,9 +1,9 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.databinding.RowAdditionalOptionsBinding
+import com.govahanuser.com.databinding.RowAdditionalOptionsBinding
 import javax.inject.Inject
 
 class AdditionalOptionsAdapter @Inject constructor() : RecyclerView.Adapter<AdditionalViewHolder>(){

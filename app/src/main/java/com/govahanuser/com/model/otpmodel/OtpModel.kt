@@ -1,4 +1,4 @@
-package com.govahan.com.model.otpmodel
+package com.govahanuser.com.model.otpmodel
 
 data class OtpModel(
     val OTP: Int,

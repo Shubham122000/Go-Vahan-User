@@ -1,7 +1,7 @@
-package com.govahan.com.module
+package com.govahanuser.com.module
 
-import com.govahan.com.data.MainRepository
-import com.govahan.com.data.MainRepositoryImpl
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.data.MainRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

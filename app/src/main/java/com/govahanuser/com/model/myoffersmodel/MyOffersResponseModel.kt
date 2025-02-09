@@ -1,4 +1,4 @@
-package com.govahan.com.model.myoffersmodel
+package com.govahanuser.com.model.myoffersmodel
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.activities.availablevehicles
+package com.govahanuser.com.activities.availablevehicles
 
 import android.app.Dialog
 import android.content.Intent
@@ -11,13 +11,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.ReviewsActivity
-import com.govahan.com.activities.bookingreview.BookingReviewActivity
-import com.govahan.com.adapters.AvailableVehiclesAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityAvailableVehiclesBinding
-import com.govahan.com.databinding.RecordSavedBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.ReviewsActivity
+import com.govahanuser.com.activities.bookingreview.BookingReviewActivity
+import com.govahanuser.com.adapters.AvailableVehiclesAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityAvailableVehiclesBinding
+import com.govahanuser.com.databinding.RecordSavedBinding
 import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*

@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderlivetrackingmodel
+package com.govahanuser.com.model.loaderlivetrackingmodel
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.util
+package com.govahanuser.com.util
 
 object AppConstant {
 

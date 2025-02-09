@@ -1,4 +1,4 @@
-package com.govahan.com.customclick
+package com.govahanuser.com.customclick
 
 interface walletcustomclick {
 

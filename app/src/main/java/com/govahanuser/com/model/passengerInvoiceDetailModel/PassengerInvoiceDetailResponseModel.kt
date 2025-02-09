@@ -1,4 +1,4 @@
-package com.govahan.com.model.passengerInvoiceDetailModel
+package com.govahanuser.com.model.passengerInvoiceDetailModel
 
 
 data class PassengerInvoiceDetailResponseModel(

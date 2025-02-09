@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.home
+package com.govahanuser.com.fragment.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,17 +9,17 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.govahan.com.R
-import com.govahan.com.activities.authorizedfranchise.AuthorizedFranchisesActivity
-import com.govahan.com.activities.bookvehicle.BookAVehicleActivity
-import com.govahan.com.activities.complaintboxlist.ComplaintBoxListActivity
-import com.govahan.com.activities.invoicelist.InvoiceListActivity
-import com.govahan.com.activities.mainBookingHistory.MainBookingHistoryActivity
-import com.govahan.com.activities.tripmanagement.TripManagementActivity
-import com.govahan.com.adapters.SliderAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentHomeBinding
-import com.govahan.com.model.homebannermodel.HomeBannerData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.authorizedfranchise.AuthorizedFranchisesActivity
+import com.govahanuser.com.activities.bookvehicle.BookAVehicleActivity
+import com.govahanuser.com.activities.complaintboxlist.ComplaintBoxListActivity
+import com.govahanuser.com.activities.invoicelist.InvoiceListActivity
+import com.govahanuser.com.activities.mainBookingHistory.MainBookingHistoryActivity
+import com.govahanuser.com.activities.tripmanagement.TripManagementActivity
+import com.govahanuser.com.adapters.SliderAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentHomeBinding
+import com.govahanuser.com.model.homebannermodel.HomeBannerData
 import com.smarteist.autoimageslider.SliderView
 import dagger.hilt.android.AndroidEntryPoint
 

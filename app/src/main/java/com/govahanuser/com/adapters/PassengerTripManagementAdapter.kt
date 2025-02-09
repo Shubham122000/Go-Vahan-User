@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowTripManagementBinding
-import com.govahan.com.model.tripmanagementpassengermodel.PassengerTripManagementData
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowTripManagementBinding
+import com.govahanuser.com.model.tripmanagementpassengermodel.PassengerTripManagementData
 import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 
 class PassengerTripManagementAdapter (

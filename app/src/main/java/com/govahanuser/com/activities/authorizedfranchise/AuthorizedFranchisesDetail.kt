@@ -1,4 +1,4 @@
-package com.govahan.com.activities.authorizedfranchise
+package com.govahanuser.com.activities.authorizedfranchise
 
 import android.os.Bundle
 import android.util.Log
@@ -7,13 +7,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.adapters.AuthorizedFranchiseDetailAdapter
-import com.govahan.com.adapters.AuthorizedFranchisePassengerAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityAuthorizedFranchisesDetailBinding
-import com.govahan.com.model.LoaderName
-import com.govahan.com.model.PassengerName
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.AuthorizedFranchiseDetailAdapter
+import com.govahanuser.com.adapters.AuthorizedFranchisePassengerAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityAuthorizedFranchisesDetailBinding
+import com.govahanuser.com.model.LoaderName
+import com.govahanuser.com.model.PassengerName
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

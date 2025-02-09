@@ -1,4 +1,4 @@
-package com.govahan.com.activities.passengertracktruckdriver
+package com.govahanuser.com.activities.passengertracktruckdriver
 
 import android.content.ContentValues
 import android.content.Intent
@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.govahan.com.R
-import com.govahan.com.activities.trackmap.TrackMapActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPassengerTrackTruckDriverBinding
-import com.govahan.com.util.DateFormat
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.trackmap.TrackMapActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPassengerTrackTruckDriverBinding
+import com.govahanuser.com.util.DateFormat
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

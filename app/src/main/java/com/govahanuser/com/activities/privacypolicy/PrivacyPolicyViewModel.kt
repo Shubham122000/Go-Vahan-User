@@ -1,11 +1,11 @@
-package com.govahan.com.activities.privacypolicy
+package com.govahanuser.com.activities.privacypolicy
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.getPrivacyPolicy.PrivacyPolicyModel
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.getPrivacyPolicy.PrivacyPolicyModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

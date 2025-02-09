@@ -2,8 +2,8 @@ package com.govahanuser.com.model.tripmanagementloadermodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.govahan.com.model.PaymentDetails
-import com.govahan.com.model.TripDetails
+import com.govahanuser.com.model.PaymentDetails
+import com.govahanuser.com.model.TripDetails
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

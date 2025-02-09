@@ -1,7 +1,6 @@
-package com.govahan.com.fragment.loaderBookingHistory
+package com.govahanuser.com.fragment.loaderBookingHistory
 
 import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,27 +8,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.loaderCancelledbookingdetails.LoaderCancelledBookingDetailsActivity
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.loaderCancelledbookingdetails.LoaderCancelledBookingDetailsActivity
 import com.govahanuser.com.activities.loadercompletedbookingdetails.LoaderCompletedBookingDetailsActivity
-import com.govahan.com.activities.loaderongoingbookingdetails.LoaderOngoingBookingDetailsActivity
-import com.govahan.com.adapters.CancelledLoaderTripHistoryAdapter
-import com.govahan.com.adapters.CompletedLoaderTripHistoryAdapter
-import com.govahan.com.adapters.LoaderBookingHistoryViewPagerAdapter
-import com.govahan.com.adapters.OngoingLoaderTripHistoryAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentLoaderBookingHistoryBinding
-import com.govahan.com.fragment.loadercompletedtriphistory.LoaderCancelledTripHistoryFragmentViewModel
-import com.govahan.com.fragment.loadercompletedtriphistory.LoaderCompletedTripHistoryFragmentViewModel
-import com.govahan.com.fragment.loaderongoingtriphistory.LoaderOngoingTripHistoryFragmentViewModel
-import com.govahan.com.model.cancelledloadertriphistorymodel.CancelledLoaderTripHistoryData
-import com.govahan.com.model.completedloadertriphistorymodel.CompletedLoaderHistoryData
-import com.govahan.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
+import com.govahanuser.com.activities.loaderongoingbookingdetails.LoaderOngoingBookingDetailsActivity
+import com.govahanuser.com.adapters.CancelledLoaderTripHistoryAdapter
+import com.govahanuser.com.adapters.CompletedLoaderTripHistoryAdapter
+import com.govahanuser.com.adapters.LoaderBookingHistoryViewPagerAdapter
+import com.govahanuser.com.adapters.OngoingLoaderTripHistoryAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentLoaderBookingHistoryBinding
+import com.govahanuser.com.fragment.loadercompletedtriphistory.LoaderCancelledTripHistoryFragmentViewModel
+import com.govahanuser.com.fragment.loadercompletedtriphistory.LoaderCompletedTripHistoryFragmentViewModel
+import com.govahanuser.com.fragment.loaderongoingtriphistory.LoaderOngoingTripHistoryFragmentViewModel
+import com.govahanuser.com.model.cancelledloadertriphistorymodel.CancelledLoaderTripHistoryData
+import com.govahanuser.com.model.completedloadertriphistorymodel.CompletedLoaderHistoryData
+import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -74,28 +72,28 @@ class LoaderBookingHistoryFragment : BaseFragment(), OngoingLoaderTripHistoryAda
 
                 if (selectedItem == "Pending") {
                     toast(requireContext(),"Pending")
-                    viewModelOngoingLoader.loaderPendingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: OngoingLoader"+userPref.user.apiToken)
+                    viewModelOngoingLoader.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "1", "1"
+                    )
 
 
                 }else if (selectedItem == "Ongoing") {
                     toast(requireContext(),"Ongoing")
-                    viewModelOngoingLoader.loaderOngoingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: OngoingLoader"+userPref.user.apiToken)
-
+                    viewModelOngoingLoader.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "1", "2"
+                    )
 
                 }
                 else if (selectedItem == "Completed") {
-                    toast(requireContext(),"Completed")
-                    viewModelCompletedLoader.loaderCompletedBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: "+userPref.user.apiToken)
-
+                    viewModelOngoingLoader.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "1", "4"
+                    )
                 }
                 else if (selectedItem == "Cancelled") {
 
-                    toast(requireContext(),"Cancelled")
-                    viewModelCancelledLoader.loaderCancelledBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(TAG, "onItemSelected:cancelled " + userPref.user.apiToken)
+                    viewModelOngoingLoader.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "1", "3"
+                    )
                 }
 
 
@@ -135,7 +133,10 @@ class LoaderBookingHistoryFragment : BaseFragment(), OngoingLoaderTripHistoryAda
             }
         }
 
-        viewModelOngoingLoader.loaderPendingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
+        viewModelOngoingLoader.UpComingsTripHistoryApi(
+            "Bearer " + userPref.getToken().toString(), "1", "1"
+        )
+//        viewModelOngoingLoader.loaderPendingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
 //        viewModelOngoingLoader.loaderOngoingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
         Log.d(ContentValues.TAG, "onCreateView: OngoingLoader"+userPref.user.apiToken)
 

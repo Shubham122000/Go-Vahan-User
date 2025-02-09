@@ -7,11 +7,11 @@ import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.govahan.com.R
-import com.govahan.com.activities.DashboardActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityBookingConfirmationAndStatusBinding
-import com.govahan.com.model.RazorpaystatusResponse
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.DashboardActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityBookingConfirmationAndStatusBinding
+import com.govahanuser.com.model.RazorpaystatusResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

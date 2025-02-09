@@ -1,4 +1,4 @@
-package com.govahan.com.activities.auth.login
+package com.govahanuser.com.activities.auth.login
 
 import android.app.Dialog
 import android.content.ContentValues.TAG
@@ -24,12 +24,12 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize
 import com.google.firebase.messaging.FirebaseMessaging
-import com.govahan.com.R
-import com.govahan.com.activities.DashboardActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityLoginBinding
-import com.govahan.com.databinding.DialogOtpBinding
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.DashboardActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityLoginBinding
+import com.govahanuser.com.databinding.DialogOtpBinding
+import com.govahanuser.com.util.toast
 
 
 import dagger.hilt.android.AndroidEntryPoint

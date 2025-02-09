@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.loaderinvoices
+package com.govahanuser.com.fragment.loaderinvoices
 
 import android.content.Intent
 import android.os.Build
@@ -12,12 +12,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.invoicesummaryloader.LoaderInvoiceSummaryActivity
-import com.govahan.com.adapters.LoaderInvoiceListAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentLoaderInvoiceListBinding
-import com.govahan.com.model.loaderinvoicelistmodel.LoaderInvoiceData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.invoicesummaryloader.LoaderInvoiceSummaryActivity
+import com.govahanuser.com.adapters.LoaderInvoiceListAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentLoaderInvoiceListBinding
+import com.govahanuser.com.model.loaderinvoicelistmodel.LoaderInvoiceData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

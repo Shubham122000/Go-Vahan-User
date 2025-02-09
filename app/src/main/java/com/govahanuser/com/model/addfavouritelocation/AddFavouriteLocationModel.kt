@@ -1,4 +1,4 @@
-package com.govahan.com.model.addfavouritelocation
+package com.govahanuser.com.model.addfavouritelocation
 
 import com.google.gson.annotations.SerializedName
 

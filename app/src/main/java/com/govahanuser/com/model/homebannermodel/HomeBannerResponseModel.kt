@@ -1,4 +1,4 @@
-package com.govahan.com.model.homebannermodel
+package com.govahanuser.com.model.homebannermodel
 
 import com.google.gson.annotations.SerializedName
 

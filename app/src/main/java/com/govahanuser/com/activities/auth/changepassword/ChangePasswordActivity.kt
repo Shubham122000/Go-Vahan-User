@@ -1,11 +1,11 @@
-package com.govahan.com.activities.auth.changepassword
+package com.govahanuser.com.activities.auth.changepassword
 
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityChangePasswordBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityChangePasswordBinding
 
 
 class ChangePasswordActivity : BaseActivity() {

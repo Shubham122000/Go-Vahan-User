@@ -1,4 +1,4 @@
-package com.govahan.com.activities.paymentmethods
+package com.govahanuser.com.activities.paymentmethods
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.View
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPaymentMethodsBinding
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPaymentMethodsBinding
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.govahan.com.activities.bookingsuccessp
+package com.govahanuser.com.activities.bookingsuccessp
 
 import android.content.ContentValues
 import android.content.Intent
@@ -7,16 +7,16 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
+import com.govahanuser.com.R
 import com.govahanuser.com.activities.passengers.bookingconfirmationstatus.BookingConfirmationStatusPActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityBookingSuccessPactivityBinding
-import com.govahan.com.model.bookingpassengelmodel.BookingPassengerData
-import com.govahan.com.model.bookingpassengelmodel.BookingPassengerDriver
-import com.govahan.com.model.bookingpassengelmodel.BookingPassengerUser
-import com.govahan.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessData
-import com.govahan.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessDriver
-import com.govahan.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessUser
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityBookingSuccessPactivityBinding
+import com.govahanuser.com.model.bookingpassengelmodel.BookingPassengerData
+import com.govahanuser.com.model.bookingpassengelmodel.BookingPassengerDriver
+import com.govahanuser.com.model.bookingpassengelmodel.BookingPassengerUser
+import com.govahanuser.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessData
+import com.govahanuser.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessDriver
+import com.govahanuser.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessUser
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

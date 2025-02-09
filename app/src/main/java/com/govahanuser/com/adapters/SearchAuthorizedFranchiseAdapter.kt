@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.govahan.com.R
-import com.govahan.com.activities.authorizedfranchise.AuthorizedFranchisesActivity
-import com.govahan.com.customclick.franchiseclick
-import com.govahan.com.databinding.RowAuthorizedFranchiseBinding
-import com.govahan.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.authorizedfranchise.AuthorizedFranchisesActivity
+import com.govahanuser.com.customclick.franchiseclick
+import com.govahanuser.com.databinding.RowAuthorizedFranchiseBinding
+import com.govahanuser.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesData
 
 class SearchAuthorizedFranchiseAdapter(
     val list: List<SearchAuthorisedFranchisesData>

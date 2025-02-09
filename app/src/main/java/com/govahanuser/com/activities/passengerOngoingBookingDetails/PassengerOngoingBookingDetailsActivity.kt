@@ -1,4 +1,4 @@
-package com.govahan.com.activities.passengerOngoingBookingDetails
+package com.govahanuser.com.activities.passengerOngoingBookingDetails
 
 import android.app.Dialog
 import android.content.Intent
@@ -12,17 +12,17 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.passengerraisecomplaint.PassengerRaiseComplaintActivity
-import com.govahan.com.activities.passengertracktruckdriver.PassengerTrackTruckDriverActivity
-import com.govahan.com.adapters.PassengerCancelTripReasonAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPassengerOngoingBookingDetailsBinding
-import com.govahan.com.databinding.BottomSheetCancelTripBinding
-import com.govahan.com.databinding.BottomSheetRidecancellationBinding
-import com.govahan.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
-import com.govahan.com.model.passengercancelreasonmodel.PassengerCancelReasonData
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.passengerraisecomplaint.PassengerRaiseComplaintActivity
+import com.govahanuser.com.activities.passengertracktruckdriver.PassengerTrackTruckDriverActivity
+import com.govahanuser.com.adapters.PassengerCancelTripReasonAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPassengerOngoingBookingDetailsBinding
+import com.govahanuser.com.databinding.BottomSheetCancelTripBinding
+import com.govahanuser.com.databinding.BottomSheetRidecancellationBinding
+import com.govahanuser.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
+import com.govahanuser.com.model.passengercancelreasonmodel.PassengerCancelReasonData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

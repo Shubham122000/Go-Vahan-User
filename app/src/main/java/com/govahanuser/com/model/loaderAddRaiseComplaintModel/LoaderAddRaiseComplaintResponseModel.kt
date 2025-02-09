@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderAddRaiseComplaintModel
+package com.govahanuser.com.model.loaderAddRaiseComplaintModel
 
 import com.google.gson.annotations.SerializedName
 

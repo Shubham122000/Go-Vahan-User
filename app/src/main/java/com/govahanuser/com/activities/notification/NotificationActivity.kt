@@ -1,4 +1,4 @@
-package com.govahan.com.activities.notification
+package com.govahanuser.com.activities.notification
 
 import android.os.Bundle
 import android.util.Log
@@ -7,12 +7,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.adapters.NotificationAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityNotificationBinding
-import com.govahan.com.model.notificationmodel.NotificationData
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.NotificationAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityNotificationBinding
+import com.govahanuser.com.model.notificationmodel.NotificationData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 

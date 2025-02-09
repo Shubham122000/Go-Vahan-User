@@ -1,4 +1,4 @@
-package com.govahan.com.model.cancelledloadertriphistorymodel
+package com.govahanuser.com.model.cancelledloadertriphistorymodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

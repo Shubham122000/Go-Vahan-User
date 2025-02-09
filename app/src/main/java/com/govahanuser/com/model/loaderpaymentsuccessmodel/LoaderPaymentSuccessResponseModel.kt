@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderpaymentsuccessmodel
+package com.govahanuser.com.model.loaderpaymentsuccessmodel
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

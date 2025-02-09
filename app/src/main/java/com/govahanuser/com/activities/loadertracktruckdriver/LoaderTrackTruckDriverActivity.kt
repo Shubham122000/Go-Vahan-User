@@ -1,4 +1,4 @@
-package com.govahan.com.activities.loadertracktruckdriver
+package com.govahanuser.com.activities.loadertracktruckdriver
 
 import android.content.ContentValues.TAG
 import android.graphics.Color
@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityLoaderTrackTruckDriverBinding
-import com.govahan.com.util.DateFormat
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityLoaderTrackTruckDriverBinding
+import com.govahanuser.com.util.DateFormat
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 

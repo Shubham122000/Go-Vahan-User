@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.passengercomplaintboxlist
+package com.govahanuser.com.fragment.passengercomplaintboxlist
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -13,12 +13,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.passengercomplaintboxdetail.PassengerComplaintBoxDetailActivity
-import com.govahan.com.adapters.PassengerComplaintBoxAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.ActivityPassengerComplaintBoxListBinding
-import com.govahan.com.model.passengerComplaintlistmodel.PassengerComplaintData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.passengercomplaintboxdetail.PassengerComplaintBoxDetailActivity
+import com.govahanuser.com.adapters.PassengerComplaintBoxAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.ActivityPassengerComplaintBoxListBinding
+import com.govahanuser.com.model.passengerComplaintlistmodel.PassengerComplaintData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

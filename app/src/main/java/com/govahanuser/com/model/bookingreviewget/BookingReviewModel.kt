@@ -1,4 +1,4 @@
-package com.govahan.com.model.bookingreviewget
+package com.govahanuser.com.model.bookingreviewget
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.model.tripmanagementpassengermodel
+package com.govahanuser.com.model.tripmanagementpassengermodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

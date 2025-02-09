@@ -1,4 +1,4 @@
-package com.govahan.com.model.passengerRideCompletedModel
+package com.govahanuser.com.model.passengerRideCompletedModel
 
 import com.google.gson.annotations.SerializedName
 

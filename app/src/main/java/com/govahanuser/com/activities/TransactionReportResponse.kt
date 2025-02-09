@@ -1,4 +1,4 @@
-package com.govahan.com.activities
+package com.govahanuser.com.activities
 
 data class TransactionReportResponse(
     val `data`: ArrayList<TransactionReportData>,

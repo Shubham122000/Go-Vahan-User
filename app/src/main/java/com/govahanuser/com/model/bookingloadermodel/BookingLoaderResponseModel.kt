@@ -1,7 +1,7 @@
-package com.govahan.com.model.bookingloadermodel
+package com.govahanuser.com.model.bookingloadermodel
 
 import com.google.gson.annotations.SerializedName
-import com.govahan.com.model.loaderpaymentsuccessmodel.Owner
+import com.govahanuser.com.model.loaderpaymentsuccessmodel.Owner
 import java.io.Serializable
 
 

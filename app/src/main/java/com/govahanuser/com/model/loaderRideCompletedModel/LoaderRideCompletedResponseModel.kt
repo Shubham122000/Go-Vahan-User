@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderRideCompletedModel
+package com.govahanuser.com.model.loaderRideCompletedModel
 
 
 

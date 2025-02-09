@@ -1,13 +1,13 @@
-package com.govahan.com.activities.trackmap
+package com.govahanuser.com.activities.trackmap
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.maps.model.*
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityTrackMapBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityTrackMapBinding
 
 import java.util.*
 

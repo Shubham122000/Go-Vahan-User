@@ -1,4 +1,4 @@
-package com.govahan.com.activities.contactus
+package com.govahanuser.com.activities.contactus
 
 import android.os.Bundle
 import android.view.View
@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityContactUsBinding
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityContactUsBinding
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

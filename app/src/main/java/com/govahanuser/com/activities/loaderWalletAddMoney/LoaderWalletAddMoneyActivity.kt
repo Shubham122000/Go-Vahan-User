@@ -1,13 +1,13 @@
-package com.govahan.com.activities.loaderWalletAddMoney
+package com.govahanuser.com.activities.loaderWalletAddMoney
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityLoaderWalletAddMoneyBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityLoaderWalletAddMoneyBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

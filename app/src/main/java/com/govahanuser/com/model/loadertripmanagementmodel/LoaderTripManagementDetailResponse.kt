@@ -1,4 +1,4 @@
-package com.govahan.com.model.loadertripmanagementmodel
+package com.govahanuser.com.model.loadertripmanagementmodel
 
 import com.google.gson.annotations.SerializedName
 

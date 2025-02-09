@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.activities.notification.NotificationActivity
-import com.govahan.com.databinding.RowNotificationLayoutBinding
-import com.govahan.com.model.notificationmodel.NotificationData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.notification.NotificationActivity
+import com.govahanuser.com.databinding.RowNotificationLayoutBinding
+import com.govahanuser.com.model.notificationmodel.NotificationData
 
 class NotificationAdapter(
     val list: List<NotificationData>,

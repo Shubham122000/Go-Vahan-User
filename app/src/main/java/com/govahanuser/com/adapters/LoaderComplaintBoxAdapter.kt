@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowLoaderComplaintboxlistItemBinding
-import com.govahan.com.model.loaderComplaintlistmodel.LoaderComplaintData
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowLoaderComplaintboxlistItemBinding
+import com.govahanuser.com.model.loaderComplaintlistmodel.LoaderComplaintData
 
 class LoaderComplaintBoxAdapter (private val list: List<LoaderComplaintData>,
                                  private val listener : OnClick

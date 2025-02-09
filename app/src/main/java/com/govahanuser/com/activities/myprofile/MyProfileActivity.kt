@@ -1,4 +1,4 @@
-package com.govahan.com.activities.myprofile
+package com.govahanuser.com.activities.myprofile
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.govahan.com.R
-import com.govahan.com.activities.editprofile.EditProfileActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityMyProfileBinding
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.editprofile.EditProfileActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityMyProfileBinding
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

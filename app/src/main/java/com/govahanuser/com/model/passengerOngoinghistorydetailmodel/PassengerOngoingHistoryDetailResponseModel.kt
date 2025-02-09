@@ -1,4 +1,4 @@
-package com.govahan.com.model.passengerOngoinghistorydetailmodel
+package com.govahanuser.com.model.passengerOngoinghistorydetailmodel
 
 
 data class PassengerOngoingHistoryDetailResponseModel(

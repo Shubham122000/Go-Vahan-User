@@ -1,9 +1,9 @@
-package com.govahan.com.activities.chooselanguage
+package com.govahanuser.com.activities.chooselanguage
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.govahan.com.prefs.UserPref
+import com.govahanuser.com.prefs.UserPref
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 /*private val mainRepository: MainRepository*/

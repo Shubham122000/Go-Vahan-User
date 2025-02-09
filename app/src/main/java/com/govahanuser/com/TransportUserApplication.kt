@@ -1,4 +1,4 @@
-package com.govahan.com
+package com.govahanuser.com
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 

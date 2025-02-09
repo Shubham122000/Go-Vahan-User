@@ -1,4 +1,4 @@
-package com.govahan.com.model.commonresponse
+package com.govahanuser.com.model.commonresponse
 
 data class CommonResponseModel(
     val `data`: Int,

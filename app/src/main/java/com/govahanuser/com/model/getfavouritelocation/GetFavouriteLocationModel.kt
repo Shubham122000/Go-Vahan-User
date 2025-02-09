@@ -1,4 +1,4 @@
-package com.govahan.com.model.getfavouritelocation
+package com.govahanuser.com.model.getfavouritelocation
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

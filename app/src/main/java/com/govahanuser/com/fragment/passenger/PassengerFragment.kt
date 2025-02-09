@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.passenger
+package com.govahanuser.com.fragment.passenger
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -22,12 +22,12 @@ import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
-import com.govahan.com.R
-import com.govahan.com.activities.passengers.passengervailablevehicle.PassengerAvailableVehicleActivity
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentPassengerBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.passengers.passengervailablevehicle.PassengerAvailableVehicleActivity
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentPassengerBinding
 import com.govahanuser.com.model.noOfTyrePModel.NoOfTyrePData
-import com.govahan.com.model.seatingcapacitymodel.SeatingCapacityData
+import com.govahanuser.com.model.seatingcapacitymodel.SeatingCapacityData
 import com.govahanuser.com.model.vehicletypemodel.VehicleTypeData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*

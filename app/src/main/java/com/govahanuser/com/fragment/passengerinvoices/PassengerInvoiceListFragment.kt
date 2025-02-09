@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.passengerinvoices
+package com.govahanuser.com.fragment.passengerinvoices
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -13,12 +13,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.invoicesummarypassenger.PassengerInvoiceSummaryActivity
-import com.govahan.com.adapters.PassengerInvoiceListAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentPassengerInvoiceListBinding
-import com.govahan.com.model.passengerinvoicelistmodel.PassengerInvoiceData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.invoicesummarypassenger.PassengerInvoiceSummaryActivity
+import com.govahanuser.com.adapters.PassengerInvoiceListAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentPassengerInvoiceListBinding
+import com.govahanuser.com.model.passengerinvoicelistmodel.PassengerInvoiceData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

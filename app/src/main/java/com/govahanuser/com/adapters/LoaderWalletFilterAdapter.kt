@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowWalletListBinding
-import com.govahan.com.model.loaderwalletfiltermodel.LoaderWalletFilterData
-import com.govahan.com.util.DateFormat
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowWalletListBinding
+import com.govahanuser.com.model.loaderwalletfiltermodel.LoaderWalletFilterData
+import com.govahanuser.com.util.DateFormat
 
 class LoaderWalletFilterAdapter (val list: List<LoaderWalletFilterData>
 ) : RecyclerView.Adapter<LoaderWalletFilterAdapter.ViewHolder>() {

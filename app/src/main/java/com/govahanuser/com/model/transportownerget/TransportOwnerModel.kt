@@ -1,4 +1,4 @@
-package com.govahan.com.model.transportownerget
+package com.govahanuser.com.model.transportownerget
 
 import com.google.gson.annotations.SerializedName
 

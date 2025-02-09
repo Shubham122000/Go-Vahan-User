@@ -1,11 +1,11 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.govahan.com.fragment.loaderinvoices.LoaderInvoiceListFragment
-import com.govahan.com.fragment.passengerinvoices.PassengerInvoiceListFragment
+import com.govahanuser.com.fragment.loaderinvoices.LoaderInvoiceListFragment
+import com.govahanuser.com.fragment.passengerinvoices.PassengerInvoiceListFragment
 
 
 class ViewPagerInvoiceListAdapter(

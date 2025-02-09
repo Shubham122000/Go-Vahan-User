@@ -1,4 +1,4 @@
-package com.govahan.com.activities.authorizedfranchise
+package com.govahanuser.com.activities.authorizedfranchise
 
 
 import android.content.Context
@@ -6,14 +6,14 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.AuthorizedFranchiseDetailsApi
-import com.govahan.com.model.authorisedFranchisesDisttListModel.AuthorisedFranchisesDisttListResponseModel
-import com.govahan.com.model.authorisedFranchisesPincodeListModel.AuthorisedFranchisesPinCodeListResponseModel
-import com.govahan.com.model.authorisedFranchisesStateListModel.AuthorisedFranchisesStateListResponseModel
-import com.govahan.com.model.authorizedfranchisesmodel.AuthorizedFranchisesResponseModel
-import com.govahan.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.AuthorizedFranchiseDetailsApi
+import com.govahanuser.com.model.authorisedFranchisesDisttListModel.AuthorisedFranchisesDisttListResponseModel
+import com.govahanuser.com.model.authorisedFranchisesPincodeListModel.AuthorisedFranchisesPinCodeListResponseModel
+import com.govahanuser.com.model.authorisedFranchisesStateListModel.AuthorisedFranchisesStateListResponseModel
+import com.govahanuser.com.model.authorizedfranchisesmodel.AuthorizedFranchisesResponseModel
+import com.govahanuser.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesResponseModel
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

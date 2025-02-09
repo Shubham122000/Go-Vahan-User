@@ -1,4 +1,4 @@
-package com.govahan.com.activities.cancellation
+package com.govahanuser.com.activities.cancellation
 
 import android.os.Bundle
 import android.text.Html
@@ -6,11 +6,11 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.privacypolicy.PrivacyPolicyViewModel
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityCancellationPolicyBinding
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.privacypolicy.PrivacyPolicyViewModel
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityCancellationPolicyBinding
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

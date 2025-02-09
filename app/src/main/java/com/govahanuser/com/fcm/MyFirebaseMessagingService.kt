@@ -1,4 +1,4 @@
-package com.govahan.com.fcm
+package com.govahanuser.com.fcm
 
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
@@ -13,8 +13,8 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.govahan.com.R
-import com.govahan.com.activities.HomeActivity
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.HomeActivity
 import java.util.*
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {

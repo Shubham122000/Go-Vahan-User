@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.loaderongoingtriphistory
+package com.govahanuser.com.fragment.loaderongoingtriphistory
 
 
 import android.content.Context
@@ -6,9 +6,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.ongoingloadertriphistorymodel.OngoingLoaderTripHistoryResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderTripHistoryResponseModel
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
@@ -51,6 +51,24 @@ class LoaderOngoingTripHistoryFragmentViewModel @Inject constructor(private val 
                 utils.simpleAlert(context, "Some Error Occurred", "Please check your Internet connection")
             }
 
+        }
+    }
+
+    fun UpComingsTripHistoryApi(
+        token: String, forPassenger :String, bookingStatus :String
+    ) {
+        progressBarStatus.value = true
+        viewModelScope.launch {
+
+            val response =
+                mainRepository.UpcomingsTripHistory(token, forPassenger, bookingStatus)
+            if (response.isSuccessful) {
+                progressBarStatus.value = false
+                getLoaderOngoingHistoryResponse.postValue(response.body())
+            } else {
+                progressBarStatus.value = false
+                Log.d("TAG", response.body().toString())
+            }
         }
     }
 

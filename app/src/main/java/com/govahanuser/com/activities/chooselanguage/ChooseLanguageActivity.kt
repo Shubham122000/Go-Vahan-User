@@ -1,16 +1,16 @@
-package com.govahan.com.activities.chooselanguage
+package com.govahanuser.com.activities.chooselanguage
 
 import android.content.Intent
  import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.DashboardActivity
-import com.govahan.com.activities.auth.login.LoginActivity
-import com.govahan.com.baseClasses.BaseActivity
- import com.govahan.com.databinding.ActivityChooseLanguageBinding
-import com.govahan.com.prefs.UserPref
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.DashboardActivity
+import com.govahanuser.com.activities.auth.login.LoginActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+ import com.govahanuser.com.databinding.ActivityChooseLanguageBinding
+import com.govahanuser.com.prefs.UserPref
 
 class ChooseLanguageActivity : BaseActivity() {
     lateinit var binding: ActivityChooseLanguageBinding

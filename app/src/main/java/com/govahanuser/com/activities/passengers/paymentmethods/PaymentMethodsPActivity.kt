@@ -1,11 +1,11 @@
-package com.govahan.com.activities.passengers.paymentmethods
+package com.govahanuser.com.activities.passengers.paymentmethods
 
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPaymentMethodsPactivityBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPaymentMethodsPactivityBinding
 
 class PaymentMethodsPActivity : BaseActivity() {
     private lateinit var binding : ActivityPaymentMethodsPactivityBinding

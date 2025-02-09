@@ -1,4 +1,4 @@
-package com.govahan.com.model.truckpricefor_get
+package com.govahanuser.com.model.truckpricefor_get
 
 import com.google.gson.annotations.SerializedName
 

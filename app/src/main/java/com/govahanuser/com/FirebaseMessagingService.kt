@@ -1,4 +1,4 @@
-package com.govahan.com
+package com.govahanuser.com
 
 import android.annotation.SuppressLint
 import android.app.Notification
@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.google.gson.Gson
-import com.govahan.com.R
+import com.govahanuser.com.R
 
 import kotlin.random.Random
 

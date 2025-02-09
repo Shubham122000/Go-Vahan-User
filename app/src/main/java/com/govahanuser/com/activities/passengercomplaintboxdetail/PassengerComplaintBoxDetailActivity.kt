@@ -1,16 +1,16 @@
-package com.govahan.com.activities.passengercomplaintboxdetail
+package com.govahanuser.com.activities.passengercomplaintboxdetail
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailViewModel
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPassengerComplaintBoxDetailBinding
-import com.govahan.com.model.passengerComplaintlistmodel.PassengerComplaintData
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailViewModel
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPassengerComplaintBoxDetailBinding
+import com.govahanuser.com.model.passengerComplaintlistmodel.PassengerComplaintData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 

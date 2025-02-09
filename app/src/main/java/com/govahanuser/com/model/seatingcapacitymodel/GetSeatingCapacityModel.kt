@@ -1,4 +1,4 @@
-package com.govahan.com.model.seatingcapacitymodel
+package com.govahanuser.com.model.seatingcapacitymodel
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.model.settingwhatsappmodel
+package com.govahanuser.com.model.settingwhatsappmodel
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.customclick.walletcustomclick
-import com.govahan.com.databinding.RowWalletListBinding
-import com.govahan.com.model.loaderwalletlistmodel.LoaderWalletListData
+import com.govahanuser.com.R
+import com.govahanuser.com.customclick.walletcustomclick
+import com.govahanuser.com.databinding.RowWalletListBinding
+import com.govahanuser.com.model.loaderwalletlistmodel.LoaderWalletListData
 
 class LoaderWalletAdapter (val list: List<LoaderWalletListData>,var wallet_customclick:walletcustomclick
 ) : RecyclerView.Adapter<LoaderWalletAdapter.ViewHolder>() {

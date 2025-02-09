@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.govahan.com.R
-import com.govahan.com.model.homebannermodel.HomeBannerData
+import com.govahanuser.com.R
+import com.govahanuser.com.model.homebannermodel.HomeBannerData
 import com.smarteist.autoimageslider.SliderViewAdapter
 
 

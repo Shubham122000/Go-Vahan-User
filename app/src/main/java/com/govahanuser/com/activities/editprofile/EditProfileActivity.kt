@@ -1,4 +1,4 @@
-package com.govahan.com.activities.editprofile
+package com.govahanuser.com.activities.editprofile
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -33,12 +33,12 @@ import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.util.CommonUtils
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.util.CommonUtils
+import com.govahanuser.com.util.toast
 import com.govahanpartner.com.permission.RequestPermission
-import com.govahan.com.databinding.ActivityEditProfileBinding
+import com.govahanuser.com.databinding.ActivityEditProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -406,7 +406,7 @@ class EditProfileActivity : BaseActivity() {
                     if (mPhotoFile != null) {
                         photoURICamera = FileProvider.getUriForFile(
                             this,
-                            "com.govahan.com.fileprovider",
+                            "com.govahanuser.com.fileprovider",
                             mPhotoFile!!
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURICamera)
@@ -460,7 +460,7 @@ class EditProfileActivity : BaseActivity() {
                     val photoURI: Uri =
                         FileProvider.getUriForFile(
                             this,
-                            "com.govahan.com.myUniquefileprovider",
+                            "com.govahanuser.com.myUniquefileprovider",
                             it
                         )
                     mPhotoFile = photoFile
@@ -543,7 +543,7 @@ class EditProfileActivity : BaseActivity() {
 
     private fun openSettings() {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-        val uri = Uri.fromParts("package", "com.govahan.com", null)
+        val uri = Uri.fromParts("package", "com.govahanuser.com", null)
         intent.data = uri
         startActivityForResult(intent, 101)
     }

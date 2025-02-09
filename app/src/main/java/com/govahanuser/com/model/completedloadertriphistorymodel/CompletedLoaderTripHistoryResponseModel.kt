@@ -1,4 +1,4 @@
-package com.govahan.com.model.completedloadertriphistorymodel
+package com.govahanuser.com.model.completedloadertriphistorymodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

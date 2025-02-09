@@ -1,4 +1,4 @@
-package com.govahan.com.activities
+package com.govahanuser.com.activities
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowWalletListBinding
-import com.govahan.com.util.DateFormat
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowWalletListBinding
+import com.govahanuser.com.util.DateFormat
 
 class TransactionAdapter (val list: ArrayList<TransactionReportData>
 ) : RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {

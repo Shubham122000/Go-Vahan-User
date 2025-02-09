@@ -1,4 +1,4 @@
-package com.govahan.com.activities.loadercompletedbookingdetails
+package com.govahanuser.com.activities.loadercompletedbookingdetails
 
 data class UploadDocumentsResponse(
     val `data`: UploadDocumentsData,

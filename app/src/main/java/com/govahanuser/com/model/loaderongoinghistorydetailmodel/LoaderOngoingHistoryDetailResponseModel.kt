@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderongoinghistorydetailmodel
+package com.govahanuser.com.model.loaderongoinghistorydetailmodel
 
 import com.google.gson.annotations.SerializedName
 

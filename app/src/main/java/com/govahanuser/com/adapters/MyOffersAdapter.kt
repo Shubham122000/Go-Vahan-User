@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.govahan.com.R
-import com.govahan.com.databinding.RowOffersBinding
-import com.govahan.com.model.myoffersmodel.MyOffersData
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowOffersBinding
+import com.govahanuser.com.model.myoffersmodel.MyOffersData
 
 class MyOffersAdapter (private val list: List<MyOffersData>
 ) : RecyclerView.Adapter<MyOffersAdapter.ViewHolder>() {

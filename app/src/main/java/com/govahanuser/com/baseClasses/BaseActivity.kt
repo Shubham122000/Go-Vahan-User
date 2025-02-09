@@ -1,4 +1,4 @@
-package com.govahan.com.baseClasses
+package com.govahanuser.com.baseClasses
 
 import android.app.Dialog
 import android.app.ProgressDialog
@@ -10,9 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import com.govahan.com.R
-import com.govahan.com.prefs.UserPref
-import com.govahan.com.util.Utils
+import com.govahanuser.com.R
+import com.govahanuser.com.prefs.UserPref
+import com.govahanuser.com.util.Utils
 import com.razorpay.PaymentData
 import dagger.Module
 import dagger.hilt.InstallIn

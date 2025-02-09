@@ -1,11 +1,11 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.govahan.com.fragment.loader.LoaderFragment
-import com.govahan.com.fragment.passenger.PassengerFragment
+import com.govahanuser.com.fragment.loader.LoaderFragment
+import com.govahanuser.com.fragment.passenger.PassengerFragment
 
 
 class ViewPagerAdapter(

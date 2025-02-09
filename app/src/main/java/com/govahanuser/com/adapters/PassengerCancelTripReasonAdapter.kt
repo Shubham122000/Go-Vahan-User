@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowCancellationReasonBinding
-import com.govahan.com.model.passengercancelreasonmodel.PassengerCancelReasonData
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowCancellationReasonBinding
+import com.govahanuser.com.model.passengercancelreasonmodel.PassengerCancelReasonData
 import java.util.ArrayList
 
 class PassengerCancelTripReasonAdapter (val context: Context,

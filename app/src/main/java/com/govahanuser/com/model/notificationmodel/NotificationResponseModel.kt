@@ -1,4 +1,4 @@
-package com.govahan.com.model.notificationmodel
+package com.govahanuser.com.model.notificationmodel
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.model.settingsmsemailmodel
+package com.govahanuser.com.model.settingsmsemailmodel
 
 import com.google.gson.annotations.SerializedName
 

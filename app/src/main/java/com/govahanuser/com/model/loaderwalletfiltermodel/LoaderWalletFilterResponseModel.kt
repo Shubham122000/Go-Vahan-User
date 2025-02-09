@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderwalletfiltermodel
+package com.govahanuser.com.model.loaderwalletfiltermodel
 
 
 data class LoaderWalletFilterResponseModel (

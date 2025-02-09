@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderwalletlistmodel
+package com.govahanuser.com.model.loaderwalletlistmodel
 
 data class LoaderWalletListResponseModel(
     var TotalAmount: String,

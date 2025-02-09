@@ -1,17 +1,17 @@
-package com.govahan.com.activities.wallet
+package com.govahanuser.com.activities.wallet
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.PaymentSuccessMsgResponse
-import com.govahan.com.model.WalletResponse
-import com.govahan.com.model.loaderaddwalletmodel.LoaderAddWalletResponseModel
-import com.govahan.com.model.loaderwalletfiltermodel.LoaderWalletFilterResponseModel
-import com.govahan.com.model.loaderwalletlistmodel.LoaderWalletListResponseModel
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.PaymentSuccessMsgResponse
+import com.govahanuser.com.model.WalletResponse
+import com.govahanuser.com.model.loaderaddwalletmodel.LoaderAddWalletResponseModel
+import com.govahanuser.com.model.loaderwalletfiltermodel.LoaderWalletFilterResponseModel
+import com.govahanuser.com.model.loaderwalletlistmodel.LoaderWalletListResponseModel
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

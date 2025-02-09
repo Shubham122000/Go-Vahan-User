@@ -1,4 +1,4 @@
-package com.govahan.com.model.searchauthorisedfranchisesmodel
+package com.govahanuser.com.model.searchauthorisedfranchisesmodel
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderaddwalletmodel
+package com.govahanuser.com.model.loaderaddwalletmodel
 
 import com.google.gson.annotations.SerializedName
 

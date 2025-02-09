@@ -1,4 +1,4 @@
-package com.govahan.com.activities.passengerCompletedBookingDetails
+package com.govahanuser.com.activities.passengerCompletedBookingDetails
 
 import android.content.Intent
 import android.net.Uri
@@ -8,18 +8,18 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.invoicesummaryloader.InvoiceSummaryDetailsViewModel
-import com.govahan.com.activities.invoicesummarypassenger.PassengerInvoiceSummaryDetailsViewModel
-import com.govahan.com.activities.loadercompletedbookingdetails.LoaderCompletedBookingDetailsViewModel
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.invoicesummaryloader.InvoiceSummaryDetailsViewModel
+import com.govahanuser.com.activities.invoicesummarypassenger.PassengerInvoiceSummaryDetailsViewModel
+import com.govahanuser.com.activities.loadercompletedbookingdetails.LoaderCompletedBookingDetailsViewModel
 
-import com.govahan.com.adapters.PassengerCancelTripReasonAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityPassengerCompletedBookingDetailsBinding
+import com.govahanuser.com.adapters.PassengerCancelTripReasonAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityPassengerCompletedBookingDetailsBinding
 
-import com.govahan.com.model.completedpassengertriphistorymodel.CompletedPassengerHistoryData
-import com.govahan.com.model.passengercancelreasonmodel.PassengerCancelReasonData
-import com.govahan.com.util.toast
+import com.govahanuser.com.model.completedpassengertriphistorymodel.CompletedPassengerHistoryData
+import com.govahanuser.com.model.passengercancelreasonmodel.PassengerCancelReasonData
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

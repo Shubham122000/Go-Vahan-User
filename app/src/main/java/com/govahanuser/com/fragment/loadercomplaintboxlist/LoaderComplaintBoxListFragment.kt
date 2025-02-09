@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.loadercomplaintboxlist
+package com.govahanuser.com.fragment.loadercomplaintboxlist
 
 import android.content.Intent
 import android.os.Build
@@ -12,12 +12,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailActivity
-import com.govahan.com.adapters.LoaderComplaintBoxAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.ActivityLoaderComplaintBoxListBinding
-import com.govahan.com.model.loaderComplaintlistmodel.LoaderComplaintData
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailActivity
+import com.govahanuser.com.adapters.LoaderComplaintBoxAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.ActivityLoaderComplaintBoxListBinding
+import com.govahanuser.com.model.loaderComplaintlistmodel.LoaderComplaintData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

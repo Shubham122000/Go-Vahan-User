@@ -1,11 +1,11 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.govahan.com.fragment.loaderBookingHistory.LoaderBookingHistoryFragment
-import com.govahan.com.fragment.passengerBookingHistory.PassengerBookingHistoryFragment
+import com.govahanuser.com.fragment.loaderBookingHistory.LoaderBookingHistoryFragment
+import com.govahanuser.com.fragment.passengerBookingHistory.PassengerBookingHistoryFragment
 
 class MainBookingHistoryViewPagerAdapter(
     fragmentManager: FragmentManager

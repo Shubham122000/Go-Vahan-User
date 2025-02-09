@@ -1,13 +1,13 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowTriphistoryListBinding
-import com.govahan.com.model.completedloadertriphistorymodel.CompletedLoaderHistoryData
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowTriphistoryListBinding
+import com.govahanuser.com.model.completedloadertriphistorymodel.CompletedLoaderHistoryData
 
 class CompletedLoaderTripHistoryAdapter (val list: List<CompletedLoaderHistoryData>,
                                          private val listener: OnClick

@@ -1,15 +1,15 @@
-package com.govahan.com.activities.bookvehicle
+package com.govahanuser.com.activities.bookvehicle
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.adapters.ViewPagerAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityBookAvehicleBinding
-import com.govahan.com.model.getfavouritelocation.GetFavouriteLocationData
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.ViewPagerAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityBookAvehicleBinding
+import com.govahanuser.com.model.getfavouritelocation.GetFavouriteLocationData
 import dagger.hilt.android.AndroidEntryPoint
 
 

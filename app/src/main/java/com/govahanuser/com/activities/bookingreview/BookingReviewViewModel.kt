@@ -1,16 +1,16 @@
-package com.govahan.com.activities.bookingreview
+package com.govahanuser.com.activities.bookingreview
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.ChecksumResponse
-import com.govahan.com.model.PaymentSuccessMsgResponse
-import com.govahan.com.model.RazorpaystatusResponse
-import com.govahan.com.model.bookingloadermodel.BookingLoaderResponseModel
-import com.govahan.com.model.bookingreviewget.BookingReviewModel
-import com.govahan.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessResponseModel
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.ChecksumResponse
+import com.govahanuser.com.model.PaymentSuccessMsgResponse
+import com.govahanuser.com.model.RazorpaystatusResponse
+import com.govahanuser.com.model.bookingloadermodel.BookingLoaderResponseModel
+import com.govahanuser.com.model.bookingreviewget.BookingReviewModel
+import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessResponseModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

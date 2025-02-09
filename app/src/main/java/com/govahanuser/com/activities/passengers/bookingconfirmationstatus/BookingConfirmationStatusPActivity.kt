@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.activities.DashboardActivity
-import com.govahan.com.activities.passengers.passengerbookingreview.BookingReviewPActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityBookingConfirmationStatusPactivityBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.DashboardActivity
+import com.govahanuser.com.activities.passengers.passengerbookingreview.BookingReviewPActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityBookingConfirmationStatusPactivityBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 

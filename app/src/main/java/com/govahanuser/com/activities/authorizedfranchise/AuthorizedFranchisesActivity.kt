@@ -1,4 +1,4 @@
-package com.govahan.com.activities.authorizedfranchise
+package com.govahanuser.com.activities.authorizedfranchise
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,17 +10,17 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.adapters.AuthorizedFranchiseAdapter
-import com.govahan.com.adapters.SearchAuthorizedFranchiseAdapter
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.customclick.franchiseclick
-import com.govahan.com.databinding.ActivityAuthorizedFranchisesBinding
-import com.govahan.com.model.authorisedFranchisesDisttListModel.FranchisesDisttData
-import com.govahan.com.model.authorisedFranchisesPincodeListModel.FranchisesPinCodeData
-import com.govahan.com.model.authorisedFranchisesStateListModel.FranchisesStateData
-import com.govahan.com.model.authorizedfranchisesmodel.AuthorizedFranchisesData
-import com.govahan.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesData
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.AuthorizedFranchiseAdapter
+import com.govahanuser.com.adapters.SearchAuthorizedFranchiseAdapter
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.customclick.franchiseclick
+import com.govahanuser.com.databinding.ActivityAuthorizedFranchisesBinding
+import com.govahanuser.com.model.authorisedFranchisesDisttListModel.FranchisesDisttData
+import com.govahanuser.com.model.authorisedFranchisesPincodeListModel.FranchisesPinCodeData
+import com.govahanuser.com.model.authorisedFranchisesStateListModel.FranchisesStateData
+import com.govahanuser.com.model.authorizedfranchisesmodel.AuthorizedFranchisesData
+import com.govahanuser.com.model.searchauthorisedfranchisesmodel.SearchAuthorisedFranchisesData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 

@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderComplaintlistmodel
+package com.govahanuser.com.model.loaderComplaintlistmodel
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

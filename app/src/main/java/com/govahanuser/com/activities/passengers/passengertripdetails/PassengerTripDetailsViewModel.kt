@@ -1,15 +1,15 @@
-package com.govahan.com.activities.passengers.passengertripdetails
+package com.govahanuser.com.activities.passengers.passengertripdetails
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.govahan.com.data.MainRepository
-import com.govahan.com.model.passengercancelreasonmodel.PassengerCancelReasonListResponseModel
-import com.govahan.com.model.passengercanceltripmodel.PassengerTripCancelResponseModel
-import com.govahan.com.model.passengertripmanagementmodel.PassengerTripManagementDetailResponse
-import com.govahan.com.util.Utils
+import com.govahanuser.com.data.MainRepository
+import com.govahanuser.com.model.passengercancelreasonmodel.PassengerCancelReasonListResponseModel
+import com.govahanuser.com.model.passengercanceltripmodel.PassengerTripCancelResponseModel
+import com.govahanuser.com.model.passengertripmanagementmodel.PassengerTripManagementDetailResponse
+import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch

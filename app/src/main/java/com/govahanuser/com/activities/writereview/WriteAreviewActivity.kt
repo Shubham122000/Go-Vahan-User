@@ -1,13 +1,13 @@
-package com.govahan.com.activities.writereview
+package com.govahanuser.com.activities.writereview
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.govahan.com.R
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityWriteAreviewBinding
-import com.govahan.com.util.toast
+import com.govahanuser.com.R
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityWriteAreviewBinding
+import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

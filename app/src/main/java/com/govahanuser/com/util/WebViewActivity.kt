@@ -1,10 +1,10 @@
-package com.govahan.com.util
+package com.govahanuser.com.util
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.govahan.com.R
+import com.govahanuser.com.R
 
 
 class WebViewActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.govahan.com.activities
+package com.govahanuser.com.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,10 +10,10 @@ import androidx.databinding.DataBindingUtil
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
-import com.govahan.com.R
-import com.govahan.com.activities.auth.login.LoginActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivityHomeBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.activities.auth.login.LoginActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivityHomeBinding
 
 import dagger.hilt.android.AndroidEntryPoint
 

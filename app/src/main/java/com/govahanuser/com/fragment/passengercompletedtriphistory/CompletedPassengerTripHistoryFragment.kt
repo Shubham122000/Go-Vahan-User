@@ -1,4 +1,4 @@
-package com.govahan.com.fragment.passengercompletedtriphistory
+package com.govahanuser.com.fragment.passengercompletedtriphistory
 
 import android.content.ContentValues
 import android.os.Bundle
@@ -11,11 +11,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.govahan.com.R
-import com.govahan.com.adapters.CompletedPassengerTripHistoryAdapter
-import com.govahan.com.baseClasses.BaseFragment
-import com.govahan.com.databinding.FragmentCompletedPassengerTripHistoryBinding
-import com.govahan.com.model.completedpassengertriphistorymodel.CompletedPassengerHistoryData
+import com.govahanuser.com.R
+import com.govahanuser.com.adapters.CompletedPassengerTripHistoryAdapter
+import com.govahanuser.com.baseClasses.BaseFragment
+import com.govahanuser.com.databinding.FragmentCompletedPassengerTripHistoryBinding
+import com.govahanuser.com.model.completedpassengertriphistorymodel.CompletedPassengerHistoryData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 

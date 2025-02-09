@@ -1,4 +1,4 @@
-package com.govahan.com.fcm
+package com.govahanuser.com.fcm
 
 class FirebasePushResponse (
     val image: String,

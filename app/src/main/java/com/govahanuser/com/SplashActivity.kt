@@ -1,4 +1,4 @@
-package com.govahan.com
+package com.govahanuser.com
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import com.govahan.com.activities.DashboardActivity
-import com.govahan.com.activities.chooselanguage.ChooseLanguageActivity
-import com.govahan.com.baseClasses.BaseActivity
-import com.govahan.com.databinding.ActivitySplashBinding
-import com.govahan.com.prefs.UserPref
+import com.govahanuser.com.activities.DashboardActivity
+import com.govahanuser.com.activities.chooselanguage.ChooseLanguageActivity
+import com.govahanuser.com.baseClasses.BaseActivity
+import com.govahanuser.com.databinding.ActivitySplashBinding
+import com.govahanuser.com.prefs.UserPref
 import kotlinx.coroutines.*
 
 class SplashActivity : BaseActivity() {

@@ -1,4 +1,4 @@
-package com.govahan.com.model.trucknooftyreget
+package com.govahanuser.com.model.trucknooftyreget
 
 import com.google.gson.annotations.SerializedName
 

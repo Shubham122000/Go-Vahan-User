@@ -1,4 +1,4 @@
-package com.govahan.com.model
+package com.govahanuser.com.model
 
 data class EditProfileResponse(
     val `data`: EditProfileData,

@@ -1,4 +1,4 @@
-package com.govahan.com.adapters
+package com.govahanuser.com.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.govahan.com.R
-import com.govahan.com.databinding.RowTermsLayoutBinding
+import com.govahanuser.com.R
+import com.govahanuser.com.databinding.RowTermsLayoutBinding
 
 class TermsAdapter (val context : Context, val list: List<String>) : RecyclerView.Adapter<TermsAdapter.ViewHolder>() {
     private var listener: OnItemClickListener? = null

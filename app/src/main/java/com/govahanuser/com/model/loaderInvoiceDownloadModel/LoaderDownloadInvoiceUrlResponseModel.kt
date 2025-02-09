@@ -1,4 +1,4 @@
-package com.govahan.com.model.loaderInvoiceDownloadModel
+package com.govahanuser.com.model.loaderInvoiceDownloadModel
 
 import com.google.gson.annotations.SerializedName
 
