@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.govahanuser.com.data.MainRepository
 import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderTripHistoryResponseModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -19,7 +21,7 @@ import javax.inject.Inject
 class LoaderBookingHistoryFragmentViewModel @Inject constructor(private val mainRepository: MainRepository, private val utils : Utils, @ApplicationContext val context: Context): ViewModel() {
 
     val progressBarStatus = MutableLiveData<Boolean>()
-    val getLoaderOngoingHistoryResponse = MutableLiveData<OngoingLoaderTripHistoryResponseModel>()
+    val getLoaderOngoingHistoryResponse = MutableLiveData<LoaderTripManagementResponseModel>()
 
 
     fun loaderOngoingBookingTripHistoryApi(token: String) {
@@ -53,16 +55,4 @@ class LoaderBookingHistoryFragmentViewModel @Inject constructor(private val main
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

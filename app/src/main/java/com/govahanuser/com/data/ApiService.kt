@@ -404,15 +404,15 @@ interface ApiService {
   //  @FormUrlEncoded
     @GET("ongoing_booking_history_loader")
     suspend fun loaderOngoingBookingTripHistoryApi(@Header("Authorization") token : String
-    ) : Response<OngoingLoaderTripHistoryResponseModel>
+    ) : Response<LoaderTripManagementResponseModel>
 
     @FormUrlEncoded
-    @POST("get_upcoming_bookings")
+    @POST("get_upcoming_bookings_for_user")
     suspend fun UpcomingsTripHistory(
         @Header("Authorization") authorization: String,
         @Field("for_passenger") forPassenger :String,
         @Field("booking_status") bookingStatus :String,
-    ): Response<OngoingLoaderTripHistoryResponseModel>
+    ): Response<LoaderTripManagementResponseModel>
 
     //  @FormUrlEncoded
     @GET("pending_booking_history_loader")
@@ -592,10 +592,10 @@ interface ApiService {
     ) : Response<LoaderWalletFilterResponseModel>
 
     @FormUrlEncoded
-    @POST("loader_add_raise_complaint")
-    suspend fun loaderAddRaiseComplaintApi(@Header("Authorization") token : String,
+    @POST("raise_complaint")
+    suspend fun raiseComplaintApi(@Header("Authorization") token : String,
                                         @Field("booking_id") booking_id : String,
-                                        @Field("com_message") com_message : String
+                                        @Field("message") com_message : String
     ) : Response<LoaderAddRaiseComplaintResponseModel>
 
     @FormUrlEncoded
@@ -606,8 +606,8 @@ interface ApiService {
     ) : Response<LoaderAddRaiseComplaintResponseModel>
 
     //  @FormUrlEncoded
-    @GET("loader_raise_complaint_list")
-    suspend fun loaderComplaintListApi(@Header("Authorization") token : String
+    @GET("raise_complaint_list")
+    suspend fun raiseComplaintList(@Header("Authorization") token : String
     ) : Response<LoaderComplaintListResponseModel>
 
     @GET("user_online_transaction_history")
@@ -621,8 +621,8 @@ interface ApiService {
     ) : Response<LoaderComplaintListDetailResponseModel>
 
     @FormUrlEncoded
-    @POST("loader_live_tracking")
-    suspend fun loaderLiveTrackingApi(@Header("Authorization") token : String,
+    @POST("booking_tracking")
+    suspend fun bookingTracking(@Header("Authorization") token : String,
                                              @Field("booking_id") booking_id : String
     ) : Response<LoaderLiveTrackingResponseModel>
 

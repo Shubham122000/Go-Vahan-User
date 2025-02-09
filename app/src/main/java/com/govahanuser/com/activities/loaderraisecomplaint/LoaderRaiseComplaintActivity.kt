@@ -82,7 +82,7 @@ class LoaderRaiseComplaintActivity : BaseActivity() {
                 toast(this , "Please enter your complaint.")
             }
             else{
-                viewModel.loaderAddRaiseComplaintApi(
+                viewModel.raiseComplaintApi(
                     "Bearer " + userPref.user.apiToken,getBookingId.toString(),
                     binding.etComplaint.text.toString()
                 )

@@ -26,11 +26,11 @@ class LoaderComplaintBoxListViewModel  @Inject constructor(private val mainRepos
 
 
 
-    fun loaderComplaintListApi(token: String) {
+    fun raiseComplaintList(token: String) {
         progressBarStatus.value = true
         try {
             viewModelScope.launch {
-                val response = mainRepository.loaderComplaintListApi(
+                val response = mainRepository.raiseComplaintList(
                     token
                 )
                 if (response.isSuccessful) {

@@ -47,27 +47,27 @@ class LoaderTrackTruckDriverActivity : BaseActivity() {
         }
 
         viewModel.loaderLiveTrackingResponseModel.observe(this) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 toast(it.message!!)
                // finish()
-                binding.tvTruckName.text = it.data?.vehicleName
-                binding.tvWheeler.text = "${it.data?.capacity} Tons"
-                binding.tvTruckNumber.text = it.data?.vehicleNumbers
-                binding.tvDriverName.text = it.data?.driverName
+                binding.tvTruckName.text = it.result?.data?.tripDetails?.vehicle?.vehicleName
+                binding.tvWheeler.text = "${it.result?.data?.tripDetails?.vehicle?.capacity} Tons"
+                binding.tvTruckNumber.text = it.result?.data?.tripDetails?.vehicle?.vehicleNumber
+                binding.tvDriverName.text = it.result?.data?.tripDetails?.driver?.name
 //                binding.tvDriverType.text = it.data.booking_details[0].driver_name
-                binding.tvDrivePhone.text = it.data?.mobile
-                binding.tvFrom.text = it.data?.picupLocation
+                binding.tvDrivePhone.text = it.result?.data?.tripDetails?.driver?.mobileNumber
+                binding.tvFrom.text = it.result?.data?.tripDetails?.fromTrip
 //                binding.tvFromdate.text = DateFormat.TimeFormat(it.data?.from)
-                binding.tvTo.text = it.data?.dropLocation
-                binding.tvTodate.text = DateFormat.TimeFormat(it.data?.bookingDate)
-                binding.tvTripStartedDate.text = "${it.expectedDeliverDate?.date}(${it.expectedDeliverDate?.time})"
-                binding.tvTimeLeft.text = DateFormat.TimeFormat(it.data?.bookingDate) + " left to reach destination"
-                Glide.with(this).load(it.data?.vehicleImage).into(binding.ivTruck)
-                Glide.with(this).load(it.data?.driverImage).into(binding.ivDriver)
+                binding.tvTo.text = it.result?.data?.tripDetails?.toTrip
+                binding.tvTodate.text = DateFormat.TimeFormat(it.result?.data?.tripDetails?.bookingDateFrom)
+                binding.tvTripStartedDate.text = "${it.result?.data?.tripDetails?.bookingDateFrom}(${it.result?.estimatedTime})"
+                binding.tvTimeLeft.text = DateFormat.TimeFormat(it.result?.data?.tripDetails?.bookingDateFrom) + " left to reach destination"
+                Glide.with(this).load(it.result?.data?.tripDetails?.vehicle?.vehicleImage).into(binding.ivTruck)
+                Glide.with(this).load(it.result?.data?.tripDetails?.driver?.profileImage).into(binding.ivDriver)
 
                 //     1=>pending, 2=>accepted, 3=>cancel, 4=> Completed
 
-                if(it.data?.bookingStatus.toString().equals("1"))
+                if(it.result?.data?.status.toString().equals("1"))
                 {
                     binding.tvStatus1.text = "Trip not started."
                     binding.tvStatus1.setTextColor(resources.getColor(R.color.theme_yellow))
@@ -75,7 +75,7 @@ class LoaderTrackTruckDriverActivity : BaseActivity() {
                     binding.vw1.setBackgroundColor(Color.parseColor("#eb8900"))
 
                 }
-                else if(it.data?.bookingStatus.toString().equals("2"))
+                else if(it.result?.data?.status.toString().equals("2"))
                 {
                     binding.tvStatus1.setTextColor(resources.getColor(R.color.theme_yellow))
                     binding.tvStatus2.setTextColor(resources.getColor(R.color.theme_yellow))
@@ -84,7 +84,7 @@ class LoaderTrackTruckDriverActivity : BaseActivity() {
                     binding.vw1.setBackgroundColor(Color.parseColor("#eb8900"))
                     binding.vw2.setBackgroundColor(Color.parseColor("#eb8900"))
                 }
-                else if(it.data?.bookingStatus.toString().equals("4"))
+                else if(it.result?.data?.status.toString().equals("4"))
                 {
                     binding.tvStatus1.setTextColor(resources.getColor(R.color.theme_yellow))
                     binding.tvStatus2.setTextColor(resources.getColor(R.color.theme_yellow))
@@ -106,7 +106,7 @@ class LoaderTrackTruckDriverActivity : BaseActivity() {
 
 
 
-        viewModel.loaderLiveTrackingApi(
+        viewModel.bookingTracking(
             "Bearer " + userPref.user.apiToken,getBookingId.toString()
         )
 

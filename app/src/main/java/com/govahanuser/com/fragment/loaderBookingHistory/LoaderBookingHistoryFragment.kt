@@ -28,6 +28,8 @@ import com.govahanuser.com.fragment.loaderongoingtriphistory.LoaderOngoingTripHi
 import com.govahanuser.com.model.cancelledloadertriphistorymodel.CancelledLoaderTripHistoryData
 import com.govahanuser.com.model.completedloadertriphistorymodel.CompletedLoaderHistoryData
 import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -39,7 +41,7 @@ class LoaderBookingHistoryFragment : BaseFragment(), OngoingLoaderTripHistoryAda
     var selectedItem = ""
     private val viewModelOngoingLoader : LoaderOngoingTripHistoryFragmentViewModel by viewModels()
     private var ongoingTripHistoryAdapter : OngoingLoaderTripHistoryAdapter ?= null
-    private var listDataOngoingLoader: ArrayList<OngoingLoaderHistoryData> = ArrayList()
+    private var listDataOngoingLoader: ArrayList<LoaderTripManagementData> = ArrayList()
 
     private val viewModelCompletedLoader : LoaderCompletedTripHistoryFragmentViewModel by viewModels()
     private var completedTripHistoryAdapter : CompletedLoaderTripHistoryAdapter?= null
@@ -103,11 +105,11 @@ class LoaderBookingHistoryFragment : BaseFragment(), OngoingLoaderTripHistoryAda
         }
 
         viewModelOngoingLoader.getLoaderOngoingHistoryResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 listDataOngoingLoader.clear()
                 // listData!!.addAll(it.getFavLocdata)
 
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvOngoing.visibility = View.GONE
 
@@ -115,7 +117,7 @@ class LoaderBookingHistoryFragment : BaseFragment(), OngoingLoaderTripHistoryAda
                 else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvOngoing.visibility = View.VISIBLE
-                    listDataOngoingLoader.addAll(it.data)
+                    it.result?.data?.let { it1 -> listDataOngoingLoader.addAll(it1) }
                     ongoingTripHistoryAdapter = OngoingLoaderTripHistoryAdapter(listDataOngoingLoader,this@LoaderBookingHistoryFragment)
                     binding.rvOngoing.apply {
                         adapter = ongoingTripHistoryAdapter
@@ -219,7 +221,7 @@ class LoaderBookingHistoryFragment : BaseFragment(), OngoingLoaderTripHistoryAda
         binding.tabLayout.setupWithViewPager(binding.viewPager)
     }*/
 
-    override fun onDetailClicked(ongoingLoaderHistoryData: OngoingLoaderHistoryData) {
+    override fun onDetailClicked(ongoingLoaderHistoryData: LoaderTripManagementData) {
         startActivity(Intent(requireContext(), LoaderOngoingBookingDetailsActivity :: class.java).also {
             it.putExtra("loaderOngoingHistoryDetails", ongoingLoaderHistoryData)
 

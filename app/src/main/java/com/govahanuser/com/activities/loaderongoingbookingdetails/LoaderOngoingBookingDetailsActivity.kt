@@ -23,23 +23,21 @@ import com.govahanuser.com.databinding.BottomSheetCancelTripBinding
 import com.govahanuser.com.databinding.BottomSheetRidecancellationBinding
 import com.govahanuser.com.model.loadercancelreasonmodel.LoaderCancelReasonData
 import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoaderOngoingBookingDetailsActivity : BaseActivity() {
     private lateinit var binding : ActivityBookingDetailsBinding
-    private var selectedLoaderOngoingHistoryData: OngoingLoaderHistoryData? = null
+    private var selectedLoaderOngoingHistoryData: LoaderTripManagementData? = null
     private val viewModel: LoaderOngoingBookingDetailsViewModel by viewModels()
-
-
     private var listData: ArrayList<LoaderCancelReasonData> = ArrayList()
     private var loaderCancelReasonAdapter: LoaderCancelTripReasonAdapter? = null
     var crnNumber = ""
     private var listReasonType_id:ArrayList<String> = ArrayList()
     var reasontypevalue_id: String? = ""
     private lateinit var str: String
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,12 +52,10 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         binding.header.tvHeaderText.setText("Booking Details")
 
         binding.btnTracktruck.setOnClickListener(View.OnClickListener {
-
             val intent = Intent(this, LoaderTrackTruckDriverActivity::class.java)
             intent.putExtra("BookingId", selectedLoaderOngoingHistoryData?.bookingId!!.toString())
             startActivity(intent)
         })
-
 
         binding.btnRaiseComplaint.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, LoaderRaiseComplaintActivity::class.java)
@@ -68,9 +64,7 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         })
 
         val data = intent.extras
-        selectedLoaderOngoingHistoryData = data?.getParcelable<OngoingLoaderHistoryData>("loaderOngoingHistoryDetails")
-
-        Log.d("TAG___", "onCreate: " + selectedLoaderOngoingHistoryData!!.bookingId.toString())
+        selectedLoaderOngoingHistoryData = data?.getParcelable<LoaderTripManagementData>("loaderOngoingHistoryDetails")
 
         viewModel.progressBarStatus.observe(this) {
             if (it) {
@@ -80,40 +74,40 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
             }
         }
 
-        viewModel.loaderOngoingHistoryDetailResponse.observe(this) {
-            if (it.status == 1) {
-                // toast("booking Successful")
-                try {
-                    if (it.data == null) {
-                        toast("no data")
-                    } else {
+//        viewModel.loaderOngoingHistoryDetailResponse.observe(this) {
+//            if (it.status == 1) {
+//                // toast("booking Successful")
+//                try {
+//                    if (it.data == null) {
+//                        toast("no data")
+//                    } else {
 //                        toast(it.message)
-                        binding.tvBookingId.text = it.data?.bookingId
+                        binding.tvBookingId.text = selectedLoaderOngoingHistoryData?.bookingId
                         binding.tvTripStatus.text = "Ongoing"
-                        binding.tvTotalfare.text = "₹" + it.data?.fare.toString()
-                        binding.tvDate.text = it.data?.bookingDate
-                        binding.tvPickup.text = it.data?.picupLocation
-                        binding.tvDropoff.text = it.data?.dropLocation
-                        binding.tvVehicleType.text = it.data?.vehicleName
-                        binding.tvBodyType.text = it.data?.bodyType
-                        binding.tvVehicleNumber.text = it.data?.vehicleNumbers
-                        binding.tvTotalLoads.text = it.data?.capacity
+                        binding.tvTotalfare.text = "₹ ${selectedLoaderOngoingHistoryData?.tripDetails?.freightAmount.toString()}"
+                        binding.tvDate.text = selectedLoaderOngoingHistoryData?.tripDetails?.bookingDateTo
+                        binding.tvPickup.text = selectedLoaderOngoingHistoryData?.tripDetails?.fromTrip
+                        binding.tvDropoff.text = selectedLoaderOngoingHistoryData?.tripDetails?.toTrip
+                        binding.tvVehicleType.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleName
+                        binding.tvBodyType.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.bodyType?.name
+                        binding.tvVehicleNumber.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleNumber
+                        binding.tvTotalLoads.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.capacity
 
-                        if (it.data?.paymentMode.equals("1")) {
+                        if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
                             binding.tvPaymentMethod.setText("Cash")
-                        } else if (it.data?.paymentMode.equals("2")) {
+                        } else if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("2")) {
                             binding.tvPaymentMethod.setText("Online")
                         } else {
                             binding.tvPaymentMethod.setText("Wallet")
                         }
 
-                        binding.tvDriverName.text = it.ownerDetails?.name
-                        binding.tvDriverPhone.text = it.ownerDetails?.mobile
-                        binding.tvPartyName.text = it.ownerDetails?.name
-                        binding.tvPartyNumber.text = it.ownerDetails?.mobile
-                        binding.tvUseremail.text = it.userDetails?.email
-                        binding.tvUsername.text = it.userDetails?.name
-                        binding.tvUserphone.text = it.userDetails?.mobileNumber
+                        binding.tvDriverName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
+                        binding.tvDriverPhone.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.mobileNumber
+                        binding.tvPartyName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
+                        binding.tvPartyNumber.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
+                        binding.tvUseremail.text = selectedLoaderOngoingHistoryData?.tripDetails?.user?.email
+                        binding.tvUsername.text = selectedLoaderOngoingHistoryData?.tripDetails?.user?.name
+                        binding.tvUserphone.text = selectedLoaderOngoingHistoryData?.tripDetails?.user?.mobileNumber
 //                        binding.tvPartyName.text = it.data?.bookingTime.toString()
 
                         /*if(it.data[i].rideCancelStatus.toString().equals("0")){
@@ -124,29 +118,29 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
                         }*/
 
 
-                    }
+//                    }
 
 
 
-                    Log.d(
-                        TAG, "onCreatehis: " + "Bearer " + userPref.user.apiToken +
-                                selectedLoaderOngoingHistoryData?.bookingId!!
-                    )
-                }catch (e:Exception){
-                    e.printStackTrace()
-                }
+//                    Log.d(
+//                        TAG, "onCreatehis: " + "Bearer " + userPref.user.apiToken +
+//                                selectedLoaderOngoingHistoryData?.bookingId!!
+//                    )
+//                }catch (e:Exception){
+//                    e.printStackTrace()
+//                }
+//
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
 
-            } else {
-                toast(it.message!!)
-            }
-        }
+//        viewModel.loaderOngoingHistoryDetailApi(
+//            "Bearer " + userPref.user.apiToken,
+//            selectedLoaderOngoingHistoryData?.bookingId!!
+//        )
 
-        viewModel.loaderOngoingHistoryDetailApi(
-            "Bearer " + userPref.user.apiToken,
-            selectedLoaderOngoingHistoryData?.bookingId!!
-        )
-
-        viewModel.getLoaderCancelReasonListApi("Bearer " + userPref.user.apiToken)
+//        viewModel.getLoaderCancelReasonListApi("Bearer " + userPref.user.apiToken)
 
         binding.btnRaiseComplaint.setOnClickListener(View.OnClickListener {
 

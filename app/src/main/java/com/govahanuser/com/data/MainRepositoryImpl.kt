@@ -488,7 +488,7 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     override suspend fun loaderOngoingBookingTripHistoryApi(
         token: String
 
-    ): Response<OngoingLoaderTripHistoryResponseModel> =
+    ): Response<LoaderTripManagementResponseModel> =
         apiService.loaderOngoingBookingTripHistoryApi(token)
 
 
@@ -498,7 +498,7 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     ): Response<OngoingLoaderTripHistoryResponseModel> =
         apiService.loaderPendingBookingTripHistoryApi(token)
 
-    override suspend fun UpcomingsTripHistory(header: String, forPassenger :String, bookingStatus :String): Response<OngoingLoaderTripHistoryResponseModel> {
+    override suspend fun UpcomingsTripHistory(header: String, forPassenger :String, bookingStatus :String): Response<LoaderTripManagementResponseModel> {
         return apiService.UpcomingsTripHistory(header, forPassenger, bookingStatus)
     }
 
@@ -761,12 +761,12 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     ): Response<LoaderWalletFilterResponseModel> =
         apiService.loaderWalletFilterApi(token, date, transaction_type)
 
-    override suspend fun loaderAddRaiseComplaintApi(
+    override suspend fun raiseComplaintApi(
         token: String,
         booking_id: String,
         com_message: String
     ): Response<LoaderAddRaiseComplaintResponseModel> =
-        apiService.loaderAddRaiseComplaintApi(token, booking_id, com_message)
+        apiService.raiseComplaintApi(token, booking_id, com_message)
 
     override suspend fun complaint_resolved(
         token: String,
@@ -775,8 +775,8 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     ): Response<LoaderAddRaiseComplaintResponseModel> =
         apiService.complaint_resolved(token, id, type)
 
-    override suspend fun loaderComplaintListApi(token: String): Response<LoaderComplaintListResponseModel> =
-        apiService.loaderComplaintListApi(token)
+    override suspend fun raiseComplaintList(token: String): Response<LoaderComplaintListResponseModel> =
+        apiService.raiseComplaintList(token)
 
     override suspend fun user_online_transaction_historyApi(token: String): Response<TransactionReportResponse> =
         apiService.user_online_transaction_historyApi(token)
@@ -787,11 +787,11 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     ): Response<LoaderComplaintListDetailResponseModel> =
         apiService.loaderComplaintListDetailApi(token, booking_id)
 
-    override suspend fun loaderLiveTrackingApi(
+    override suspend fun bookingTracking(
         token: String,
         booking_id: String
     ): Response<LoaderLiveTrackingResponseModel> =
-        apiService.loaderLiveTrackingApi(token, booking_id)
+        apiService.bookingTracking(token, booking_id)
 
     override suspend fun search_loader_driver_review(
         token: String,

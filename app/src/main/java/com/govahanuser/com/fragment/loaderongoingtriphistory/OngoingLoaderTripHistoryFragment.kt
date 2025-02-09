@@ -18,6 +18,8 @@ import com.govahanuser.com.adapters.OngoingLoaderTripHistoryAdapter
 import com.govahanuser.com.baseClasses.BaseFragment
 import com.govahanuser.com.databinding.FragmentOngoingTripHistoryBinding
 import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -28,7 +30,7 @@ class OngoingLoaderTripHistoryFragment : BaseFragment() , OngoingLoaderTripHisto
     val progressBarStatus = MutableLiveData<Boolean>()
    private val viewModel : LoaderOngoingTripHistoryFragmentViewModel by viewModels()
     private var ongoingTripHistoryAdapter : OngoingLoaderTripHistoryAdapter?= null
-    private var listData: ArrayList<OngoingLoaderHistoryData> = ArrayList()
+    private var listData: ArrayList<LoaderTripManagementData> = ArrayList()
 
 
 
@@ -64,11 +66,11 @@ class OngoingLoaderTripHistoryFragment : BaseFragment() , OngoingLoaderTripHisto
         }
 
         viewModel.getLoaderOngoingHistoryResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 listData.clear()
                 // listData!!.addAll(it.getFavLocdata)
 
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvOngoing.visibility = View.GONE
 
@@ -76,7 +78,7 @@ class OngoingLoaderTripHistoryFragment : BaseFragment() , OngoingLoaderTripHisto
                 else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvOngoing.visibility = View.VISIBLE
-                    listData.addAll(it.data)
+                    it.result?.let { it1 -> it1?.data?.let { it2 -> listData.addAll(it2) } }
                     ongoingTripHistoryAdapter = OngoingLoaderTripHistoryAdapter(listData,this@OngoingLoaderTripHistoryFragment)
                     binding.rvOngoing.apply {
                         adapter = ongoingTripHistoryAdapter
@@ -114,7 +116,7 @@ class OngoingLoaderTripHistoryFragment : BaseFragment() , OngoingLoaderTripHisto
 
 
 
-    override fun onDetailClicked(ongoingLoaderHistoryData: OngoingLoaderHistoryData) {
+    override fun onDetailClicked(ongoingLoaderHistoryData: LoaderTripManagementData) {
         startActivity(Intent(requireContext(), LoaderOngoingBookingDetailsActivity :: class.java).also {
             it.putExtra("loaderOngoingHistoryDetails", ongoingLoaderHistoryData)
 

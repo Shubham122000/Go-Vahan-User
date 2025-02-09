@@ -306,7 +306,7 @@ interface MainRepository {
   suspend fun loaderRideCompletedApi(token : String ,
                                               booking_id : String ) : Response<LoaderRideCompletedResponseModel>
 
-  suspend fun loaderOngoingBookingTripHistoryApi(token : String ) : Response<OngoingLoaderTripHistoryResponseModel>
+  suspend fun loaderOngoingBookingTripHistoryApi(token : String ) : Response<LoaderTripManagementResponseModel>
     suspend fun loaderPendingBookingTripHistoryApi(token: String): Response<OngoingLoaderTripHistoryResponseModel>
   suspend fun loaderCompletedBookingTripHistoryApi(token : String ) : Response<CompletedLoaderTripHistoryResponseModel>
 
@@ -388,16 +388,16 @@ interface MainRepository {
                                         amount : String) : Response<LoaderAddWalletResponseModel>
      suspend fun loaderWalletListApi(token: String,date:String,transaction_type: String): Response<LoaderWalletListResponseModel>
 
-    suspend fun UpcomingsTripHistory(header: String, forPassenger :String, bookingStatus :String): Response<OngoingLoaderTripHistoryResponseModel>
+    suspend fun UpcomingsTripHistory(header: String, forPassenger :String, bookingStatus :String): Response<LoaderTripManagementResponseModel>
      suspend fun user_online_transaction_historyApi(token: String): Response<TransactionReportResponse>
 
     suspend fun loaderWalletFilterApi(token : String , date : String ,transaction_type:String) : Response<LoaderWalletFilterResponseModel>
 
-    suspend fun loaderAddRaiseComplaintApi(token : String , booking_id : String , com_message : String ) : Response<LoaderAddRaiseComplaintResponseModel>
-    suspend fun loaderComplaintListApi(token : String ) : Response<LoaderComplaintListResponseModel>
+    suspend fun raiseComplaintApi(token : String , booking_id : String , com_message : String ) : Response<LoaderAddRaiseComplaintResponseModel>
+    suspend fun raiseComplaintList(token : String ) : Response<LoaderComplaintListResponseModel>
     suspend fun loaderComplaintListDetailApi(token : String , booking_id : String ) : Response<LoaderComplaintListDetailResponseModel>
 
-    suspend fun loaderLiveTrackingApi(token : String , booking_id : String ) : Response<LoaderLiveTrackingResponseModel>
+    suspend fun bookingTracking(token : String , booking_id : String ) : Response<LoaderLiveTrackingResponseModel>
 
     suspend fun passengerPaymentSuccessApi(token : String ,
                                         pick_up_location : String,

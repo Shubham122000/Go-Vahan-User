@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowTriphistoryListBinding
 import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 
 
-class OngoingLoaderTripHistoryAdapter (val list: List<OngoingLoaderHistoryData>,
+class OngoingLoaderTripHistoryAdapter (val list: List<LoaderTripManagementData>,
                                        private val listener: OnClick
 ) : RecyclerView.Adapter<OngoingLoaderTripHistoryAdapter.ViewHolder>() {
     inner  class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -32,14 +34,14 @@ class OngoingLoaderTripHistoryAdapter (val list: List<OngoingLoaderHistoryData>,
             context.startActivity(intent)
         })*/
 
-        holder.binding.tvDate.text = data.bookingDate
+//        holder.binding.tvDate.text = data.bookingDate
         holder.binding.tvTime.text = data.bookingTime
-        holder.binding.tvPartyname.text = data.partyName
+        holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
         holder.binding.tvUserName.text = data.bookingId
-        holder.binding.tvDetail.text = data.vehicleNumbers
-        holder.binding.tvFrom.text = data.picupLocation
-        holder.binding.tvTo.text = data.dropLocation
-        holder.binding.tvVehicleNumber.text = data.vehicleNumber
+        holder.binding.tvDetail.text = data.tripDetails?.vehicle?.vehicleName
+        holder.binding.tvFrom.text = data.tripDetails?.fromTrip
+        holder.binding.tvTo.text = data.tripDetails?.toTrip
+        holder.binding.tvVehicleNumber.text = data.tripDetails?.vehicle?.vehicleNumber
 
         holder.binding.linearItem.setOnClickListener(View.OnClickListener {
             listener.onDetailClicked(data)
@@ -56,7 +58,7 @@ class OngoingLoaderTripHistoryAdapter (val list: List<OngoingLoaderHistoryData>,
 
 
     interface OnClick{
-        fun onDetailClicked(ongoingLoaderHistoryData: OngoingLoaderHistoryData)
+        fun onDetailClicked(ongoingLoaderHistoryData: LoaderTripManagementData)
     }
 
 }

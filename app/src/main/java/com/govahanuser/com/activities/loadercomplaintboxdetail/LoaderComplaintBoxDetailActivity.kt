@@ -39,35 +39,34 @@ class LoaderComplaintBoxDetailActivity : BaseActivity() {
         val data = intent.extras
         loaderComplaintData = data?.getParcelable<LoaderComplaintData>("vehicleDetails")
 
-        viewModel.progressBarStatus.observe(this) {
-            if (it) {
-                showProgressDialog()
-            } else {
-                hideProgressDialog()
-            }
-        }
+//        viewModel.progressBarStatus.observe(this) {
+//            if (it) {
+//                showProgressDialog()
+//            } else {
+//                hideProgressDialog()
+//            }
+//        }
 
-        viewModel.loaderComplaintListDetailResponse.observe(this) {
-            if (it.status == 1) {
+//        viewModel.loaderComplaintListDetailResponse.observe(this) {
+//            if (it.status == 1) {
                 // toast("booking Successful")
-                toast(it.message!!)
-                binding.tvCompalintNumber.text = it.data[0].comMessage
-                binding.tvDate.text =  it.data[0].createdAt
-                binding.tvBookingid.text =  it.data[0].bookingId
-                binding.tvFrom.text = it.data[0].picupLocation
-                binding.tvTo.text = it.data[0].dropLocation
-                binding.tvTotalfare.text ="₹" + it.data[0].fare
-
-                binding.tvBookingDate.text = it.data[0].bookingDate
-                binding.tvBookingTime.text = it.data[0].bookingTime
-                binding.tvVehicleType.text = it.data[0].vehicleNumbers
-                binding.tvBodyType.text = it.data[0].bodyType
-                binding.tvVehicleNumber.text = it.data[0].vehicleNumbers
+//                toast(it.message!!)
+                binding.tvCompalintNumber.text = loaderComplaintData?.message.toString()
+//                binding.tvDate.text =  loaderComplaintData?.
+                binding.tvBookingid.text =  loaderComplaintData?.bookingId.toString()
+                binding.tvFrom.text = loaderComplaintData?.tripDetails?.fromTrip
+                binding.tvTo.text = loaderComplaintData?.tripDetails?.toTrip
+                binding.tvTotalfare.text ="₹" + loaderComplaintData?.tripDetails?.freightAmount.toString()
+                binding.tvBookingDate.text = loaderComplaintData?.tripDetails?.bookingDateFrom
+                binding.tvBookingTime.text = loaderComplaintData?.tripDetails?.time
+                binding.tvVehicleType.text = loaderComplaintData?.tripDetails?.vehicle?.vehicleName.toString()
+                binding.tvBodyType.text = loaderComplaintData?.tripDetails?.vehicle?.bodyType?.name.toString()
+                binding.tvVehicleNumber.text = loaderComplaintData?.tripDetails?.vehicle?.vehicleNumber.toString()
 //                binding.tvAdminRemarks.text = it.data[0].adminReply
-                if (it.data[0].confirmation==1){
+                if (loaderComplaintData?.confirmation==1){
                     binding.tvAdminRemarks.text = "Resolved"
                     binding.resolvedNotresolved.visibility = View.GONE
-                }else if (it.data[0].confirmation==2){
+                }else if (loaderComplaintData?.confirmation==2){
                     binding.tvAdminRemarks.text = "Not Resolved"
                 }
                 else{
@@ -75,14 +74,14 @@ class LoaderComplaintBoxDetailActivity : BaseActivity() {
                 }
 
 
-                binding.tvComplaintText.text = it.data[0].comMessage
-                binding.tvPaymentMethod.text = it.data[0].paymentMode
+                binding.tvComplaintText.text = loaderComplaintData?.message
+                binding.tvPaymentMethod.text = loaderComplaintData?.paymentDetails?.get(0)?.paymentMode
 
 
-            } else {
-                toast(it.message!!)
-            }
-        }
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
 
 
       viewModel.resolvedResponse.observe(this){

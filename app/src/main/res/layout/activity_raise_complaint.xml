@@ -87,12 +87,10 @@
                             android:id="@+id/et_subject"
                             android:paddingLeft="@dimen/_5sdp"
                             android:paddingRight="@dimen/_5sdp"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="0.2"
-                            android:background="@null"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="start"
                             android:textSize="@dimen/_12sdp"
@@ -106,15 +104,13 @@
 
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_150sdp"
-                        android:background="@drawable/edt_round_corner"
-                        android:backgroundTint="@color/lightgray"
-                        android:layout_margin="@dimen/_5sdp"
-
-                        android:gravity="center"
-                        android:orientation="horizontal">
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_150sdp"-->
+<!--                        android:background="@drawable/edt_round_corner"-->
+<!--                        android:layout_margin="@dimen/_5sdp"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
 
                         <EditText
                             android:id="@+id/et_complaint"
@@ -124,18 +120,16 @@
                             android:paddingTop="@dimen/_5sdp"
                             android:paddingBottom="@dimen/_5sdp"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="150dp"
                             android:layout_gravity="center_vertical"
+                            android:background="@drawable/edt_round_corner"
                             android:layout_weight="1"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="start"
-                            android:imeOptions="actionNext"
                             android:textSize="@dimen/_12sdp"
-                            app:hintAnimationEnabled="false"
-                            android:textColor="@color/black"
-                            app:hintEnabled="false" />
+                            android:textColor="@color/black" />
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
                 </LinearLayout>
 

@@ -49,34 +49,17 @@ class LoaderComplaintBoxListFragment : BaseFragment(), LoaderComplaintBoxAdapter
             }
         }
         viewModel.getLoaderComplaintListResponse.observe(requireActivity()) {
-            /*if (it.status == 1) {
-                loaderComplaintBoxAdapter =  LoaderComplaintBoxAdapter(it.data,
-                    this)
-
-                binding.rvComplaintBoxList.apply {
-                    adapter = loaderComplaintBoxAdapter
-                    layoutManager = LinearLayoutManager(requireContext())
-                }
-*/
-
-
-
-
-
-
-            if (it.status == 1) {
+            if (it.error == false) {
                 listData.clear()
                 // listData!!.addAll(it.getFavLocdata)
-
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvComplaintBoxList.visibility = View.GONE
-
                 }
                 else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvComplaintBoxList.visibility = View.VISIBLE
-                    listData.addAll(it.data)
+                    it.result?.data?.let { it1 -> listData.addAll(it1) }
                     loaderComplaintBoxAdapter = LoaderComplaintBoxAdapter(listData,this)
                     binding.rvComplaintBoxList.apply {
                         adapter = loaderComplaintBoxAdapter
@@ -85,39 +68,24 @@ class LoaderComplaintBoxListFragment : BaseFragment(), LoaderComplaintBoxAdapter
                         //    favouriteLocationsAdapter?.notifyDataSetChanged()
                     }
                 }
-
-
-
-
-
-
-
-
-
-
-
             } else {
                 Log.d("Response", it.toString())
                 toast(requireContext(),it.message!!)
             }
         }
-
-        viewModel.loaderComplaintListApi("Bearer " + userPref.user.apiToken)
-
-
+//        viewModel.raiseComplaintList("Bearer " + userPref.user.apiToken)
         return binding.root
     }
 
 
     override fun onResume() {
         super.onResume()
-        viewModel.loaderComplaintListApi("Bearer " + userPref.user.apiToken)
+        viewModel.raiseComplaintList("Bearer " + userPref.user.apiToken)
     }
 
     override fun onViewDetail(loaderComplaintData: LoaderComplaintData) {
         startActivity(Intent(requireContext(), LoaderComplaintBoxDetailActivity::class.java).also {
             it.putExtra("vehicleDetails", loaderComplaintData)
-
         })
     }
 

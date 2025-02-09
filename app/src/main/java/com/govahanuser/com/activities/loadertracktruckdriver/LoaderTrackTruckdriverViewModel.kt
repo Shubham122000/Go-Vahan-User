@@ -23,13 +23,13 @@ class LoaderTrackTruckdriverViewModel  @Inject constructor(private val mainRepos
 
 
 
-    fun loaderLiveTrackingApi(token: String,
+    fun bookingTracking(token: String,
                                    booking_id: String
     ) {
         progressBarStatus.value = true
         try {
         viewModelScope.launch {
-            val response = mainRepository.loaderLiveTrackingApi(
+            val response = mainRepository.bookingTracking(
                 token,
                 booking_id
             )

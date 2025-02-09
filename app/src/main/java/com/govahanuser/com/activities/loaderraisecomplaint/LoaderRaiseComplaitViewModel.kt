@@ -23,14 +23,14 @@ class LoaderRaiseComplaitViewModel  @Inject constructor(private val mainReposito
 
 
 
-    fun loaderAddRaiseComplaintApi(token: String,
+    fun raiseComplaintApi(token: String,
                                    booking_id: String,
                                    com_message: String
     ) {
         progressBarStatus.value = true
         try {
         viewModelScope.launch {
-            val response = mainRepository.loaderAddRaiseComplaintApi(
+            val response = mainRepository.raiseComplaintApi(
                 token,
                 booking_id, com_message
             )
