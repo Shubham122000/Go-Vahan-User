@@ -116,10 +116,10 @@ class LoaderWalletActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener,wa
         }
 
         viewModel.getLoaderWalletListResponse.observe(this) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 listData.clear()
-                binding.tvBalance.text = "₹${it.TotalAmount.toString()}"
-                if (it.data.isEmpty() ) {
+                binding.tvBalance.text = "₹${it.result?.totalAmount.toString()}"
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvWallet.visibility = View.GONE
                     binding.llDownload.visibility = View.GONE
@@ -128,7 +128,7 @@ class LoaderWalletActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener,wa
                     binding.idNouser.visibility = View.GONE
                     binding.rvWallet.visibility = View.VISIBLE
                     binding.llDownload.visibility = View.VISIBLE
-                    listData.addAll(it.data)
+                    it.result?.data?.let { it1 -> listData.addAll(it1) }
                     loaderWalletAdapter = LoaderWalletAdapter(listData,this)
                     binding.rvWallet.apply {
                         adapter = loaderWalletAdapter
@@ -147,11 +147,11 @@ class LoaderWalletActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener,wa
         }
 
         viewModel.downloadloaderlist.observe(this) {
-            if (it.status == 1) {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.url)))
+            if (it.error == false) {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.result?.url)))
                 toast("Invoice Downloaded successfully!")
             } else{
-                toast(it.message)
+                toast(it.message.toString())
             }
         }
 
@@ -363,7 +363,7 @@ class LoaderWalletActivity : BaseActivity(),PopupMenu.OnMenuItemClickListener,wa
 
     override fun onPaymentSuccess(p0: String?, p1: PaymentData?) {
         viewModel.add_my_wallet("Bearer " + userPref.user.apiToken,finalPamountInt.toString(),p1?.paymentId.toString())
-        Toast.makeText(this@LoaderWalletActivity, "Ho gai payment", Toast.LENGTH_LONG).show()
+        Toast.makeText(this@LoaderWalletActivity, "Payment successful.", Toast.LENGTH_LONG).show()
 
     }
 

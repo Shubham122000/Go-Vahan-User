@@ -393,7 +393,7 @@ interface MainRepository {
 
     suspend fun loaderWalletFilterApi(token : String , date : String ,transaction_type:String) : Response<LoaderWalletFilterResponseModel>
 
-    suspend fun raiseComplaintApi(token : String , booking_id : String , com_message : String ) : Response<LoaderAddRaiseComplaintResponseModel>
+    suspend fun raiseComplaintApi(token : String , booking_id : String,subject : String , com_message : String ) : Response<LoaderAddRaiseComplaintResponseModel>
     suspend fun raiseComplaintList(token : String ) : Response<LoaderComplaintListResponseModel>
     suspend fun loaderComplaintListDetailApi(token : String , booking_id : String ) : Response<LoaderComplaintListDetailResponseModel>
 

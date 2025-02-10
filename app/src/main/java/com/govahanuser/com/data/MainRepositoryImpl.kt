@@ -764,9 +764,10 @@ class MainRepositoryImpl @Inject constructor(private val apiService: ApiService)
     override suspend fun raiseComplaintApi(
         token: String,
         booking_id: String,
+        subject : String,
         com_message: String
     ): Response<LoaderAddRaiseComplaintResponseModel> =
-        apiService.raiseComplaintApi(token, booking_id, com_message)
+        apiService.raiseComplaintApi(token, booking_id,subject, com_message)
 
     override suspend fun complaint_resolved(
         token: String,

@@ -23,6 +23,7 @@ data class LoaderComplaintData (
     @SerializedName("id"              ) var id             : Int?                      = null,
     @SerializedName("user_id"         ) var userId         : Int?                      = null,
     @SerializedName("booking_id"      ) var bookingId      : String?                   = null,
+    @SerializedName("subject"         ) var subject        : String?                   = null,
     @SerializedName("message"         ) var message        : String?                   = null,
     @SerializedName("confirmation"    ) var confirmation   : Int?                      = null,
     @SerializedName("admin_reply"     ) var adminReply     : String?                   = null,

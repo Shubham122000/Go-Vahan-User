@@ -35,7 +35,7 @@ class LoaderComplaintBoxAdapter (private val list: List<LoaderComplaintData>,
 
         holder.binding.tvComplaintNumber.text = data.bookingId
         holder.binding.tvBookingid.text = data.bookingId
-        holder.binding.tvSubject.text = data.bookingId
+        holder.binding.tvSubject.text = data.subject
         holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
         holder.binding.tvFrom.text = data.tripDetails?.fromTrip
         holder.binding.tvTo.text = data.tripDetails?.toTrip

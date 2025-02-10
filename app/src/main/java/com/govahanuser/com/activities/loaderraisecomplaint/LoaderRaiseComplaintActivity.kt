@@ -84,6 +84,7 @@ class LoaderRaiseComplaintActivity : BaseActivity() {
             else{
                 viewModel.raiseComplaintApi(
                     "Bearer " + userPref.user.apiToken,getBookingId.toString(),
+                    binding.etSubject.text.toString(),
                     binding.etComplaint.text.toString()
                 )
             }

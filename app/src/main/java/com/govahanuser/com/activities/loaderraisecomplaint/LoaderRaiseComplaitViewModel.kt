@@ -24,15 +24,16 @@ class LoaderRaiseComplaitViewModel  @Inject constructor(private val mainReposito
 
 
     fun raiseComplaintApi(token: String,
-                                   booking_id: String,
-                                   com_message: String
+                          booking_id: String,
+                          subject : String,
+                          com_message: String
     ) {
         progressBarStatus.value = true
         try {
         viewModelScope.launch {
             val response = mainRepository.raiseComplaintApi(
                 token,
-                booking_id, com_message
+                booking_id,subject, com_message
             )
             if (response.isSuccessful) {
                 progressBarStatus.value = false

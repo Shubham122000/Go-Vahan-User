@@ -184,8 +184,8 @@ interface ApiService {
     suspend fun truckCapacityApi(@Header("Authorization") token : String): Response<TruckCapacityGetModel>
 
     @FormUrlEncoded
-    @POST("add_my_wallet")
-    suspend fun add_my_wallet(@Header("Authorization") token : String,@Field("amount") amount : String,@Field("transactionId") transactionId:String): Response<WalletResponse>
+    @POST("add_money")
+    suspend fun add_my_wallet(@Header("Authorization") token : String,@Field("amount") amount : String,@Field("transaction_id") transactionId:String,@Field("type") type:String = "1"): Response<WalletResponse>
 
 
 
@@ -574,13 +574,14 @@ interface ApiService {
 
     //  @FormUrlEncoded
     @FormUrlEncoded
-    @POST("my_wallet_list")
+    @POST("wallet_list")
     suspend fun loaderWalletListApi(
         @Header("Authorization") token : String,
         @Field("date") date : String,
         @Field("transaction_type") transaction_type : String
     ) : Response<LoaderWalletListResponseModel>
-    @GET("my_wallet_list_download")
+
+    @GET("wallet_list_download")
     suspend fun my_wallet_list_download(@Header("Authorization") token : String
     ) : Response<LoaderWalletListResponseModel>
 
@@ -595,6 +596,7 @@ interface ApiService {
     @POST("raise_complaint")
     suspend fun raiseComplaintApi(@Header("Authorization") token : String,
                                         @Field("booking_id") booking_id : String,
+                                        @Field("subject") subject : String,
                                         @Field("message") com_message : String
     ) : Response<LoaderAddRaiseComplaintResponseModel>
 

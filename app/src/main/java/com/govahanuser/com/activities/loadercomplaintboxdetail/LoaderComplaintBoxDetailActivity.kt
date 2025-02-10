@@ -52,7 +52,7 @@ class LoaderComplaintBoxDetailActivity : BaseActivity() {
                 // toast("booking Successful")
 //                toast(it.message!!)
                 binding.tvCompalintNumber.text = loaderComplaintData?.message.toString()
-//                binding.tvDate.text =  loaderComplaintData?.
+                binding.tvDate.text = loaderComplaintData?.tripDetails?.bookingDateFrom
                 binding.tvBookingid.text =  loaderComplaintData?.bookingId.toString()
                 binding.tvFrom.text = loaderComplaintData?.tripDetails?.fromTrip
                 binding.tvTo.text = loaderComplaintData?.tripDetails?.toTrip

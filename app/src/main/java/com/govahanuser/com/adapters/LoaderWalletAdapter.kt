@@ -27,46 +27,46 @@ class LoaderWalletAdapter (val list: List<LoaderWalletListData>,var wallet_custo
 
         val data = list[position]
         try {
-           holder.binding.transactionId.text=data.transaction_id
+           holder.binding.transactionId.text=data.transactionId.toString()
 
 
-             if(data.transaction_type =="1"){
-                if (data.referal_type ==1){
-                    holder.binding.tvName.text = "Refer amount"
+             if(data.transactionType =="1"){
+//                if (data.referal_type ==1){
+                    holder.binding.tvName.text = "Amount Credited"
                     holder.binding.tvAmount.text = "+₹${data.amount}"
                     holder.binding.tvAmount.setTextColor(Color.parseColor("#3CB878"))
-                }
-                else if(data.referal_type==2){
-                    holder.binding.tvName.text = "Refund amount."
-                    holder.binding.tvAmount.text = "+₹${data.amount}"
-                    holder.binding.tvAmount.setTextColor(Color.parseColor("#3CB878"))
-                }
-                else {
-                    holder.binding.tvName.text = "Money added to wallet"
-                    holder.binding.tvAmount.text = "+₹${data.amount}"
-                    holder.binding.tvAmount.setTextColor(Color.parseColor("#3CB878"))
-                }
+//                }
+//                else if(data.referal_type==2){
+//                    holder.binding.tvName.text = "Refund amount."
+//                    holder.binding.tvAmount.text = "+₹${data.amount}"
+//                    holder.binding.tvAmount.setTextColor(Color.parseColor("#3CB878"))
+//                }
+//                else {
+//                    holder.binding.tvName.text = "Money added to wallet"
+//                    holder.binding.tvAmount.text = "+₹${data.amount}"
+//                    holder.binding.tvAmount.setTextColor(Color.parseColor("#3CB878"))
+//                }
 
             } else{
-                if (data.transaction_type== "2") {
+//                if (data.transaction_type== "2") {
                     holder.binding.tvAmount.text = "-₹${data.amount}"
                     holder.binding.tvAmount.setTextColor(Color.parseColor("#FF0000"))
                     holder.binding.tvName.text = "Money Paid"
-                }
-                else {
-
-                }
+//                }
+//                else {
+//
+//                }
             }
 
 
-           holder.binding.tvDate.text = data.transaction_date
+           holder.binding.tvDate.text = data.transactionDate
            if (holder.binding.tvDate.text==""){
-               holder.binding.tvDate.text = data.create_at
+               holder.binding.tvDate.text = data.transactionDate
 
            }
 
            holder.binding.linearItem.setOnClickListener {
-               wallet_customclick.onItemClick(data.user_id.toString())
+               wallet_customclick.onItemClick(data.userId.toString())
 
            }
        }catch (e:Exception){
