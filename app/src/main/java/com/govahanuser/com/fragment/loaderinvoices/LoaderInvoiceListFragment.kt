@@ -18,6 +18,8 @@ import com.govahanuser.com.adapters.LoaderInvoiceListAdapter
 import com.govahanuser.com.baseClasses.BaseFragment
 import com.govahanuser.com.databinding.FragmentLoaderInvoiceListBinding
 import com.govahanuser.com.model.loaderinvoicelistmodel.LoaderInvoiceData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -27,7 +29,7 @@ class LoaderInvoiceListFragment : BaseFragment(), LoaderInvoiceListAdapter.OnCli
     private lateinit var binding : FragmentLoaderInvoiceListBinding
     private val viewModel : LoaderInvoiceListFragmentViewModel by viewModels()
     private var loaderInvoiceListAdapter : LoaderInvoiceListAdapter?= null
-    private var listData: ArrayList<LoaderInvoiceData> = ArrayList()
+    private var listData: ArrayList<LoaderTripManagementData> = ArrayList()
 
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -47,17 +49,17 @@ class LoaderInvoiceListFragment : BaseFragment(), LoaderInvoiceListAdapter.OnCli
             }
         }
 
-        viewModel.getLoaderInvoiceListResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+        viewModel.getLoaderOngoingHistoryResponse.observe(requireActivity()) {
+            if (it.error == false) {
                 listData.clear()
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvInvoicelist.visibility = View.GONE
                 }
                 else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvInvoicelist.visibility = View.VISIBLE
-                    listData.addAll(it.data)
+                    it.result?.data?.let { it1 -> listData.addAll(it1) }
                     loaderInvoiceListAdapter = LoaderInvoiceListAdapter(listData,this)
                     binding.rvInvoicelist.apply {
                         adapter = loaderInvoiceListAdapter
@@ -69,19 +71,19 @@ class LoaderInvoiceListFragment : BaseFragment(), LoaderInvoiceListAdapter.OnCli
                 toast(requireContext(),it.message!!)
             }
         }
-        viewModel.loaderInvoiceListApi("Bearer " + userPref.user.apiToken)
+        viewModel.UpComingsTripHistoryApi("Bearer " + userPref.user.apiToken,"1","4")
 
         return binding.root
     }
 
-    override fun onInvoiceClicked(loaderInvoiceData: LoaderInvoiceData) {
+    override fun onInvoiceClicked(loaderInvoiceData: LoaderTripManagementData) {
         startActivity(Intent(requireContext(), LoaderInvoiceSummaryActivity :: class.java).also {
-            it.putExtra("loaderInvoiceDetails", loaderInvoiceData.invoiceNumber.toString())
-            it.putExtra("loaderInvoiceBookingId", loaderInvoiceData.bookingId.toString())
+            it.putExtra("loaderInvoiceDetails", loaderInvoiceData)
+//            it.putExtra("loaderInvoiceBookingId", loaderInvoiceData.bookingId.toString())
 
         })
 
-        Log.d("TAG++", "onProceedClicked: "+loaderInvoiceData.invoiceNumber.toString())
+//        Log.d("TAG++", "onProceedClicked: "+loaderInvoiceData.invoiceNumber.toString())
 
     }
 

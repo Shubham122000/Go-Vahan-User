@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowInvoiceListBinding
 import com.govahanuser.com.model.loaderinvoicelistmodel.LoaderInvoiceData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 
 
-class LoaderInvoiceListAdapter (val list: List<LoaderInvoiceData>,
+class LoaderInvoiceListAdapter (val list: List<LoaderTripManagementData>,
                                 private val listener: OnClick
 ) : RecyclerView.Adapter<LoaderInvoiceListAdapter.ViewHolder>() {
 
@@ -35,10 +36,10 @@ class LoaderInvoiceListAdapter (val list: List<LoaderInvoiceData>,
         })*/
 
 
-        holder.binding.tvDate.text = data.bookingDate
-       holder.binding.tvInvoicenumber.text = data.invoiceNumber
-        holder.binding.tvFrom.text = data.picupLocation
-        holder.binding.tvTo.text = data.dropLocation
+        holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
+       holder.binding.tvInvoicenumber.text = data.paymentDetails.get(0).invoice
+        holder.binding.tvFrom.text = data.tripDetails?.fromTrip
+        holder.binding.tvTo.text = data.tripDetails?.toTrip
         holder.binding.tvBookingid.text = data.bookingId
 
 
@@ -58,7 +59,7 @@ class LoaderInvoiceListAdapter (val list: List<LoaderInvoiceData>,
 
 
     interface OnClick{
-        fun onInvoiceClicked(loaderInvoiceData: LoaderInvoiceData)
+        fun onInvoiceClicked(loaderInvoiceData: LoaderTripManagementData)
     }
 
 }

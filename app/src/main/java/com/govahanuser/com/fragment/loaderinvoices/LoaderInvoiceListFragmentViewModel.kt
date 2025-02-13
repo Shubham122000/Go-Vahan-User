@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.govahanuser.com.data.MainRepository
 import com.govahanuser.com.model.loaderinvoicelistmodel.LoaderInvoiceListResponseModel
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
 import com.govahanuser.com.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -20,8 +21,25 @@ class LoaderInvoiceListFragmentViewModel @Inject constructor(private val mainRep
 
     val progressBarStatus = MutableLiveData<Boolean>()
     val getLoaderInvoiceListResponse = MutableLiveData<LoaderInvoiceListResponseModel>()
+    val getLoaderOngoingHistoryResponse = MutableLiveData<LoaderTripManagementResponseModel>()
 
+    fun UpComingsTripHistoryApi(
+        token: String, forPassenger :String, bookingStatus :String
+    ) {
+        progressBarStatus.value = true
+        viewModelScope.launch {
 
+            val response =
+                mainRepository.UpcomingsTripHistory(token, forPassenger, bookingStatus)
+            if (response.isSuccessful) {
+                progressBarStatus.value = false
+                getLoaderOngoingHistoryResponse.postValue(response.body())
+            } else {
+                progressBarStatus.value = false
+                Log.d("TAG", response.body().toString())
+            }
+        }
+    }
     fun loaderInvoiceListApi(token: String) {
         progressBarStatus.value = true
         try {
