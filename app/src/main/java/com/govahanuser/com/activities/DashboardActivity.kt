@@ -488,6 +488,9 @@ class DashboardActivity : BaseActivity(),  NavigationView.OnNavigationItemSelect
     override fun onResume() {
         super.onResume()
         if(complete_profilee.equals("0")){
+
+        }
+        if (userPref.user.email.isNullOrEmpty() && userPref.user.name.isNullOrEmpty() && userPref.user.address.isNullOrEmpty()){
             completeDialog()
         }
         Glide.with(this).load(userPref.user.profileImage)

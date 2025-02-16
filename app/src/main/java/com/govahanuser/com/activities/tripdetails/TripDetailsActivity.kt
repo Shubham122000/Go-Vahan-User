@@ -217,8 +217,6 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
                 tvTo.text = selectedLoaderTripData.tripDetails?.toTrip
                 tvDriverNamee.text = selectedLoaderTripData.tripDetails?.driver?.name
 //                tvDriverRating.text = it.data[0].rating.toString()
-//                  binding.wheelerType.text = selectedLoaderTripData.tripDetails?.vehicle?.wheels?.wheel.toString()+" Wheeler"
-                // binding.tvRidesNumber.text = it.data[0].r
                 tvPickLocation.text =selectedLoaderTripData.tripDetails?.fromTrip
                 tvDropLocation.text = selectedLoaderTripData.tripDetails?.toTrip
                 tv_ridesNumber.text = selectedLoaderTripData.rideCode

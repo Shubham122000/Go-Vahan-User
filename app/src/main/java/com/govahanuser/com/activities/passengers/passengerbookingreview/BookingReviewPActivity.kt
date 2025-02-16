@@ -29,6 +29,7 @@ import com.govahanuser.com.model.passengerpaymentsuccessmodel.PassengerPaymentSu
 import com.govahanuser.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessOwner
 import com.govahanuser.com.model.passengerpaymentsuccessmodel.PassengerPaymentSuccessUser
 import com.govahanuser.com.model.searchPassengerVehicle.SearchPassengerData
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleData
 import com.govahanuser.com.util.toast
 import com.razorpay.PaymentData
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,7 +40,7 @@ import kotlin.collections.ArrayList
 @AndroidEntryPoint
 class BookingReviewPActivity : BaseActivity() {
     private lateinit var binding : ActivityBookingReviewPactivityBinding
-    private var selectedPassVehicleData : SearchPassengerData?= null
+    private var selectedPassVehicleData : SearchVehicleData?= null
     private val viewModel : BookingReviewPViewModel by viewModels()
     var total_fare=""
     private var searchPassengerData : SearchPassengerData ?= null
@@ -59,7 +60,7 @@ class BookingReviewPActivity : BaseActivity() {
     var date = ""
     var time = ""
     var pretime = ""
-    var h_vehicle_type = ""
+//    var h_vehicle_type = ""
     var amount=""
     var driverId=""
     var bodytype=""
@@ -68,6 +69,7 @@ class BookingReviewPActivity : BaseActivity() {
     var vehicleNumber=""
     var finalamountInt=0
     var vehiclenumber=""
+    var amountPayable = ""
     var selectedItem = ""
 
     companion object{
@@ -105,7 +107,7 @@ class BookingReviewPActivity : BaseActivity() {
         //  getSelectedPaymentMode = intent.getStringExtra("choosenPaymentMode").toString()
 
         val data = intent.extras
-        selectedPassVehicleData = data?.getParcelable("vehicleDetails")
+        selectedPassVehicleData = data?.getParcelable<SearchVehicleData>("ModelData")
 
         viewModel.progressBarStatus.observe(this) {
             if (it) {
@@ -115,52 +117,83 @@ class BookingReviewPActivity : BaseActivity() {
             }
         }
 
-        viewModel.bookingReviewPassengerResponse.observe(this) {
-            if (it.status == 1) {
-                 toast(it.message!!)
-                 binding.tvVehicleName.text = it.data[0].vehicleName
-                 binding.wheelerType.text =  it.data[0].no_tyres.toString()
-                 binding.vehicleNumber.text = it.data[0].vehicle_no
-                 binding.tvCapacity.text = it.data[0].seat.toString()
-                 binding.tvDriverName.text = it.data[0].driverName
-                 binding.tvFrom.text = it.data[0].picupLocation
-                 binding.tvTo.text = it.data[0].dropupLocation
-                 binding.tvDistance.text = it.data[0].distance
-                 binding.tvBookingdate.text = it.data[0].bookingDate
-                 binding.tvOwner.text = it.data[0].ownerName
-                 vehiclenumber = it.data[0].vehicle_no.toString()
-                 binding.tvAmount.text = "₹" + it.data[0].totalFare.toString()
-                 binding.payableAmount.text = "₹" + it.data[0]?.amount_pay.toString()
-                 Glide.with(this).load(selectedPassVehicleData?.mainImage).into(binding.ivVehicleImage)
-                 amount=it.data[0]?.amount_pay.toString()
-                 total_fare=it.data[0]?.totalFare.toString()
-                 id=it.data[0]?.id.toString()
-                 userPref.setDriverId(it.data[0].driverId.toString())
-                 pretime = it.data[0].bookingTime.toString()
-                try {
-//                    val sdf = SimpleDateFormat("H:mm")
-////                    val dateObj = sdf.parse(it.data[0].bookingTime)
-//                    System.out.println(dateObj)
-//                    println(SimpleDateFormat("K:mm a").format(dateObj))
-//                    binding.tvBookingtime.text = SimpleDateFormat("K:mm a").format(dateObj)
-                } catch (e: ParseException) {
-                    e.printStackTrace()
-                }
-                if(it.data[0].available.toString().equals("0")){
-                    binding.tvAvailable.text = "Not Available"
-                    binding.tvAvailable.visibility = View.VISIBLE
-                    binding.ivCheck.visibility = View.GONE
-                }
-                else if(it.data[0].available.toString().equals("1")){
-                    binding.tvAvailable.text = "Available"
-                    binding.tvAvailable.visibility = View.VISIBLE
-                    binding.ivCheck.visibility = View.VISIBLE
-                }
-            } else {
-                toast(it.message!!)
-            }
-        }
+//        viewModel.bookingReviewPassengerResponse.observe(this) {
+//            if (it.status == 1) {
+//                 toast(it.message!!)
+//                 binding.tvVehicleName.text = it.data[0].vehicleName
+//                 binding.wheelerType.text =  it.data[0].no_tyres.toString()
+//                 binding.vehicleNumber.text = it.data[0].vehicle_no
+//                 binding.tvCapacity.text = it.data[0].seat.toString()
+//                 binding.tvDriverName.text = it.data[0].driverName
+//                 binding.tvFrom.text = it.data[0].picupLocation
+//                 binding.tvTo.text = it.data[0].dropupLocation
+//                 binding.tvDistance.text = it.data[0].distance
+//                 binding.tvBookingdate.text = it.data[0].bookingDate
+//                 binding.tvOwner.text = it.data[0].ownerName
+//                 vehiclenumber = it.data[0].vehicle_no.toString()
+//                 binding.tvAmount.text = "₹" + it.data[0].totalFare.toString()
+//                 binding.payableAmount.text = "₹" + it.data[0]?.amount_pay.toString()
+//                 Glide.with(this).load(selectedPassVehicleData?.mainImage).into(binding.ivVehicleImage)
+//                 amount=it.data[0]?.amount_pay.toString()
+//                 total_fare=it.data[0]?.totalFare.toString()
+//                 id=it.data[0]?.id.toString()
+//                 userPref.setDriverId(it.data[0].driverId.toString())
+//                 pretime = it.data[0].bookingTime.toString()
+//                try {
+////                    val sdf = SimpleDateFormat("H:mm")
+//////                    val dateObj = sdf.parse(it.data[0].bookingTime)
+////                    System.out.println(dateObj)
+////                    println(SimpleDateFormat("K:mm a").format(dateObj))
+////                    binding.tvBookingtime.text = SimpleDateFormat("K:mm a").format(dateObj)
+//                } catch (e: ParseException) {
+//                    e.printStackTrace()
+//                }
+//                if(it.data[0].available.toString().equals("0")){
+//                    binding.tvAvailable.text = "Not Available"
+//                    binding.tvAvailable.visibility = View.VISIBLE
+//                    binding.ivCheck.visibility = View.GONE
+//                }
+//                else if(it.data[0].available.toString().equals("1")){
+//                    binding.tvAvailable.text = "Available"
+//                    binding.tvAvailable.visibility = View.VISIBLE
+//                    binding.ivCheck.visibility = View.VISIBLE
+//                }
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
+        binding.tvVehicleName.text = selectedPassVehicleData?.vehicle?.vehicleName
+        binding.vehicleNumber.text = selectedPassVehicleData?.vehicle?.vehicleNumber.toString()
+        binding.tvCapacity.text = selectedPassVehicleData?.vehicle?.capacity.toString()
+        binding.tvDistance.text = selectedPassVehicleData?.totalDistance.toString()
+        binding.tvFrom.text = selectedPassVehicleData?.fromTrip.toString()
+        binding.tvTo.text = selectedPassVehicleData?.toTrip.toString()
+        binding.tvBookingdate.text = selectedPassVehicleData?.bookingDateFrom
+//                    binding.tvBookingtime.text = selectedPassVehicleData?.bookingTime.toString()
+        binding.tvCapacity.text = selectedPassVehicleData?.vehicle?.seats?.toString()
+        binding.tvDriverName.text = selectedPassVehicleData?.driver?.name
+        binding.tvAmount.text = "₹${selectedPassVehicleData?.freightAmount.toString()}"
+//        if (selectedPassVehicleData?.user?.name.isNullOrEmpty()){
+//            binding.tvOwnername.text =selectedPassVehicleData?.driver?.name
+//        }else{
+//            binding.tvOwnername.text =selectedPassVehicleData?.user?.name
+//        }
 
+        amountPayable = (selectedPassVehicleData?.freightAmount?.toFloat()?.times(0.15)).toString()
+
+        binding.payableAmount.text = "₹" + amountPayable.toString()
+//                    payAmount = selectedPassVehicleData.amount_pay.toString()
+        Glide.with(this).load(selectedPassVehicleData?.vehicle?.imageUrl).into(binding.ivVehicleImage)
+        userPref.setDriverId(selectedPassVehicleData?.driver?.id.toString())
+        pretime = selectedPassVehicleData?.time.toString()
+        pickupLat = selectedPassVehicleData?.pickupLat.toString()
+        pickupLong = selectedPassVehicleData?.pickupLong.toString()
+        dropLat = selectedPassVehicleData?.dropupLat.toString()
+        dropLong = selectedPassVehicleData?.dropupLong.toString()
+//                    payableAmount=selectedPassVehicleData.amount_pay.toString()
+        total_fare=selectedPassVehicleData?.freightAmount.toString()
+        id=selectedPassVehicleData?.id.toString()
+        selectedDateFormat2= selectedPassVehicleData?.bookingDateFrom.toString()
         viewModel.bookingPassengerResponseModel.observe(this) {
             if (it.status == 1) {
                 toast(it.message!!)
@@ -179,78 +212,78 @@ class BookingReviewPActivity : BaseActivity() {
                 toast(it.message!!)
             }
         }
-        viewModel.passengerPaymentSuccessResponseModel.observe(this) {
-            if (it.status == 1) {
+//        viewModel.passengerPaymentSuccessResponseModel.observe(this) {
+//            if (it.status == 1) {
+//
+//                finish()
+//                if (it.status == 1) {
+//                    toast(it.message!!)
+//                    selectedDateFormat2 = selectedPassVehicleData?.bookingDate!!
+////                    time = selectedPassVehicleData?.bookingTime!!
+//                    bookingPassengerOnlineDataList.add(it.data!!)
+//                    bookingPassengerOnlineUserList.add(it.user!!)
+//                    bookingPassengerOnlineDriverList.add(it.driver!!)
+//                    bookingPassengerOnlineOwnerList.add(it.Owner!!)
+//                    bpPaymentMode = true
+//                    startActivity(Intent(this, BookingSuccessPActivity :: class.java)
+//                        .putExtra("modelDataList", bookingPassengerDataList)
+//                        .putExtra("modelUserList", bookingPassengerUserList)
+//                        .putExtra("modelDriverList", bookingPassengerDriverList)
+//                        .putExtra("online","ONLINE"))
+//                    // toast(it.bookingPassengerData[0].bookingId!!)
+//                    finish()
+//                } else {
+//                    toast(it.message!!)
+//                }
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
+//        viewModel.searchPassengerDetailApi(
+//            "Bearer " + userPref.user.apiToken,
+//            selectedPassVehicleData?.pickupLat!!,
+//            selectedPassVehicleData?.pickupLong!!,
+//            selectedPassVehicleData?.dropupLat!!,
+//            selectedPassVehicleData?.dropupLong!!,
+//            h_vehicle_type,
+//            selectedPassVehicleData?.seat!!.toString(),
+//            selectedPassVehicleData?.noTyres!!.toString(),
+//            selectedPassVehicleData?.bookingDate!!,
+//            pretime,
+//            selectedPassVehicleData?.vehicleId.toString(),
+//            selectedPassVehicleData?.id.toString()
+//
+//
+//        )
 
-                finish()
-                if (it.status == 1) {
-                    toast(it.message!!)
-                    selectedDateFormat2 = selectedPassVehicleData?.bookingDate!!
-//                    time = selectedPassVehicleData?.bookingTime!!
-                    bookingPassengerOnlineDataList.add(it.data!!)
-                    bookingPassengerOnlineUserList.add(it.user!!)
-                    bookingPassengerOnlineDriverList.add(it.driver!!)
-                    bookingPassengerOnlineOwnerList.add(it.Owner!!)
-                    bpPaymentMode = true
-                    startActivity(Intent(this, BookingSuccessPActivity :: class.java)
-                        .putExtra("modelDataList", bookingPassengerDataList)
-                        .putExtra("modelUserList", bookingPassengerUserList)
-                        .putExtra("modelDriverList", bookingPassengerDriverList)
-                        .putExtra("online","ONLINE"))
-                    // toast(it.bookingPassengerData[0].bookingId!!)
-                    finish()
-                } else {
-                    toast(it.message!!)
-                }
-            } else {
-                toast(it.message!!)
-            }
-        }
-        viewModel.searchPassengerDetailApi(
-            "Bearer " + userPref.user.apiToken,
-            selectedPassVehicleData?.pickupLat!!,
-            selectedPassVehicleData?.pickupLong!!,
-            selectedPassVehicleData?.dropupLat!!,
-            selectedPassVehicleData?.dropupLong!!,
-            h_vehicle_type,
-            selectedPassVehicleData?.seat!!.toString(),
-            selectedPassVehicleData?.noTyres!!.toString(),
-            selectedPassVehicleData?.bookingDate!!,
-            pretime,
-            selectedPassVehicleData?.vehicleId.toString(),
-            selectedPassVehicleData?.id.toString()
+//        Log.d("TAG__",h_vehicle_type+"__vehicleId__"+ selectedPassVehicleData?.vehicleId.toString())
 
-
-        )
-
-        Log.d("TAG__",h_vehicle_type+"__vehicleId__"+ selectedPassVehicleData?.vehicleId.toString())
-
-        binding.tvOwner.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, TransportOwnerActivity::class.java)
-            intent.putExtra("putdriveridd", selectedPassVehicleData?.driverId.toString())
-            startActivity(intent)
-        })
+//        binding.tvOwner.setOnClickListener(View.OnClickListener {
+//            val intent = Intent(this, TransportOwnerActivity::class.java)
+//            intent.putExtra("putdriveridd", selectedPassVehicleData?.driverId.toString())
+//            startActivity(intent)
+//        })
         binding.llChangeDateTime.setOnClickListener(View.OnClickListener {
             clickDataPicker()
         })
 
-        pickupLocation=selectedPassVehicleData?.picupLocation!!
+        pickupLocation=selectedPassVehicleData?.fromTrip!!
         pickupLat=selectedPassVehicleData?.pickupLat!!
         pickupLong=  selectedPassVehicleData?.pickupLong!!
-        dropLocation= selectedPassVehicleData?.dropupLocation!!
+        dropLocation= selectedPassVehicleData?.toTrip!!
         dropLat= selectedPassVehicleData?.dropupLat!!
         dropLong= selectedPassVehicleData?.dropupLong!!
-        driverId= selectedPassVehicleData?.driverId.toString()
-        bodytype= selectedPassVehicleData?.bodytype.toString()
-        distance=selectedPassVehicleData?.distance.toString()
-        vehicleNumber= selectedPassVehicleData?.vehicleNo.toString()
-        h_vehicle_type = intent.getStringExtra("vehicle_type")!!
-        capacity=selectedPassVehicleData?.seat.toString()
+        driverId= selectedPassVehicleData?.driver?.id.toString()
+//        bodytype= selectedPassVehicleData?.vehicle?.seats.toString()
+        distance=selectedPassVehicleData?.totalDistance.toString()
+        vehicleNumber= selectedPassVehicleData?.vehicle?.vehicleNumber.toString()
+//        h_vehicle_type = intent.getStringExtra("vehicle_type")!!
+        capacity=selectedPassVehicleData?.vehicle?.seats.toString()
 
-        selectedDateFormat2 = selectedPassVehicleData?.bookingDate!!
+        selectedDateFormat2 = selectedPassVehicleData?.bookingDateFrom!!
         binding.btnConfirmbook.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, PaymentThroughActivity :: class.java).also {
-                it.putExtra("amount", amount)
+                it.putExtra("amount", amountPayable)
                 it.putExtra("flag1","1")
                 it.putExtra("flag", "passenger")
                 it.putExtra("total_fare", total_fare)
@@ -365,39 +398,39 @@ class BookingReviewPActivity : BaseActivity() {
 //        mTimePicker.show()
 //    }
 
-    override fun onPaymentSuccess(p0: String?, p1: PaymentData?) {
-        try {
-            viewModel.passengerPaymentSuccessApi("Bearer " + userPref.user.apiToken,
-                selectedPassVehicleData?.picupLocation!!,
-                selectedPassVehicleData?.pickupLat!!,
-                selectedPassVehicleData?.pickupLong!!,
-                selectedPassVehicleData?.dropupLocation!!,
-                selectedPassVehicleData?.dropupLat!!,
-                selectedPassVehicleData?.dropupLong!!,
-                selectedPassVehicleData?.vehicleId!!.toString(),
-                selectedPassVehicleData?.totalFare.toString(),
-            "2","",
-                binding.tvBookingdate.text.toString(),"",
-                selectedPassVehicleData?.driverId.toString(),
-            "dis",
-                selectedPassVehicleData?.bodytype.toString() ,
-                selectedPassVehicleData?.seat.toString() ,
-                selectedPassVehicleData?.distance.toString() ,
-                selectedPassVehicleData?.vehicleNumber.toString() ,
-            p1?.paymentId.toString(),
-            "1",
-            "INR",""
-        )
-
-            toast(p1?.paymentId.toString())
-
-
-
-        }catch (e: Exception){
-            Toast.makeText(this,"Error in payment: "+ e.message,Toast.LENGTH_LONG).show()
-            e.printStackTrace()
-        }
-    }
+//    override fun onPaymentSuccess(p0: String?, p1: PaymentData?) {
+//        try {
+//            viewModel.passengerPaymentSuccessApi("Bearer " + userPref.user.apiToken,
+//                selectedPassVehicleData?.picupLocation!!,
+//                selectedPassVehicleData?.pickupLat!!,
+//                selectedPassVehicleData?.pickupLong!!,
+//                selectedPassVehicleData?.dropupLocation!!,
+//                selectedPassVehicleData?.dropupLat!!,
+//                selectedPassVehicleData?.dropupLong!!,
+//                selectedPassVehicleData?.vehicleId!!.toString(),
+//                selectedPassVehicleData?.totalFare.toString(),
+//            "2","",
+//                binding.tvBookingdate.text.toString(),"",
+//                selectedPassVehicleData?.driverId.toString(),
+//            "dis",
+//                selectedPassVehicleData?.bodytype.toString() ,
+//                selectedPassVehicleData?.seat.toString() ,
+//                selectedPassVehicleData?.distance.toString() ,
+//                selectedPassVehicleData?.vehicleNumber.toString() ,
+//            p1?.paymentId.toString(),
+//            "1",
+//            "INR",""
+//        )
+//
+//            toast(p1?.paymentId.toString())
+//
+//
+//
+//        }catch (e: Exception){
+//            Toast.makeText(this,"Error in payment: "+ e.message,Toast.LENGTH_LONG).show()
+//            e.printStackTrace()
+//        }
+//    }
 
 
 //    override fun onPaymentSuccess(p1: String?) {

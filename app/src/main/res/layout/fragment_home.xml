@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,10 +36,8 @@
         <LinearLayout
             android:id="@+id/ll_user"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_170sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_height="match_parent"
+
             android:orientation="vertical">
 
 
@@ -55,7 +54,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_170sdp"
-                android:layout_marginBottom="@dimen/_8sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_15sdp"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardElevation="@dimen/_8sdp">
 
@@ -75,14 +75,12 @@
                     app:sliderIndicatorAnimationDuration="600"
                     app:sliderIndicatorEnabled="true"
                     app:sliderIndicatorGravity="center|bottom"
-                    app:sliderIndicatorMargin="15dp"
-                    app:sliderIndicatorMarginRight="@dimen/_24sdp"
                     app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorRadius="1.5dp"
                     app:sliderIndicatorSelectedColor="@color/theme_yellow"
-                    app:sliderIndicatorUnselectedColor="#FFF"
-                    app:sliderScrollTimeInSec="2" />
+                    app:sliderIndicatorUnselectedColor="@color/grey"
+                    app:sliderScrollTimeInSec="2"
+                    tools:ignore="MissingClass" />
 
 
             </androidx.cardview.widget.CardView>

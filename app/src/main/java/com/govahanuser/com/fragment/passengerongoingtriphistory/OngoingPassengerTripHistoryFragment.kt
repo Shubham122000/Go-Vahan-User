@@ -17,6 +17,7 @@ import com.govahanuser.com.adapters.OngoingPassengerTripHistoryAdapter
 import com.govahanuser.com.baseClasses.BaseFragment
 import com.govahanuser.com.databinding.FragmentOngoingPassengerTripHistoryBinding
 import com.govahanuser.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -61,37 +62,35 @@ class OngoingPassengerTripHistoryFragment : BaseFragment() , OngoingPassengerTri
             }
         }
 
-        viewModel.getPassengerOngoingHistoryResponse.observe(requireActivity()) {
-            if (it.status == 1) {
-                listData.clear()
-                // listData!!.addAll(it.getFavLocdata)
-
-                if (it.data.isEmpty() ) {
-                    binding.idNouser.visibility = View.VISIBLE
-                    binding.rvOngoing.visibility = View.GONE
-
-                }
-                else {
-                    binding.idNouser.visibility = View.GONE
-                    binding.rvOngoing.visibility = View.VISIBLE
-                    listData.addAll(it.data)
-                    ongoingTripHistoryAdapter = OngoingPassengerTripHistoryAdapter(listData,this@OngoingPassengerTripHistoryFragment)
-                    binding.rvOngoing.apply {
-                        adapter = ongoingTripHistoryAdapter
-                        layoutManager = LinearLayoutManager(requireActivity())
-                        // it.getFavLocdata?.let { notificationList?.addAll(it) }
-                        //    favouriteLocationsAdapter?.notifyDataSetChanged()
-                    }
-                }
-
-            } else   {
-                Log.d("Response", it.toString())
-                toast(requireContext(),it.message!!)
-            }
-        }
-        viewModel.passengerOngoingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-
-
+//        viewModel.getPassengerOngoingHistoryResponse.observe(requireActivity()) {
+//            if (it.status == 1) {
+//                listData.clear()
+//                // listData!!.addAll(it.getFavLocdata)
+//
+//                if (it.data.isEmpty() ) {
+//                    binding.idNouser.visibility = View.VISIBLE
+//                    binding.rvOngoing.visibility = View.GONE
+//
+//                }
+//                else {
+//                    binding.idNouser.visibility = View.GONE
+//                    binding.rvOngoing.visibility = View.VISIBLE
+//                    listData.addAll(it.data)
+//                    ongoingTripHistoryAdapter = OngoingPassengerTripHistoryAdapter(listData,this@OngoingPassengerTripHistoryFragment)
+//                    binding.rvOngoing.apply {
+//                        adapter = ongoingTripHistoryAdapter
+//                        layoutManager = LinearLayoutManager(requireActivity())
+//                        // it.getFavLocdata?.let { notificationList?.addAll(it) }
+//                        //    favouriteLocationsAdapter?.notifyDataSetChanged()
+//                    }
+//                }
+//
+//            } else   {
+//                Log.d("Response", it.toString())
+//                toast(requireContext(),it.message!!)
+//            }
+//        }
+//        viewModel.passengerOngoingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
 
 
 
@@ -99,21 +98,24 @@ class OngoingPassengerTripHistoryFragment : BaseFragment() , OngoingPassengerTri
 
 
 
-        return binding.root    }
 
 
-
-
-
-
-    override fun onDetailClicked(ongoingPassengerHistoryData: OngoingPassengerHistoryData) {
-       startActivity(Intent(requireContext(), PassengerOngoingBookingDetailsActivity :: class.java).also {
-           it.putExtra("loaderOngoingHistoryDetails", ongoingPassengerHistoryData)
-
-        })
-
-        Log.d("TAG++", "onProceedClicked: "+ongoingPassengerHistoryData.bookingId.toString())
+        return binding.root
     }
+
+    override fun onDetailClicked(ongoingPassengerHistoryData: LoaderTripManagementData) {
+        TODO("Not yet implemented")
+    }
+
+
+//    override fun onDetailClicked(ongoingPassengerHistoryData: OngoingPassengerHistoryData) {
+//       startActivity(Intent(requireContext(), PassengerOngoingBookingDetailsActivity :: class.java).also {
+//           it.putExtra("loaderOngoingHistoryDetails", ongoingPassengerHistoryData)
+//
+//        })
+//
+//        Log.d("TAG++", "onProceedClicked: "+ongoingPassengerHistoryData.bookingId.toString())
+//    }
 
 
 }

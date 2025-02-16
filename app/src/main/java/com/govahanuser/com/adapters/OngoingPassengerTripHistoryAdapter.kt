@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowTriphistoryListBinding
 import com.govahanuser.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 
 
-class OngoingPassengerTripHistoryAdapter (val list: List<OngoingPassengerHistoryData>,
+class OngoingPassengerTripHistoryAdapter (val list: List<LoaderTripManagementData>,
                                           private val listener: OnClick
 ) : RecyclerView.Adapter<OngoingPassengerTripHistoryAdapter.ViewHolder>() {
 
@@ -34,15 +35,14 @@ class OngoingPassengerTripHistoryAdapter (val list: List<OngoingPassengerHistory
             context.startActivity(intent)
         })*/
 
-        holder.binding.tvDate.text = data.bookingDate
+//        holder.binding.tvDate.text = data.
         holder.binding.tvTime.text = data.bookingTime
-        holder.binding.tvPartyname.text = data.partyName
-        holder.binding.tvUserName.text = data.partyName
-        holder.binding.tvDetail.text = data.partyName
-        holder.binding.tvFrom.text = data.picupLocation
-        holder.binding.tvTo.text = data.dropLocation
-        holder.binding.tvVehicleNumber.text = data.vehicleNumber
-
+        holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
+        holder.binding.tvUserName.text = data.bookingId
+        holder.binding.tvDetail.text = data.tripDetails?.vehicle?.vehicleName
+        holder.binding.tvFrom.text = data.tripDetails?.fromTrip
+        holder.binding.tvTo.text = data.tripDetails?.toTrip
+        holder.binding.tvVehicleNumber.text = data.tripDetails?.vehicle?.vehicleNumber
 
 
         holder.binding.linearItem.setOnClickListener(View.OnClickListener {
@@ -62,7 +62,7 @@ class OngoingPassengerTripHistoryAdapter (val list: List<OngoingPassengerHistory
 
 
     interface OnClick{
-        fun onDetailClicked(ongoingPassengerHistoryData: OngoingPassengerHistoryData)
+        fun onDetailClicked(ongoingPassengerHistoryData: LoaderTripManagementData)
     }
 
 }

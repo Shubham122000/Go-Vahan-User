@@ -22,6 +22,7 @@ import com.govahanuser.com.databinding.BottomSheetCancelTripBinding
 import com.govahanuser.com.databinding.BottomSheetRidecancellationBinding
 import com.govahanuser.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
 import com.govahanuser.com.model.passengercancelreasonmodel.PassengerCancelReasonData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,10 +31,8 @@ class PassengerOngoingBookingDetailsActivity : BaseActivity() {
 
 
     private lateinit var binding : ActivityPassengerOngoingBookingDetailsBinding
-    private var selectedPassengerOngoingHistoryData: OngoingPassengerHistoryData? = null
+    private var selectedPassengerOngoingHistoryData: LoaderTripManagementData? = null
     private val viewModel: PassengerOngoingBookingDetailsViewModel by viewModels()
-
-
     private var listData: ArrayList<PassengerCancelReasonData> = ArrayList()
     private var passengerCancelReasonAdapter: PassengerCancelTripReasonAdapter? = null
     var crnNumber = ""
@@ -71,7 +70,7 @@ class PassengerOngoingBookingDetailsActivity : BaseActivity() {
 
 
         val data = intent.extras
-        selectedPassengerOngoingHistoryData = data?.getParcelable<OngoingPassengerHistoryData>("passengerOngoingHistoryDetails")
+        selectedPassengerOngoingHistoryData = data?.getParcelable<LoaderTripManagementData>("passengerOngoingHistoryDetails")
 
         Log.d("TAG___", "onCreate: " + selectedPassengerOngoingHistoryData!!.bookingId.toString())
 
@@ -83,91 +82,116 @@ class PassengerOngoingBookingDetailsActivity : BaseActivity() {
             }
         }
 
-        viewModel.passengerOngoingHistoryDetailResponse.observe(this) {
-            if (it.status == 1) {
-                // toast("booking Successful")
-                toast(it.message!!)
+//        viewModel.passengerOngoingHistoryDetailResponse.observe(this) {
+//            if (it.status == 1) {
+//                // toast("booking Successful")
+//                toast(it.message!!)
+//
+//                binding.tvBookingId.text = it.data.booking_id
+//                binding.tvTripStatus.text = it.data.booking_status
+//                binding.tvTotalfare.text = "₹" +it.data.fare_total.toString()
+//
+//                if (it.data?.payment_mode.equals("1")) {
+//                    binding.tvPaymentMethod.setText("Cash")
+//                } else if (it.data?.payment_mode.equals("2")) {
+//                    binding.tvPaymentMethod.setText("Online")
+//                } else {
+//                    binding.tvPaymentMethod.setText("Wallet")
+//                }
+//
+//                binding.tvBookingId.text = it.data.booking_id
+//                binding.tvTripStatus.text = "Ongoing"
+//                binding.tvDate.text = it.data.booking_date
+//                binding.tvTime.text = it.data.booking_time.toString()
+//                binding.tvPickup.text = it.data.picup_location
+//                binding.tvDropoff.text = it.data.drop_location
+//                binding.tvVehicleType.text = it.data.vehicle_name
+////                binding.tvBodyType.text = it.data.bodyname
+//                binding.tvVehicleNumber.text = it.data.vehicle_numbers
+//                binding.tvTotalLoads.text = it.data.capacity.toString()+" Seats"
+//                    binding.tvDriverName.text = it.data.driver_name
+//                    binding.tvPartyName.text = it.ownerDetails?.name
+//
+//
+//                    binding.tvDriverPhone.text = it.ownerDetails?.mobile
+//
+//                    binding.tvPartyNumber.text = it.ownerName?.mobile_number
+//
+//
+//                binding.tvUseremail.text = it.userDetails?.email
+//                binding.tvUsername.text = it.userDetails?.name
+//                binding.tvUserphone.text = it.userDetails?.mobile_number
+//
+//                /*if (it.data[0].paymentMode.equals("1")) {
+//                    binding.tvPaymentMethod.setText("Cash")
+//                } else if (it.data[0].paymentMode.equals("2")) {
+//                    binding.tvPaymentMethod.setText("Online")
+//                }*/
+//
+//
+//
+///*
+//
+//                binding.tvDate.text = it.data[0].bookingDate
+//                binding.tvTime.text = it.data[0].bookingTime
+//                binding.tvPickup.text = it.data[0].picupLocation
+//                binding.tvDropoff.text = it.data[0].dropLocation
+//                binding.tvVehicleType.text = it.data[0].vehicleName
+//                binding.tvBodyType.text = it.data[0].bodyType
+//                binding.tvVehicleNumber.text = it.data[0].vehicleNumber
+//                binding.tvTotalLoads.text = it.data[0].vehicleNumber
+//                binding.tvPartyName.text = it.data[0].vehicleNumber
+//                binding.tvPartyNumber.text = it.data[0].vehicleNumber
+//
+//
+//                binding.tvDriverName.text = it.ownerDetails!!.name
+//                binding.tvDriverPhone.text = it.ownerDetails!!.mobile
+//                // binding.tvRidesNumber.text = it.data[0].r
+//                binding.tvUsername.text = it.userDetails!!.name
+//                binding.tvUserphone.text = it.userDetails!!.mobileNumber
+//                binding.tvUseremail.text = it.userDetails!!.email
+//*/
+//
+//                //  userPref.setDriverId(it.data[0]!!.driverId.toString())
+//
+//            } else {
+//                toast(it.message)
+//            }
+//        }
+//
+//
+//
+//
+//        viewModel.passengerOngoingHistoryDetailApi(
+//            "Bearer " + userPref.user.apiToken,
+//            selectedPassengerOngoingHistoryData?.bookingId!!
+//        )
+        binding.tvBookingId.text = selectedPassengerOngoingHistoryData?.bookingId
+        binding.tvTripStatus.text = "Ongoing"
+        binding.tvTotalfare.text = "₹ ${selectedPassengerOngoingHistoryData?.tripDetails?.freightAmount.toString()}"
+        binding.tvDate.text = selectedPassengerOngoingHistoryData?.tripDetails?.bookingDateTo
+        binding.tvPickup.text = selectedPassengerOngoingHistoryData?.tripDetails?.fromTrip
+        binding.tvDropoff.text = selectedPassengerOngoingHistoryData?.tripDetails?.toTrip
+        binding.tvVehicleType.text = selectedPassengerOngoingHistoryData?.tripDetails?.vehicle?.vehicleName
+//        binding.tvBodyType.text = selectedPassengerOngoingHistoryData?.tripDetails?.vehicle?.bodyType?.name
+        binding.tvVehicleNumber.text = selectedPassengerOngoingHistoryData?.tripDetails?.vehicle?.vehicleNumber
+        binding.tvTotalLoads.text = selectedPassengerOngoingHistoryData?.tripDetails?.vehicle?.capacity
 
-                binding.tvBookingId.text = it.data.booking_id
-                binding.tvTripStatus.text = it.data.booking_status
-                binding.tvTotalfare.text = "₹" +it.data.fare_total.toString()
-
-                if (it.data?.payment_mode.equals("1")) {
-                    binding.tvPaymentMethod.setText("Cash")
-                } else if (it.data?.payment_mode.equals("2")) {
-                    binding.tvPaymentMethod.setText("Online")
-                } else {
-                    binding.tvPaymentMethod.setText("Wallet")
-                }
-
-                binding.tvBookingId.text = it.data.booking_id
-                binding.tvTripStatus.text = "Ongoing"
-                binding.tvDate.text = it.data.booking_date
-                binding.tvTime.text = it.data.booking_time.toString()
-                binding.tvPickup.text = it.data.picup_location
-                binding.tvDropoff.text = it.data.drop_location
-                binding.tvVehicleType.text = it.data.vehicle_name
-//                binding.tvBodyType.text = it.data.bodyname
-                binding.tvVehicleNumber.text = it.data.vehicle_numbers
-                binding.tvTotalLoads.text = it.data.capacity.toString()+" Seats"
-                    binding.tvDriverName.text = it.data.driver_name
-                    binding.tvPartyName.text = it.ownerDetails?.name
-
-
-                    binding.tvDriverPhone.text = it.ownerDetails?.mobile
-
-                    binding.tvPartyNumber.text = it.ownerName?.mobile_number
-
-
-                binding.tvUseremail.text = it.userDetails?.email
-                binding.tvUsername.text = it.userDetails?.name
-                binding.tvUserphone.text = it.userDetails?.mobile_number
-
-                /*if (it.data[0].paymentMode.equals("1")) {
-                    binding.tvPaymentMethod.setText("Cash")
-                } else if (it.data[0].paymentMode.equals("2")) {
-                    binding.tvPaymentMethod.setText("Online")
-                }*/
-
-
-
-/*
-
-                binding.tvDate.text = it.data[0].bookingDate
-                binding.tvTime.text = it.data[0].bookingTime
-                binding.tvPickup.text = it.data[0].picupLocation
-                binding.tvDropoff.text = it.data[0].dropLocation
-                binding.tvVehicleType.text = it.data[0].vehicleName
-                binding.tvBodyType.text = it.data[0].bodyType
-                binding.tvVehicleNumber.text = it.data[0].vehicleNumber
-                binding.tvTotalLoads.text = it.data[0].vehicleNumber
-                binding.tvPartyName.text = it.data[0].vehicleNumber
-                binding.tvPartyNumber.text = it.data[0].vehicleNumber
-
-
-                binding.tvDriverName.text = it.ownerDetails!!.name
-                binding.tvDriverPhone.text = it.ownerDetails!!.mobile
-                // binding.tvRidesNumber.text = it.data[0].r
-                binding.tvUsername.text = it.userDetails!!.name
-                binding.tvUserphone.text = it.userDetails!!.mobileNumber
-                binding.tvUseremail.text = it.userDetails!!.email
-*/
-
-                //  userPref.setDriverId(it.data[0]!!.driverId.toString())
-
-            } else {
-                toast(it.message)
-            }
+        if (selectedPassengerOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
+            binding.tvPaymentMethod.setText("Cash")
+        } else if (selectedPassengerOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("2")) {
+            binding.tvPaymentMethod.setText("Online")
+        } else {
+            binding.tvPaymentMethod.setText("Wallet")
         }
 
-
-
-
-        viewModel.passengerOngoingHistoryDetailApi(
-            "Bearer " + userPref.user.apiToken,
-            selectedPassengerOngoingHistoryData?.bookingId!!
-        )
-
+        binding.tvDriverName.text = selectedPassengerOngoingHistoryData?.tripDetails?.driver?.name
+        binding.tvDriverPhone.text = selectedPassengerOngoingHistoryData?.tripDetails?.driver?.mobileNumber
+        binding.tvPartyName.text = selectedPassengerOngoingHistoryData?.tripDetails?.driver?.name
+        binding.tvPartyNumber.text = selectedPassengerOngoingHistoryData?.tripDetails?.driver?.name
+        binding.tvUseremail.text = selectedPassengerOngoingHistoryData?.tripDetails?.user?.email
+        binding.tvUsername.text = selectedPassengerOngoingHistoryData?.tripDetails?.user?.name
+        binding.tvUserphone.text = selectedPassengerOngoingHistoryData?.tripDetails?.user?.mobileNumber
 
 
         viewModel.getPassengerCancelReasonListApi("Bearer " + userPref.user.apiToken)

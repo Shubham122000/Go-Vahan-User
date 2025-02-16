@@ -38,19 +38,7 @@ class AvailableVehiclesAdapter(private val list: ArrayList<SearchVehicleData>,
         holder.binding.tvFinalFare.text = "₹" + data.freightAmount
 //        holder.binding.tvCompletedtrips.text= data.driver_total_booking.toString()
 //        holder.binding.tvRating.text=data.rating.toString()
-        holder.binding.tvOwnername.text=data.user?.name
-
-
-
-//        if(data.available.toString().equals("0")){
-//            holder.binding.tvAvailable.text = "Not Available"
-//            holder.binding.ivCheck.visibility = View.GONE
-//        }
-//        else if(data.available.toString().equals("1")){
-//            holder.binding.tvAvailable.text = "Available"
-//            holder.binding.ivCheck.visibility = View.VISIBLE
-//        }
-
+//        holder.binding.tvOwnername.text=data.user?.name
 
         Glide.with(holder.itemView.context).load(data.vehicle?.imageUrl).into(holder.binding.vehicleImage)
 

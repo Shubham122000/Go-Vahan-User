@@ -40,11 +40,13 @@ import com.google.maps.model.TravelMode
 import com.govahanuser.com.R
 import com.govahanuser.com.activities.passengers.passengerRideCompleted.PassengerRideCompletedActivity
 import com.govahanuser.com.activities.passengers.passengertripdetails.PassengerTripDetailsViewModel
+import com.govahanuser.com.activities.ridecompleted.RideCompletedActivity
 import com.govahanuser.com.activities.tripdetails.TripDetailsViewModel
 import com.govahanuser.com.adapters.PassengerCancelTripReasonAdapter
 import com.govahanuser.com.baseClasses.BaseActivity
 import com.govahanuser.com.databinding.ActivityPassengerTripDetailsBinding
 import com.govahanuser.com.model.passengercancelreasonmodel.PassengerCancelReasonData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import com.govahanuser.com.model.tripmanagementpassengermodel.PassengerTripManagementData
 import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -59,7 +61,7 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
     private val viewModel1: TripDetailsViewModel by viewModels()
     var selectedpassTripData=""
     private lateinit var binding: ActivityPassengerTripDetailsBinding
-    private var selectedPassengerTripData: PassengerTripManagementData? = null
+    private var selectedPassengerTripData: LoaderTripManagementData? = null
     private val viewModel: PassengerTripDetailsViewModel by viewModels()
     private var listData: ArrayList<PassengerCancelReasonData> = ArrayList()
     private var passengerCancelReasonAdapter: PassengerCancelTripReasonAdapter? = null
@@ -105,11 +107,13 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
 
         binding.header.tvHeaderText.setText("Trip Details")
         if (intent != null) {
-            selectedpassTripData = intent.getStringExtra("passengerTripDetails").toString()
+            val data = intent.extras
+            selectedPassengerTripData = data?.getParcelable<LoaderTripManagementData>("passengerTripDetails")
         }
+        val options = PolylineOptions()
+        options.color(Color.RED)
+        options.width(5f)
 
-        val data = intent.extras
-        selectedPassengerTripData = data?.getParcelable<PassengerTripManagementData>("passengerTripDetails")
 
         viewModel.progressBarStatus.observe(this) {
             if (it) {
@@ -120,7 +124,7 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
         }
 
 
-        viewModel.passengerTripManagementDetailApi("Bearer " + userPref.user.apiToken, selectedPassengerTripData?.bookingId!!)
+//        viewModel.passengerTripManagementDetailApi("Bearer " + userPref.user.apiToken, selectedPassengerTripData?.bookingId!!)
 
         Log.d(TAG, "onCreate:bookingId "   +selectedPassengerTripData?.bookingId!!)
         viewModel.getPassengerCancelReasonListApi("Bearer " + userPref.user.apiToken)
@@ -133,7 +137,7 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
                 toast(it.message!!)
             }
         }
-        passengerTripDetailsDialog()
+//        passengerTripDetailsDialog()
 
     }
 
@@ -196,86 +200,190 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
 
         val btnCancel: Button = bottomSheetPassTripDetails.findViewById(R.id.btnCancel)!!
 
-        viewModel.passengerTripDetailResponse.observe(this) {
-            if (it.status == 1) {
-                toast(it.message!!)
-                userPref.setDriverId(it.data[0]!!.driverId.toString())
-
-                callDriverNumber = it.data[0].driverMobileNumber.toString()
-
-                if(it.rideCancelStatus.toString().equals("0")){
-                    cancel.visibility=View.GONE
-                }
-                else if(it.rideCancelStatus.toString().equals("1")){
-                    cancel.visibility=View.VISIBLE
-                }
-
-                tvTripCode.text = it.data[0].startCode
-                tvBookingRDate.text = it.data[0].bookingDate
-                tvBookingRTime.text = it.data[0].bookingTime
-                vehicleName.text = it.data[0].vehicleName
-                tvRating.text = it.data[0].rating.toString()
-//                tvBodytype.text = it.data[0].bodyType
-                vehicleNumber.text = it.data[0].vehicleNumber
-                tvCapacity.text = it.data[0].capacity
-                tvDistance.text = it.data[0].distance.toString()
-                tvDriverName.text = it.data[0].driverName
-                if (it.data[0].ownerName.isNullOrEmpty()){
-                    tvOwner.text = it.data[0].driverName
-                }else{
-                    tvOwner.text = it.data[0].ownerName
-                }
-
-                if (it.data[0].bookingStatus == "1"){
-                    bookingStatus.text  = "Ride Pending"
-                    llBtnCancel.visibility = View.VISIBLE
-                    btnReschedule.visibility = View.VISIBLE
+//        viewModel.passengerTripDetailResponse.observe(this) {
+//            if (it.status == 1) {
+//                toast(it.message!!)
+//                userPref.setDriverId(it.data[0]!!.driverId.toString())
+//
+//                callDriverNumber = it.data[0].driverMobileNumber.toString()
+//
+//                if(it.rideCancelStatus.toString().equals("0")){
 //                    cancel.visibility=View.GONE
-                }else if (it.data[0].bookingStatus == "2"){
-                    bookingStatus.text  = "Ride Ongoing"
-                    llBtnCancel.visibility = View.GONE
-                    btnReschedule.visibility = View.GONE
+//                }
+//                else if(it.rideCancelStatus.toString().equals("1")){
 //                    cancel.visibility=View.VISIBLE
-                }else if (it.data[0].bookingStatus == "3"){
-                    bookingStatus.text  = "Ride Cancelled"
-                    llBtnCancel.visibility = View.GONE
-                    btnReschedule.visibility = View.GONE
-//                    cancel.visibility=View.VISIBLE
-                }else if (it.data[0].bookingStatus == "4"){
-                    bookingStatus.text  = "Ride Completed"
-                    llBtnCancel.visibility = View.GONE
-                    btnReschedule.visibility = View.GONE
-//                    cancel.visibility=View.VISIBLE
-                }
-
-                tvFrom.text = it.data[0].picupLocation
-                tvTo.text = it.data[0].dropLocation
-                tvDriverNamee.text = it.data[0].driverName
-                tv_ridesNumber.text = it.data[0].completed_rides
-                tvDriverRating.text = it.data[0].rating.toString()
-                //  binding.wheelerType.text = it.data[0]..toString()+" Wheeler"
-                // binding.tvRidesNumber.text = it.data[0].r
-                tvPickLocation.text = it.data[0].picupLocation
-                tvDropLocation.text = it.data[0].dropLocation
-                tvAmount.text = "₹${it.data[0].fare}"
+//                }
+//
+//                tvTripCode.text = it.data[0].startCode
+//                tvBookingRDate.text = it.data[0].bookingDate
+//                tvBookingRTime.text = it.data[0].bookingTime
+//                vehicleName.text = it.data[0].vehicleName
+//                tvRating.text = it.data[0].rating.toString()
+////                tvBodytype.text = it.data[0].bodyType
+//                vehicleNumber.text = it.data[0].vehicleNumber
+//                tvCapacity.text = it.data[0].capacity
+//                tvDistance.text = it.data[0].distance.toString()
+//                tvDriverName.text = it.data[0].driverName
+//                if (it.data[0].ownerName.isNullOrEmpty()){
+//                    tvOwner.text = it.data[0].driverName
+//                }else{
+//                    tvOwner.text = it.data[0].ownerName
+//                }
+//
+//                if (it.data[0].bookingStatus == "1"){
+//                    bookingStatus.text  = "Ride Pending"
+//                    llBtnCancel.visibility = View.VISIBLE
+//                    btnReschedule.visibility = View.VISIBLE
+////                    cancel.visibility=View.GONE
+//                }else if (it.data[0].bookingStatus == "2"){
+//                    bookingStatus.text  = "Ride Ongoing"
+//                    llBtnCancel.visibility = View.GONE
+//                    btnReschedule.visibility = View.GONE
+////                    cancel.visibility=View.VISIBLE
+//                }else if (it.data[0].bookingStatus == "3"){
+//                    bookingStatus.text  = "Ride Cancelled"
+//                    llBtnCancel.visibility = View.GONE
+//                    btnReschedule.visibility = View.GONE
+////                    cancel.visibility=View.VISIBLE
+//                }else if (it.data[0].bookingStatus == "4"){
+//                    bookingStatus.text  = "Ride Completed"
+//                    llBtnCancel.visibility = View.GONE
+//                    btnReschedule.visibility = View.GONE
+////                    cancel.visibility=View.VISIBLE
+//                }
+//
+//                tvFrom.text = it.data[0].picupLocation
+//                tvTo.text = it.data[0].dropLocation
+//                tvDriverNamee.text = it.data[0].driverName
+//                tv_ridesNumber.text = it.data[0].completed_rides
+//                tvDriverRating.text = it.data[0].rating.toString()
+//                //  binding.wheelerType.text = it.data[0]..toString()+" Wheeler"
+//                // binding.tvRidesNumber.text = it.data[0].r
+//                tvPickLocation.text = it.data[0].picupLocation
+//                tvDropLocation.text = it.data[0].dropLocation
+//                tvAmount.text = "₹${it.data[0].fare}"
+////                Glide.with(this).load(it.data[0].mainImage).into(vehicleImage)
+//                Glide.with(this).load(it.data[0].image).into(ivDriverImage)
 //                Glide.with(this).load(it.data[0].mainImage).into(vehicleImage)
-                Glide.with(this).load(it.data[0].image).into(ivDriverImage)
-                Glide.with(this).load(it.data[0].mainImage).into(vehicleImage)
-                val originLocation = LatLng(it.data[0].picupLat!!.toDouble(), it.data[0].picupLong!!.toDouble())
-                mMap.addMarker(MarkerOptions().position(originLocation))
-                val destinationLocation = LatLng(it.data[0].dropLat!!.toDouble(), it.data[0].dropLong!!.toDouble())
-                mMap.addMarker(MarkerOptions().position(destinationLocation))
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLocation, 14F))
+//                val originLocation = LatLng(it.data[0].picupLat!!.toDouble(), it.data[0].picupLong!!.toDouble())
+//                mMap.addMarker(MarkerOptions().position(originLocation))
+//                val destinationLocation = LatLng(it.data[0].dropLat!!.toDouble(), it.data[0].dropLong!!.toDouble())
+//                mMap.addMarker(MarkerOptions().position(destinationLocation))
+//                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLocation, 14F))
+//                getDirections(originLocation,destinationLocation)
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
+        userPref.setDriverId(selectedPassengerTripData?.tripDetails?.driver?.id.toString())
+
+        callDriverNumber = selectedPassengerTripData?.tripDetails?.driver?.mobileNumber.toString()
+
+        if(selectedPassengerTripData?.status == 3){
+            cancel.visibility=View.VISIBLE
+        } else{
+            cancel.visibility=View.GONE
+        }
+//        val vehicleImage: ImageView = bottomSheetPassTripDetails.findViewById(R.id.vehicle_image)!!
+//        val ivDriverImage: ImageView = bottomSheetPassTripDetails.findViewById(R.id.iv_DriverImage)!!
+
+        tvTripCode.text = selectedPassengerTripData?.rideCode
+        tvBookingRDate.text = selectedPassengerTripData?.tripDetails?.bookingDateFrom
+        tvBookingRTime.text = selectedPassengerTripData?.tripDetails?.time
+        vehicleName.text = selectedPassengerTripData?.tripDetails?.vehicle?.vehicleName
+//                tvRating.text = selectedPassengerTripData.tripDetails?.rating
+//        tvBodytype.text = selectedPassengerTripData?.tripDetails?.vehicle?.bodyType?.name
+        vehicleNumber.text = selectedPassengerTripData?.tripDetails?.vehicle?.vehicleNumber
+        tvCapacity.text = selectedPassengerTripData?.tripDetails?.vehicle?.capacity
+        tvDistance.text = selectedPassengerTripData?.tripDetails?.totalDistance
+        tvDriverName.text = selectedPassengerTripData?.tripDetails?.driver?.name
+        tvOwner.text = selectedPassengerTripData?.tripDetails?.user?.name
+        tvFrom.text = selectedPassengerTripData?.tripDetails?.fromTrip
+        tvTo.text = selectedPassengerTripData?.tripDetails?.toTrip
+        tvDriverNamee.text = selectedPassengerTripData?.tripDetails?.driver?.name
+//                tvDriverRating.text = it.data[0].rating.toString()
+        tvPickLocation.text =selectedPassengerTripData?.tripDetails?.fromTrip
+        tvDropLocation.text = selectedPassengerTripData?.tripDetails?.toTrip
+        tv_ridesNumber.text = selectedPassengerTripData?.rideCode
+        tvAmount.text = "₹${selectedPassengerTripData?.tripDetails?.freightAmount}"
+        Glide.with(this).load(selectedPassengerTripData?.tripDetails?.vehicle?.vehicleImage).into(vehicleImage)
+        Glide.with(this).load(selectedPassengerTripData?.tripDetails?.driver?.profileImage).into(ivDriverImage)
+
+        if (selectedPassengerTripData?.status == 1){
+            bookingStatus.text  = "Ride Pending"
+            llBtnCancel.visibility = View.VISIBLE
+            btnReschedule.visibility = View.VISIBLE
+//                    cancel.visibility=View.GONE
+        }else if (selectedPassengerTripData?.status == 2){
+            bookingStatus.text  = "Ride Ongoing"
+            llBtnCancel.visibility = View.GONE
+            btnReschedule.visibility = View.GONE
+//                    cancel.visibility=View.VISIBLE
+        }else if (selectedPassengerTripData?.status == 3){
+            bookingStatus.text  = "Ride Cancelled"
+            llBtnCancel.visibility = View.GONE
+            btnReschedule.visibility = View.GONE
+//                    cancel.visibility=View.VISIBLE
+        }else if (selectedPassengerTripData?.status == 4){
+            bookingStatus.text  = "Ride Completed"
+            llBtnCancel.visibility = View.GONE
+            btnReschedule.visibility = View.GONE
+//                    cancel.visibility=View.VISIBLE
+        }
+//                Glide.with(this).load(it.data[0].driv).into(ivDriverImage)
+        /*destinationLatitude = it.data[0].dropLat!!.toDouble()
+        destinationLongitude = it.data[0].dropLong!!.toDouble()
+        Log.d(TAG, "loaderTripDetailsDialog: "+destinationLatitude+destinationLongitude)*/
+
+        val originLocation =
+            selectedPassengerTripData?.tripDetails?.pickupLat?.toDouble()
+                ?.let { selectedPassengerTripData?.tripDetails?.pickupLong?.toDouble()
+                    ?.let { it1 -> LatLng(it, it1) } }
+        originLocation?.let { MarkerOptions().position(it) }?.let { mMap.addMarker(it) }
+        val destinationLocation =
+            selectedPassengerTripData?.tripDetails?.dropupLat?.toDouble()
+                ?.let { selectedPassengerTripData?.tripDetails?.dropupLong?.toDouble()
+                    ?.let { it1 -> LatLng(it, it1) } }
+
+        destinationLocation?.let { MarkerOptions().position(it) }?.let { mMap.addMarker(it) }
+//                val urll = getDirectionURL(originLocation, destinationLocation, "AIzaSyCHl8Ff_ghqPjWqlT2BXJH5BOYH1q-sw0E")
+//                GetDirection(urll).execute()
+        originLocation?.let { CameraUpdateFactory.newLatLngZoom(it, 14F) }
+            ?.let { mMap.animateCamera(it) }
+        if (originLocation != null) {
+            if (destinationLocation != null) {
                 getDirections(originLocation,destinationLocation)
-            } else {
-                toast(it.message!!)
             }
         }
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
 
+//        tvTripCode.setOnClickListener(View.OnClickListener {
+//            startActivity(Intent(this, RideCompletedActivity :: class.java).also {
+//                it.putExtra("loaderTripBookingId", selectedPassengerTripData!!) })
+//        })
+
+        btnCancel.setOnClickListener(View.OnClickListener {
+            cancelReasonDialog()
+        })
+
+
+        btnReschedule.setOnClickListener(View.OnClickListener {
+            clickDataPicker()
+        })
+
+        llCallDriver.setOnClickListener(View.OnClickListener {
+            // callDriverNumber.let { it1 -> listener.onCallNowClicked(it1) }
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$callDriverNumber")
+            startActivity(intent)
+        })
         tvTripCode.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, PassengerRideCompletedActivity :: class.java).also {
-                it.putExtra("passengerTripBookingId", selectedPassengerTripData?.bookingId!!)
-                it.putExtra("passengerTripUserId", selectedPassengerTripData?.userId!!)
+                it.putExtra("passengerTripBookingId", selectedPassengerTripData)
+//                it.putExtra("passengerTripUserId", selectedPassengerTripData?.userId!!)
             })
         })
         btnReschedule.setOnClickListener(View.OnClickListener {
@@ -550,7 +658,11 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
     override fun onMapReady(p0: GoogleMap) {
         mMap = p0
         mMap.clear()
-
+        val sydney = LatLng(-34.0, 151.0)
+        val opera = LatLng(-33.9320447,151.1597271)
+        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        mMap.addMarker(MarkerOptions().position(opera).title("Opera House"))
+        passengerTripDetailsDialog()
     }
 
 

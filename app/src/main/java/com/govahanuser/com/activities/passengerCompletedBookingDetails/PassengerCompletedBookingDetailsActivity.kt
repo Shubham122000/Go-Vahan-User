@@ -25,18 +25,17 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class PassengerCompletedBookingDetailsActivity : BaseActivity() {
     private val viewModel1: PassengerInvoiceSummaryDetailsViewModel by viewModels()
-
-    var downlloadpdf= ""
-    var downloadbilty= ""
-    var downloadsignature= ""
-    private lateinit var binding : ActivityPassengerCompletedBookingDetailsBinding
+    var downlloadpdf = ""
+    var downloadbilty = ""
+    var downloadsignature = ""
+    private lateinit var binding: ActivityPassengerCompletedBookingDetailsBinding
     private var selectedPassengerCompletedHistoryData: CompletedPassengerHistoryData? = null
     private val viewModel: PassengerCompletedBookingDetailsViewModel by viewModels()
     private val viewModel3: InvoiceSummaryDetailsViewModel by viewModels()
     private var listData: ArrayList<PassengerCancelReasonData> = ArrayList()
     private var passengerCancelReasonAdapter: PassengerCancelTripReasonAdapter? = null
     var crnNumber = ""
-    private var listReasonType_id:ArrayList<String> = ArrayList()
+    private var listReasonType_id: ArrayList<String> = ArrayList()
     var reasontypevalue_id: String? = ""
     private lateinit var str: String
     private val viewModel2: LoaderCompletedBookingDetailsViewModel by viewModels()
@@ -45,7 +44,10 @@ class PassengerCompletedBookingDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_passenger_completed_booking_details)
+        binding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_passenger_completed_booking_details
+        )
 
         binding.header.ivBack.setOnClickListener(View.OnClickListener {
             finish()
@@ -58,9 +60,9 @@ class PassengerCompletedBookingDetailsActivity : BaseActivity() {
             toast("Pod Downloaded successfully!")
         }
         binding.bilty.setOnClickListener {
-            if (downloadbilty.isNullOrEmpty()){
+            if (downloadbilty.isNullOrEmpty()) {
                 toast("No Road Challan/Fine Found")
-            }else{
+            } else {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(downloadbilty))
                 startActivity(browserIntent)
                 toast("Road Challan Downloaded successfully!")
@@ -70,13 +72,16 @@ class PassengerCompletedBookingDetailsActivity : BaseActivity() {
         viewModel3.loaderSendMailResponseModel.observe(this) {
             if (it.status == 1) {
                 // toast("booking Successful")
-                toast("Email Sent L successfully!")
+                toast("Email Sent successfully!")
             } else {
                 toast(it.message!!)
             }
         }
         binding.btnEmail.setOnClickListener(View.OnClickListener {
-            viewModel3.sendMailLoaderInvoiceApi("Bearer " + userPref.user.apiToken, selectedPassengerCompletedHistoryData?.bookingId!!.toString())
+            viewModel3.sendMailLoaderInvoiceApi(
+                "Bearer " + userPref.user.apiToken,
+                selectedPassengerCompletedHistoryData?.bookingId!!.toString()
+            )
         })
         viewModel3.loaderDownloadInvoiceResponseModel.observe(this) {
             if (it.status == 1) {
@@ -90,24 +95,21 @@ class PassengerCompletedBookingDetailsActivity : BaseActivity() {
         viewModel2.UploadDocuments.observe(this) {
             if (it.status == 1) {
 
-                if (it.data.pod==null){
-                    downlloadpdf=""
-                }
-                else{
+                if (it.data.pod == null) {
+                    downlloadpdf = ""
+                } else {
                     downlloadpdf = it.data.pod.toString()
 
                 }
-                if (it.data.builty==null){
-                    downloadbilty=""
-                }
-                else{
+                if (it.data.builty == null) {
+                    downloadbilty = ""
+                } else {
                     downloadbilty = it.data.builty.toString()
                 }
 
-                if (it.data.signature==null){
-                    downloadsignature=""
-                }
-                else{
+                if (it.data.signature == null) {
+                    downloadsignature = ""
+                } else {
                     downloadsignature = it.data.signature.toString()
                 }
 
@@ -123,7 +125,8 @@ class PassengerCompletedBookingDetailsActivity : BaseActivity() {
         }
 
         val data = intent.extras
-        selectedPassengerCompletedHistoryData = data?.getParcelable<CompletedPassengerHistoryData>("passengerCompletedHistoryDetails")
+        selectedPassengerCompletedHistoryData =
+            data?.getParcelable<CompletedPassengerHistoryData>("passengerCompletedHistoryDetails")
 
         Log.d("TAG___", "onCreate: " + selectedPassengerCompletedHistoryData!!.bookingId.toString())
 
@@ -140,37 +143,36 @@ class PassengerCompletedBookingDetailsActivity : BaseActivity() {
                 // toast("booking Successful")
                 toast(it.message!!)
 
-try {
-    binding.tvBookingId.text = it.data.booking_id
-    binding.tvTripStatus.text = "Completed"
-    binding.tvPaid.text = "₹${it.data.fare_total}"
-    if (it.data.payment_mode.equals("1")) {
-        binding.tvPaymentMethod.setText("Cash")
-    } else if (it.data.payment_mode.equals("2")) {
-        binding.tvPaymentMethod.setText("Online")
-    }
-    binding.tvBookingId.text = it.data.booking_id
-    binding.tvTripStatus.text = "Completed"
-    binding.tvDate.text = it.data.booking_date
-    binding.tvPickup.text = it.data.picup_location
-    binding.tvDropoff.text = it.data.drop_location
-    binding.tvVehicleType.text = it.data.vehicle_name
-    binding.tvBodyType.text = it.data.body_type
-    binding.tvVehicleNumber.text = it.data.vehicle_numbers
-    binding.tvTotalLoads.text = it.data.capacity.toString() + " Seats"
-    binding.tvDriverName.text = it.ownerDetails?.name
-    binding.tvDriverPhone.text = it.ownerDetails?.mobile
-    binding.tvPartyName.text = it.ownerName?.name
-    binding.tvPartyNumber.text = it.ownerName?.mobile_number
-    binding.tvUseremail.text = it.userDetails?.email
-    binding.tvUsername.text = it.userDetails?.name
-    binding.tvUserphone.text = it.userDetails?.mobile_number
-    binding.tvTime.text = it.data.booking_time.toString()
+                try {
+                    binding.tvBookingId.text = it.data.booking_id
+                    binding.tvTripStatus.text = "Completed"
+                    binding.tvPaid.text = "₹${it.data.fare_total}"
+                    if (it.data.payment_mode.equals("1")) {
+                        binding.tvPaymentMethod.setText("Cash")
+                    } else if (it.data.payment_mode.equals("2")) {
+                        binding.tvPaymentMethod.setText("Online")
+                    }
+                    binding.tvBookingId.text = it.data.booking_id
+                    binding.tvTripStatus.text = "Completed"
+                    binding.tvDate.text = it.data.booking_date
+                    binding.tvPickup.text = it.data.picup_location
+                    binding.tvDropoff.text = it.data.drop_location
+                    binding.tvVehicleType.text = it.data.vehicle_name
+                    binding.tvBodyType.text = it.data.body_type
+                    binding.tvVehicleNumber.text = it.data.vehicle_numbers
+                    binding.tvTotalLoads.text = it.data.capacity.toString() + " Seats"
+                    binding.tvDriverName.text = it.ownerDetails?.name
+                    binding.tvDriverPhone.text = it.ownerDetails?.mobile
+                    binding.tvPartyName.text = it.ownerName?.name
+                    binding.tvPartyNumber.text = it.ownerName?.mobile_number
+                    binding.tvUseremail.text = it.userDetails?.email
+                    binding.tvUsername.text = it.userDetails?.name
+                    binding.tvUserphone.text = it.userDetails?.mobile_number
+                    binding.tvTime.text = it.data.booking_time.toString()
 
-}
-catch (e:Exception){
-    e.printStackTrace()
-}
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
 //                binding.tvPartyName.text = it.data.pa
 
 
@@ -198,7 +200,6 @@ catch (e:Exception){
 //
 
 
-
                 //  userPref.setDriverId(it.data[0]!!.driverId.toString())
 
             } else {
@@ -206,7 +207,10 @@ catch (e:Exception){
             }
         }
         binding.btnDownload.setOnClickListener {
-            viewModel1.passengerDownloadInvoiceUrlApi("Bearer " + userPref.user.apiToken,   selectedPassengerCompletedHistoryData?.bookingId!!)
+            viewModel1.passengerDownloadInvoiceUrlApi(
+                "Bearer " + userPref.user.apiToken,
+                selectedPassengerCompletedHistoryData?.bookingId!!
+            )
 
         }
 
@@ -246,15 +250,7 @@ catch (e:Exception){
         }
 
 
-
-
-
     }
-
-
-
-
-
 
 
 }

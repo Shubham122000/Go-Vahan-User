@@ -26,6 +26,7 @@ import com.govahanuser.com.fragment.passengerongoingtriphistory.PassengerOngoing
 import com.govahanuser.com.model.cancelledpassengertriphistorymodel.CancelledPassengerTripHistoryData
 import com.govahanuser.com.model.completedpassengertriphistorymodel.CompletedPassengerHistoryData
 import com.govahanuser.com.model.ongoingPassengerTripHistoryModel.OngoingPassengerHistoryData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.ArrayList
 
@@ -38,7 +39,7 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
     val progressBarStatus = MutableLiveData<Boolean>()
     private val viewModelPassengerOngoing : PassengerOngoingTripHistoryFragmentViewModel by viewModels()
     private var ongoingTripHistoryAdapter : OngoingPassengerTripHistoryAdapter?= null
-    private var listDataPassengerOngoing: ArrayList<OngoingPassengerHistoryData> = ArrayList()
+    private var listDataPassengerOngoing: ArrayList<LoaderTripManagementData> = ArrayList()
     private val viewModelPassengerCompleted : PassengerCompletedTripHistoryFragmentViewModel by viewModels()
     private var completedPassengerTripHistoryAdapter : CompletedPassengerTripHistoryAdapter?= null
     private var listDataPassengerCompleted: ArrayList<CompletedPassengerHistoryData> = ArrayList()
@@ -69,23 +70,24 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
                 Log.d("PositionSelected",selectedItem)
 
                 if (selectedItem == "Pending") {
-                    toast(requireContext(),"Pending")
-                    viewModelPassengerOngoing.passengerPendingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: OngoingLoader"+userPref.user.apiToken)
+                    viewModelPassengerOngoing.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "1", "2"
+                    )
+
                 }else if (selectedItem == "Ongoing") {
-                    toast(requireContext(),"Ongoing")
-                    viewModelPassengerOngoing.passengerOngoingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: OngoingLoader"+userPref.user.apiToken)
+                    viewModelPassengerOngoing.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "2", "2"
+                    )
                 }
                 else if (selectedItem == "Completed") {
-                    toast(requireContext(),"Completed")
-                    viewModelPassengerCompleted.passengerCompletedBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: "+userPref.user.apiToken)
+                    viewModelPassengerOngoing.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "4", "2"
+                    )
                 }
                 else if (selectedItem == "Cancelled") {
-                    toast(requireContext(),"Cancelled")
-                    viewModelCancelledPassenger.passengerCancelledBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
-                    Log.d(ContentValues.TAG, "onCreateView: r"+userPref.user.apiToken)
+                    viewModelPassengerOngoing.UpComingsTripHistoryApi(
+                        "Bearer " + userPref.getToken().toString(), "3", "2"
+                    )
                 }
             }
 
@@ -93,11 +95,11 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
         }
 
         viewModelPassengerOngoing.getPassengerOngoingHistoryResponse.observe(requireActivity()) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 listDataPassengerOngoing.clear()
                 // listData!!.addAll(it.getFavLocdata)
 
-                if (it.data.isEmpty() ) {
+                if (it.result?.data?.isEmpty() == true) {
                     binding.idNouser.visibility = View.VISIBLE
                     binding.rvOngoing.visibility = View.GONE
 
@@ -105,7 +107,7 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
                 else {
                     binding.idNouser.visibility = View.GONE
                     binding.rvOngoing.visibility = View.VISIBLE
-                    listDataPassengerOngoing.addAll(it.data)
+                    it.result?.data?.let { it1 -> listDataPassengerOngoing.addAll(it1) }
                     ongoingTripHistoryAdapter = OngoingPassengerTripHistoryAdapter(listDataPassengerOngoing,this@PassengerBookingHistoryFragment)
                     binding.rvOngoing.apply {
                         adapter = ongoingTripHistoryAdapter
@@ -123,40 +125,40 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
             }
         }
 
-        viewModelPassengerOngoing.passengerPendingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
+//        viewModelPassengerOngoing.passengerPendingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
 //        viewModelPassengerOngoing.passengerOngoingBookingTripHistoryApi("Bearer " + userPref.user.apiToken)
 
-        viewModelPassengerCompleted.getPassengerCompletedHistoryResponse.observe(requireActivity()) {
-            if (it.status == 1) {
-                listDataPassengerCompleted.clear()
-                // listData!!.addAll(it.getFavLocdata)
-
-                if (it.data.isEmpty() ) {
-                    binding.idNouser.visibility = View.VISIBLE
-                    binding.rvOngoing.visibility = View.GONE
-
-
-                }
-                else {
-                    binding.idNouser.visibility = View.GONE
-                    binding.rvOngoing.visibility = View.VISIBLE
-                    listDataPassengerCompleted.addAll(it.data)
-                    completedPassengerTripHistoryAdapter = CompletedPassengerTripHistoryAdapter(listDataPassengerCompleted,this@PassengerBookingHistoryFragment)
-                    binding.rvOngoing.apply {
-                        adapter = completedPassengerTripHistoryAdapter
-                        layoutManager = LinearLayoutManager(requireActivity())
-                        // it.getFavLocdata?.let { notificationList?.addAll(it) }
-                        //    favouriteLocationsAdapter?.notifyDataSetChanged()
-                    }
-                }
-
-            } else   {
-                Log.d("Response", it.toString())
-                toast(requireContext(),it.message!!)
-                binding.idNouser.visibility = View.VISIBLE
-                binding.rvOngoing.visibility = View.GONE
-            }
-        }
+//        viewModelPassengerCompleted.getPassengerCompletedHistoryResponse.observe(requireActivity()) {
+//            if (it.status == 1) {
+//                listDataPassengerCompleted.clear()
+//                // listData!!.addAll(it.getFavLocdata)
+//
+//                if (it.data.isEmpty() ) {
+//                    binding.idNouser.visibility = View.VISIBLE
+//                    binding.rvOngoing.visibility = View.GONE
+//
+//
+//                }
+//                else {
+//                    binding.idNouser.visibility = View.GONE
+//                    binding.rvOngoing.visibility = View.VISIBLE
+//                    listDataPassengerCompleted.addAll(it.data)
+//                    completedPassengerTripHistoryAdapter = CompletedPassengerTripHistoryAdapter(listDataPassengerCompleted,this@PassengerBookingHistoryFragment)
+//                    binding.rvOngoing.apply {
+//                        adapter = completedPassengerTripHistoryAdapter
+//                        layoutManager = LinearLayoutManager(requireActivity())
+//                        // it.getFavLocdata?.let { notificationList?.addAll(it) }
+//                        //    favouriteLocationsAdapter?.notifyDataSetChanged()
+//                    }
+//                }
+//
+//            } else   {
+//                Log.d("Response", it.toString())
+//                toast(requireContext(),it.message!!)
+//                binding.idNouser.visibility = View.VISIBLE
+//                binding.rvOngoing.visibility = View.GONE
+//            }
+//        }
 
 
 
@@ -224,7 +226,7 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
 
 
 
-    override fun onDetailClicked(ongoingPassengerHistoryData: OngoingPassengerHistoryData) {
+    override fun onDetailClicked(ongoingPassengerHistoryData: LoaderTripManagementData) {
           startActivity(Intent(requireContext(), PassengerOngoingBookingDetailsActivity :: class.java).also {
              it.putExtra("passengerOngoingHistoryDetails", ongoingPassengerHistoryData)
 
@@ -232,9 +234,6 @@ class PassengerBookingHistoryFragment : BaseFragment() , OngoingPassengerTripHis
 
         Log.d("TAG++", "onProceedClicked: "+ongoingPassengerHistoryData.bookingId.toString())
     }
-
-
-
 
     override fun onCompletedDetailClicked(completedPassengerHistoryData: CompletedPassengerHistoryData) {
         startActivity(Intent(requireContext(), PassengerCompletedBookingDetailsActivity :: class.java).also {

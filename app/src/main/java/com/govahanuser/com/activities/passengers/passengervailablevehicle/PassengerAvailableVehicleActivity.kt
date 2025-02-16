@@ -18,7 +18,7 @@ import com.govahanuser.com.adapters.AvailablePVehiclesAdapter
 import com.govahanuser.com.baseClasses.BaseActivity
 import com.govahanuser.com.databinding.ActivityPassengerAvailableVehicleBinding
 import com.govahanuser.com.databinding.RecordSavedBinding
-import com.govahanuser.com.model.searchPassengerVehicle.SearchPassengerData
+import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleData
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -68,8 +68,8 @@ class PassengerAvailableVehicleActivity : BaseActivity(), AvailablePVehiclesAdap
         dropLat = intent.getStringExtra("dropLatitude")!!
         dropLong = intent.getStringExtra("dropLongitude")!!
         g_vehicle_type = intent.getStringExtra("vehicle_type")!!
-        g_seat = intent.getStringExtra("seat")!!
-        g_tyers = intent.getStringExtra("tyers")!!
+//        g_seat = intent.getStringExtra("seat")!!
+//        g_tyers = intent.getStringExtra("tyers")!!
         g_booking_date = intent.getStringExtra("booking_date")!!
         g_booking_time = intent.getStringExtra("booking_time")!!
         pickup_location = intent.getStringExtra("pickup_location")!!
@@ -109,16 +109,13 @@ class PassengerAvailableVehicleActivity : BaseActivity(), AvailablePVehiclesAdap
                 hideProgressDialog()
             }
         }
-        viewModel.availablePassengerVehicleListResponse.observe(this) {
-            if (it.status == 1) {
-//                for (item in 0 until it.data.size) {
-//                    if (it.data.get(item).distance_search!! < 0) {
-//                        filteredData.clear()
-//                        filteredData = it.data
-//                    }
-//                }
-                availableVehiclesPassAdapter =  AvailablePVehiclesAdapter(it.data,
-                    this,this)
+        viewModel.availableVehicleListResponse.observe(this) {
+            if (it.error == false) {
+                availableVehiclesPassAdapter = it.result?.trips?.let { it1 ->
+                    AvailablePVehiclesAdapter(
+                        it1,
+                        this,this)
+                }
                 binding.rvAvailableVehicles.apply {
                     adapter = availableVehiclesPassAdapter
                     layoutManager = LinearLayoutManager(this@PassengerAvailableVehicleActivity)
@@ -162,15 +159,9 @@ class PassengerAvailableVehicleActivity : BaseActivity(), AvailablePVehiclesAdap
         startActivity(intent)
     }
 
-    override fun onProceedClicked(searchPassListModelData: SearchPassengerData) {
+    override fun onProceedClicked(searchPassListModelData: SearchVehicleData) {
         startActivity(Intent(this, BookingReviewPActivity :: class.java).also {
-            it.putExtra("vehicleDetails", searchPassListModelData)
-            it.putExtra("pickupLatitude", pickupLat)
-            it.putExtra("pickupLongitude", pickupLong)
-            it.putExtra("dropLatitude", dropLat)
-            it.putExtra("dropLongitude", dropLong)
-            it.putExtra("dropLongitude", dropLong)
-            it.putExtra("vehicle_type", g_vehicle_type)
+            it.putExtra("ModelData", searchPassListModelData)
         })
     }
 
