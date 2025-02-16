@@ -490,7 +490,7 @@ class DashboardActivity : BaseActivity(),  NavigationView.OnNavigationItemSelect
         if(complete_profilee.equals("0")){
 
         }
-        if (userPref.user.email.isNullOrEmpty() && userPref.user.name.isNullOrEmpty() && userPref.user.address.isNullOrEmpty()){
+        if (userPref.getName().isNullOrEmpty() && userPref.getEmail().isNullOrEmpty() && userPref.getAddress().isNullOrEmpty()){
             completeDialog()
         }
         Glide.with(this).load(userPref.user.profileImage)
