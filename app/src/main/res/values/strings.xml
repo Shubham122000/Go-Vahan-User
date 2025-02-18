@@ -401,7 +401,7 @@ Cancellation &amp; Refund Policy</string>
     <string name="tax">Tax</string>
     <string name="total_amount1">Total Amount</string>
     <string name="cgst">+CGST (8%)</string>
-    <string name="advance_payment_amount">Advance Payment Amount</string>
+    <string name="advance_payment_amount">Advance Amount</string>
     <string name="no_of_vehicles">No. of vehicles:</string>
     <string name="booking_success">Booking Success!</string>
     <string name="head_office">Head Office</string>

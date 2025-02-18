@@ -149,7 +149,7 @@ class LoginActivity : BaseActivity() {
                 userPref.user = it.loginResponseData!!
                 userPref.isLogin = true
                 userPref.setToken(it.loginResponseData!!.apiToken)
-                it.loginResponseData!!.name?.let { it1 -> userPref.setSubUserName(it1) }
+                it.loginResponseData!!.name?.let { it1 -> userPref.setName(it1) }
                 userPref.setEmail(it.loginResponseData!!.email)
                 userPref.setMobile(it.loginResponseData!!.mobileNumber)
                 userPref.setProfileImage(it.loginResponseData!!.profileImage.toString())

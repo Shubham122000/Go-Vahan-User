@@ -293,7 +293,7 @@ class PaymentThroughActivity : BaseActivity(),
 
                 startActivity(
                     Intent(this, BookingSuccessActivity::class.java).apply {
-                        putExtra("modelDataList", viewModel.razorpayStatusResponse.value)
+                        putExtra("modelDataList", it.result?.data)
                             .putExtra("flag",flag)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     }

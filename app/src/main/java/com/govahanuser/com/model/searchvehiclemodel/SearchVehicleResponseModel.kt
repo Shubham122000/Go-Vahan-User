@@ -32,6 +32,8 @@ data class SearchVehicleData (
     @SerializedName("total_distance"    ) var totalDistance   : String?  = null,
     @SerializedName("billing_type"      ) var billingType     : String?  = null,
     @SerializedName("freight_amount"    ) var freightAmount   : String?  = null,
+    @SerializedName("percent_amount"    ) var percentAmount   : String?  = null,
+    @SerializedName("remaining_amount"  ) var remainingAmount   : String?  = null,
     @SerializedName("trip_status"       ) var tripStatus      : Int?     = null,
     @SerializedName("booking_date_from" ) var bookingDateFrom : String?  = null,
     @SerializedName("booking_date_to"   ) var bookingDateTo   : String?  = null,

@@ -219,7 +219,7 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
 //                tvDriverRating.text = it.data[0].rating.toString()
                 tvPickLocation.text =selectedLoaderTripData.tripDetails?.fromTrip
                 tvDropLocation.text = selectedLoaderTripData.tripDetails?.toTrip
-                tv_ridesNumber.text = selectedLoaderTripData.rideCode
+//                tv_ridesNumber.text = selectedLoaderTripData.rideCode
                 tvAmount.text = "₹${selectedLoaderTripData.tripDetails?.freightAmount}"
                 Glide.with(this).load(selectedLoaderTripData.tripDetails?.vehicle?.vehicleImage).into(vehicleImage)
                 Glide.with(this).load(selectedLoaderTripData.tripDetails?.driver?.profileImage).into(ivDriverImage)

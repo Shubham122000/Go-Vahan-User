@@ -13,6 +13,7 @@ import com.govahanuser.com.activities.bookingconfirmationstatus.BookingConfirmat
 import com.govahanuser.com.baseClasses.BaseActivity
 import com.govahanuser.com.databinding.ActivityBookingSuccessBinding
 import com.govahanuser.com.model.RazorpaystatusResponse
+import com.govahanuser.com.model.RazorpaystatusResponseData
 import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessData
 import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessDriver
 import com.govahanuser.com.model.loaderpaymentsuccessmodel.LoaderPaymentSuccessUser
@@ -22,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class BookingSuccessActivity : BaseActivity() {
     private lateinit var binding : ActivityBookingSuccessBinding
 //    var modelDataList: BookingLoaderData?=null
-    var modelDataList: RazorpaystatusResponse?=null
+    var modelDataList: RazorpaystatusResponseData?=null
 //    var Owner: BookingLoaderData?=null
 //    var modelUserList: BookingLoaderUser?=null
 //    var modelDriverList: BookingLoaderDriver?=null
@@ -52,7 +53,7 @@ class BookingSuccessActivity : BaseActivity() {
             flag = intent.getStringExtra("flag")
                if(intent.getStringExtra("online").equals("ONLINE")) {
 //                modelDataList = (intent.getStringExtra("modelDataList") as BookingLoaderData?)
-                modelDataList = (intent.getParcelableExtra<RazorpaystatusResponse>("modelDataList") as RazorpaystatusResponse?)
+                modelDataList = (intent.getParcelableExtra<RazorpaystatusResponseData>("modelDataList") as RazorpaystatusResponseData?)
 //                Owner = (intent.getStringExtra("Owner") as BookingLoaderData?)
 //                modelUserList = (intent.getStringExtra("modelUserList") as BookingLoaderUser?)
 //                modelDriverList = (intent.getStringExtra("modelDriverList") as BookingLoaderDriver?)
@@ -61,38 +62,11 @@ class BookingSuccessActivity : BaseActivity() {
                 paymentMode="online"
             }
         }
-//        val extras = intent.extras
-//        if (extras != null) {
-//
-//            if() {
-//                modelOnlineDataList = (extras.getSerializable("modelDataList") as LoaderPaymentSuccessData?)
-//                modelOnlineUserList = (extras.getSerializable("modelUserList") as LoaderPaymentSuccessUser?)
-//                modelOnlineDriverList =
-//                    (extras.getSerializable("modelDriverList") as LoaderPaymentSuccessDriver?)
-//                modelOnlineRideCode="1234"
-//                Log.d(TAG, "onCreatepay:"+"Online")
-//           }else if(!BookingReviewActivity.bPaymentMode) {
-//
-//                modelDataList = (extras.getSerializable("modelDataList") as BookingLoaderData?)
-//                modelUserList = (extras.getSerializable("modelUserList") as BookingLoaderUser?)
-//                modelDriverList =
-//                    (extras.getSerializable("modelDriverList") as BookingLoaderDriver?)
-//                modelRideCode = (extras.getSerializable("modelRideCode") as String)
-//
-//                Log.d(TAG, "onCreatepay:"+"Cash")
-//            }
-//
-//
-//
-//
-//
-//        }
-
 
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, BookingConfirmationAndStatusActivity::class.java)
                 .putExtra("flag",flag)
-                .putExtra("modelDataList", intent.getParcelableExtra<RazorpaystatusResponse>("modelDataList") as RazorpaystatusResponse?)
+                .putExtra("modelDataList", intent.getParcelableExtra<RazorpaystatusResponseData>("modelDataList") as RazorpaystatusResponseData?)
             )
             finish()
         }, 1000) // 2000 milliseconds = 2 seconds

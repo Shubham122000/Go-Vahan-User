@@ -51,7 +51,7 @@ MyProfileActivity : BaseActivity() {
 
 
                 userPref.setToken(it.data!!.deviceToken)
-                userPref.setSubUserName(it.data!!.name)
+                it.data!!.name?.let { it1 -> userPref.setName(it1) }
                 userPref.setEmail(it.data!!.email)
                 userPref.setMobile(it.data!!.mobileNumber)
                 userPref.setAddress(it.data!!.address)

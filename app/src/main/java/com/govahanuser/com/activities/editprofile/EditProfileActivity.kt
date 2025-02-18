@@ -185,7 +185,7 @@ class EditProfileActivity : BaseActivity() {
                 userPref.isLogin = true
 //                userPref.user = it.data!!
                 userPref.setToken(it.data!!.api_token)
-                userPref.setSubUserName(it.data!!.name)
+                userPref.setName(it.data!!.name)
                 userPref.setEmail(it.data!!.email)
                 userPref.setMobile(it.data!!.mobile_number)
                 userPref.setAddress(it.data!!.address)

@@ -283,7 +283,7 @@ class BookingReviewPActivity : BaseActivity() {
         selectedDateFormat2 = selectedPassVehicleData?.bookingDateFrom!!
         binding.btnConfirmbook.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, PaymentThroughActivity :: class.java).also {
-                it.putExtra("amount", amountPayable)
+                it.putExtra("amount", selectedPassVehicleData)
                 it.putExtra("flag1","1")
                 it.putExtra("flag", "passenger")
                 it.putExtra("total_fare", total_fare)

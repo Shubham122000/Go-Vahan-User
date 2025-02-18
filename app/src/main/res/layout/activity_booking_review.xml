@@ -326,6 +326,7 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:orientation="horizontal">
 
                             <TextView
@@ -390,6 +391,7 @@
                     android:background="@color/very_light_gray"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="gone"
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp" />
 
@@ -405,6 +407,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
+                        android:visibility="gone"
                         android:weightSum="1">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -638,6 +641,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto_regular"
                         android:text="Payment Mode"
+                        android:visibility="gone"
                         android:textColor="@color/gray"
                         android:layout_gravity="start"
                         android:textSize="@dimen/_11sdp" />
@@ -678,6 +682,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:orientation="horizontal">
                             <TextView
                                 android:paddingEnd="@dimen/_10sdp"

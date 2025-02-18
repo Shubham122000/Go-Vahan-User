@@ -328,7 +328,7 @@
     <string name="tax">टैक्स</string>
     <string name="total_amount1">कुल राशि</string>
     <string name="cgst">+सीजीएसटी (8%)</string>
-    <string name="advance_payment_amount">अग्रिम भुगतान राशि</string>
+    <string name="advance_payment_amount">अग्रिम राशि</string>
     <string name="no_of_vehicles">वाहनों की संख्या:</string>
     <string name="booking_success">बुकिंग सफल!</string>
     <string name="head_office">प्रधान कार्यालय</string>
