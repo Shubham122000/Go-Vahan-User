@@ -145,9 +145,9 @@ class LoaderCompletedBookingDetailsActivity : BaseActivity() {
                         binding.tvDriverPhone.text = it.ownerDetails?.mobile
                         binding.tvPartyName.text = it.ownerDetails?.name
                         binding.tvPartyNumber.text = it.ownerDetails?.mobile
-                        binding.tvUseremail.text = it.userDetails?.email
-                        binding.tvUsername.text = it.userDetails?.name
-                        binding.tvUserphone.text = it.userDetails?.mobileNumber
+                        binding.tvUseremail.text = userPref.getEmail()
+                        binding.tvUsername.text = userPref.getName()
+                        binding.tvUserphone.text = userPref.getmobile()
                         binding.tvPartyName.text = it.data?.bookingTime.toString()
 
                         /*if(it.data[i].rideCancelStatus.toString().equals("0")){

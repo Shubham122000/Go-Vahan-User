@@ -85,7 +85,7 @@ data class RazorpayDriver (
     @SerializedName("mobile_number"     ) var mobileNumber    : String? = null,
     @SerializedName("country_code"      ) var countryCode     : String? = null,
     @SerializedName("address"           ) var address         : String? = null,
-    @SerializedName("profile_image"     ) var profileImage    : String? = null,
+    @SerializedName("profile"     ) var profileImage    : String? = null,
     @SerializedName("email_verified_at" ) var emailVerifiedAt : String? = null,
     @SerializedName("device_token"      ) var deviceToken     : String? = null,
     @SerializedName("device_name"       ) var deviceName      : String? = null,

@@ -29,13 +29,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoaderOngoingBookingDetailsActivity : BaseActivity() {
-    private lateinit var binding : ActivityBookingDetailsBinding
+    private lateinit var binding: ActivityBookingDetailsBinding
     private var selectedLoaderOngoingHistoryData: LoaderTripManagementData? = null
     private val viewModel: LoaderOngoingBookingDetailsViewModel by viewModels()
     private var listData: ArrayList<LoaderCancelReasonData> = ArrayList()
     private var loaderCancelReasonAdapter: LoaderCancelTripReasonAdapter? = null
     var crnNumber = ""
-    private var listReasonType_id:ArrayList<String> = ArrayList()
+    private var listReasonType_id: ArrayList<String> = ArrayList()
     var reasontypevalue_id: String? = ""
     private lateinit var str: String
 
@@ -64,7 +64,8 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         })
 
         val data = intent.extras
-        selectedLoaderOngoingHistoryData = data?.getParcelable<LoaderTripManagementData>("loaderOngoingHistoryDetails")
+        selectedLoaderOngoingHistoryData =
+            data?.getParcelable<LoaderTripManagementData>("loaderOngoingHistoryDetails")
 
         viewModel.progressBarStatus.observe(this) {
             if (it) {
@@ -82,44 +83,53 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
 //                        toast("no data")
 //                    } else {
 //                        toast(it.message)
-                        binding.tvBookingId.text = selectedLoaderOngoingHistoryData?.bookingId
-                        binding.tvTripStatus.text = "Ongoing"
-                        binding.tvTotalfare.text = "₹ ${selectedLoaderOngoingHistoryData?.tripDetails?.freightAmount.toString()}"
-                        binding.tvDate.text = selectedLoaderOngoingHistoryData?.tripDetails?.bookingDateTo
-                        binding.tvPickup.text = selectedLoaderOngoingHistoryData?.tripDetails?.fromTrip
-                        binding.tvDropoff.text = selectedLoaderOngoingHistoryData?.tripDetails?.toTrip
-                        binding.tvVehicleType.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleName
-                        binding.tvBodyType.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.bodyType?.name
-                        binding.tvVehicleNumber.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleNumber
-                        binding.tvTotalLoads.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.capacity
+        binding.tvBookingId.text = selectedLoaderOngoingHistoryData?.bookingId
+        if (selectedLoaderOngoingHistoryData?.status == 1) {
+            binding.tvTripStatus.text = "Pending"
+        } else {
+            binding.tvTripStatus.text = "Ongoing"
+        }
 
-                        if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
-                            binding.tvPaymentMethod.setText("Cash")
-                        } else if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("2")) {
-                            binding.tvPaymentMethod.setText("Online")
-                        } else {
-                            binding.tvPaymentMethod.setText("Wallet")
-                        }
+        binding.tvTotalfare.text =
+            "₹ ${selectedLoaderOngoingHistoryData?.tripDetails?.freightAmount.toString()}"
+        binding.tvDate.text = selectedLoaderOngoingHistoryData?.tripDetails?.bookingDateTo
+        binding.tvPickup.text = selectedLoaderOngoingHistoryData?.tripDetails?.fromTrip
+        binding.tvDropoff.text = selectedLoaderOngoingHistoryData?.tripDetails?.toTrip
+        binding.tvVehicleType.text =
+            selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleName
+        binding.tvBodyType.text =
+            selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.bodyType?.name
+        binding.tvVehicleNumber.text =
+            selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleNumber
+        binding.tvTotalLoads.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.capacity
 
-                        binding.tvDriverName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
-                        binding.tvDriverPhone.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.mobileNumber
-                        binding.tvPartyName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
-                        binding.tvPartyNumber.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
-                        binding.tvUseremail.text = selectedLoaderOngoingHistoryData?.tripDetails?.user?.email
-                        binding.tvUsername.text = selectedLoaderOngoingHistoryData?.tripDetails?.user?.name
-                        binding.tvUserphone.text = selectedLoaderOngoingHistoryData?.tripDetails?.user?.mobileNumber
+        if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
+            binding.tvPaymentMethod.setText("Cash")
+        } else if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("2")) {
+            binding.tvPaymentMethod.setText("Online")
+        } else {
+            binding.tvPaymentMethod.setText("Wallet")
+        }
+
+        binding.tvDriverName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
+        binding.tvDriverPhone.text =
+            selectedLoaderOngoingHistoryData?.tripDetails?.driver?.mobileNumber
+        binding.tvPartyName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
+        binding.tvPartyNumber.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name
+        binding.tvUseremail.text = userPref.getEmail()
+        binding.tvUsername.text = userPref.getName()
+        binding.tvUserphone.text = userPref.getmobile()
 //                        binding.tvPartyName.text = it.data?.bookingTime.toString()
 
-                        /*if(it.data[i].rideCancelStatus.toString().equals("0")){
-                            binding.llBtnCancel.visibility = View.VISIBLE
-                        }
-                        else if(it.rideCancelStatus.toString().equals("1")){
-                            binding.llBtnCancel.visibility = View.GONE
-                        }*/
+        /*if(it.data[i].rideCancelStatus.toString().equals("0")){
+            binding.llBtnCancel.visibility = View.VISIBLE
+        }
+        else if(it.rideCancelStatus.toString().equals("1")){
+            binding.llBtnCancel.visibility = View.GONE
+        }*/
 
 
 //                    }
-
 
 
 //                    Log.d(
@@ -150,10 +160,7 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         })
 
 
-
     }
-
-
 
 
     private fun cancelReasonDialog() {
@@ -209,14 +216,15 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         bindingDialog.btnConfirmCancel.setOnClickListener {
             listReasonType_id.clear()
             bindingDialog.etFeedback.text.toString()
-            for (i in 0 until bindingDialog.rvReasons.childCount){
-                val cbReason =bindingDialog.rvReasons.getChildAt(i).findViewById(R.id.cb_reason) as CheckBox
-                if (cbReason.isChecked){
-                    val id=listData[i].id
+            for (i in 0 until bindingDialog.rvReasons.childCount) {
+                val cbReason =
+                    bindingDialog.rvReasons.getChildAt(i).findViewById(R.id.cb_reason) as CheckBox
+                if (cbReason.isChecked) {
+                    val id = listData[i].id
                     listReasonType_id.add(id.toString())
 
-                    reasontypevalue_id =  listReasonType_id.toString()
-                    str= android.text.TextUtils.join(",", listReasonType_id)
+                    reasontypevalue_id = listReasonType_id.toString()
+                    str = android.text.TextUtils.join(",", listReasonType_id)
                 }
             }
 
@@ -227,14 +235,16 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
                 str,
                 bindingDialog.etFeedback.text.toString()
             )
-            Log.d("CheckBoxInfo",   selectedLoaderOngoingHistoryData?.bookingId!!+str+bindingDialog.etFeedback.text.toString())
+            Log.d(
+                "CheckBoxInfo",
+                selectedLoaderOngoingHistoryData?.bookingId!! + str + bindingDialog.etFeedback.text.toString()
+            )
 
         }
         bindingDialog.ivClose.setOnClickListener {
             cDialog.dismiss()
         }
     }
-
 
 
     private fun rideCancelledDialog() {
@@ -254,7 +264,7 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         )
         cDialog.show()
 
-        bindingDialog.tvCRN.setText("Your booking with "+  crnNumber +" has been cancelled successfully.")
+        bindingDialog.tvCRN.setText("Your booking with " + crnNumber + " has been cancelled successfully.")
         cDialog.dismiss()
         this.finish()
 
