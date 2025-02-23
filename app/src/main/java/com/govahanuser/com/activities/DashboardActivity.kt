@@ -142,8 +142,8 @@ class DashboardActivity : BaseActivity(),  NavigationView.OnNavigationItemSelect
 
         // binding..setText(userPref.getName())
        // binding.header.tvUserName.setText("Pramod Gupta")
-        binding.header.tvUserName.text = userPref.user.name
-        binding.header.tvEmail.text = userPref.user.email
+        binding.header.tvUserName.text = userPref.getName()
+        binding.header.tvEmail.text = userPref.getEmail()
       //  tvEmail.text = userPref.user.email
 
         Glide.with(this).load(userPref.user.profileImage)
@@ -253,7 +253,7 @@ class DashboardActivity : BaseActivity(),  NavigationView.OnNavigationItemSelect
    // binding.header.tvEmail.text = userPref.user.email
     @SuppressLint("SetTextI18n")
     private fun setNavigationData() {
-        binding.header.tvUserName.text = userPref.getSubUserName()
+        binding.header.tvUserName.text = userPref.getName()
         binding.header.tvEmail.text = userPref.getEmail()
 
         if (!userPref.getUserProfileImage().isNullOrBlank()) {

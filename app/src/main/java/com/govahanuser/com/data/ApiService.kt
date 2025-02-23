@@ -160,7 +160,7 @@ interface ApiService {
 
 
 
-    @POST("refer_user")
+    @POST("referrals")
     suspend fun refer_userApi(
         @Header("Authorization") authorization: String,
     ): Response<ReferNEarnResponse>

@@ -36,12 +36,12 @@ class ReferEarnActivity : BaseActivity() {
 
         viewModel.refer_userApi("Bearer "+userPref.user.apiToken)
         viewModel.refernearnResponse.observe(this){
-            if (it.status==1){
-                referalcode=it.data.referal_code
-                link=it.data.referal_link
-                binding.tvRefercode.text= it.data.referal_code
+            if (it.error == false){
+                referalcode= it.result?.referalCode.toString()
+                link= it.result?.referalLink.toString()
+                binding.tvRefercode.text= it.result?.referalCode.toString()
             }else{
-                toast(it.message)
+                toast(it.message.toString())
             }
         }
         binding.btnCopy.setOnClickListener {
