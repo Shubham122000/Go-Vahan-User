@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import com.govahanuser.com.R
 import com.govahanuser.com.baseClasses.BaseActivity
 import com.govahanuser.com.databinding.ActivityInvoiceSummaryBinding
+import com.govahanuser.com.model.loaderinvoicelistmodel.LoaderInvoiceData
+import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import com.govahanuser.com.util.DateFormat
 import com.govahanuser.com.util.toast
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +21,7 @@ import java.text.DecimalFormat
 @AndroidEntryPoint
 class LoaderInvoiceSummaryActivity : BaseActivity() {
     private lateinit var binding: ActivityInvoiceSummaryBinding
-    private var selectedInvoiceListData: String? = null
+    private var selectedInvoiceListData: LoaderTripManagementData? = null
     private var selectedInvoiceLoaderBookingId: String? = null
     private val viewModel: InvoiceSummaryDetailsViewModel by viewModels()
     var downlloadpdf= ""
@@ -64,9 +66,10 @@ class LoaderInvoiceSummaryActivity : BaseActivity() {
 
         val data = intent.extras
 
-        selectedInvoiceListData = intent.getStringExtra("loaderInvoiceDetails").toString()
+//        selectedInvoiceListData = intent.getStringExtra("loaderInvoiceDetails").toString()
+        selectedInvoiceListData = data?.getParcelable<LoaderTripManagementData>("loaderInvoiceDetails")
         selectedInvoiceLoaderBookingId = intent.getStringExtra("loaderInvoiceBookingId").toString()
-          //    selectedInvoiceListData = data?.getParcelable<LoaderInvoiceData>("loaderInvoiceDetails")
+//              selectedInvoiceListData = data?.getParcelable<LoaderInvoiceData>("loaderInvoiceDetails")
          //     selectedPassengerListData = data?.getParcelable<PassengerInvoiceData>("loaderInvoiceDetails")
         //Log.d("TAG___", "onCreate: " + selectedInvoiceListData!!.invoiceNumber.toString())
 
@@ -78,58 +81,76 @@ class LoaderInvoiceSummaryActivity : BaseActivity() {
             }
         }
 
-        viewModel.loaderInvoiceSummaryDetailResponse.observe(this) {
-            if (it.status == 1) {
+//        viewModel.loaderInvoiceSummaryDetailResponse.observe(this) {
+//            if (it.status == 1) {
                 // toast("booking Successful")
-                toast(it.message!!)
+//                toast(it.message!!)
 
                 try {
-                    binding.tvInvoiceNumber.text = it.data?.invoiceNumber
-                    binding.tvInvoiceDate.text = DateFormat.TimeFormat(it.data?.createdAt)
-
-                    booking_id= it.data?.bookingId.toString()
-                    if (it.userDetails?.name==null){
-                        binding.tvUsername.text = ""
-                    }else{
-                        binding.tvUsername.text = it.userDetails?.name.toString()
+                    if (selectedInvoiceListData?.paymentDetails?.isNotEmpty() == true) {
+                        binding.tvInvoiceNumber.text =
+                            selectedInvoiceListData?.paymentDetails?.get(0)?.invoice
+                    }
+                    binding.tvInvoiceDate.text = selectedInvoiceListData?.paymentDetails?.get(0)?.createdAt?.let {
+                        DateFormat.convertDate(
+                            it
+                        )
+                    }
+                    binding.tvCompleteDate.text = selectedInvoiceListData?.paymentDetails?.get(0)?.createdAt?.let {
+                        DateFormat.convertDate(
+                            it
+                        )
                     }
 
-                    if (it.userDetails?.email==null){
-                        binding.tvUseremail.text =""
-                    }else{
-                        binding.tvUseremail.text = it.userDetails?.email.toString()
-                    }
+                    booking_id= selectedInvoiceListData?.bookingId.toString()
+//                    if (it.userDetails?.name==null){
+//                        binding.tvUsername.text = ""
+//                    }else{
+                        binding.tvUsername.text = userPref.getName()
+//                    }
+
+//                    if (it.userDetails?.email==null){
+//                        binding.tvUseremail.text =""
+//                    }else{
+                        binding.tvUseremail.text = userPref.getEmail()
+//                    }
 //                    binding.tvUsername.text = it.userDetails?.name
-                    binding.tvUserphone.text = it.userDetails?.mobileNumber
+                    binding.tvUserphone.text = userPref.getmobile()
 //                    binding.tvUseremail.text = it.userDetails?.email
 
-                    binding.tvTotalLoads.text = it.data?.capacity
-                    binding.tvDriverName.text = it.data?.driverName
-//                    binding.tvDriverNumber.text = it.data?.driverName?.
-                    binding.tvDepartureplace.text = it.data?.picupLocation
-                    binding.tvArrivalplace.text = it.data?.dropLocation
-                    binding.tvBookingDate.text = it.data?.createdAtInIst
-                    binding.tvCompleteDate.text = it.data?.bookingDate
-                    binding.tvFuelcharges.text="₹${it.data?.fuelCharge}"
-                    binding.driverCharges.text="₹${it.data?.driverFee}"
-                    binding.fare.text="₹${it.data?.fare}"
-                    binding.tax.text="₹${addNumberValueTwoDegit(it.data?.tax.toString())}"
-                    binding.tollCharges.text="₹${it.data?.tollTax}"
-                    freightamount= it.data?.fare.toString()
-//                        tolltax=it.data.tax.toString()
+                    binding.tvTotalLoads.text = selectedInvoiceListData?.tripDetails?.vehicle?.capacity
+                    binding.tvDriverName.text = selectedInvoiceListData?.tripDetails?.driver?.name
+                    binding.tvDriverNumber.text = selectedInvoiceListData?.tripDetails?.driver?.mobileNumber
+                    binding.tvDepartureplace.text = selectedInvoiceListData?.tripDetails?.fromTrip
+                    binding.tvArrivalplace.text = selectedInvoiceListData?.tripDetails?.toTrip
+                    binding.tvBookingDate.text = selectedInvoiceListData?.tripDetails?.bookingDateFrom
+                    binding.tvFuelcharges.text="₹${selectedInvoiceListData?.tripDetails?.fuelCharge}"
+                    binding.driverCharges.text="₹${selectedInvoiceListData?.tripDetails?.driverFee}"
+                    binding.fare.text="₹${selectedInvoiceListData?.tripDetails?.freightAmount}"
+                    binding.tax.text="₹${addNumberValueTwoDegit(selectedInvoiceListData?.tripDetails?.tollTax.toString())}"
+                    binding.tollCharges.text="₹${selectedInvoiceListData?.tripDetails?.tollTax.toString()}"
+                    freightamount= selectedInvoiceListData?.tripDetails?.freightAmount.toString()
+                        tolltax = selectedInvoiceListData?.tripDetails?.tollTax.toString()
 //                    totalamount= (freightamount.toInt() + tolltax.toFloat()).toString()
-                    binding.tvTotalamount.text="₹${it.data?.fareTotal}"
-                    binding.tvBodyType.text = it.data?.bodyType
-                    binding.tvVehicleType.text = it.data?.vehicleName
-                    binding.tvVehicleNumber.text = it.data?.vehicleNumbers
-                    if (it.data?.paymentMode.equals("1")) {
-                        binding.tvPaymentMode.setText("Cash")
-                    } else if (it.data?.paymentMode.equals("2")) {
-                        binding.tvPaymentMode.setText("Online")
-                    }else if (it.data?.paymentMode.equals("3")) {
-                        binding.tvPaymentMode.setText("Wallet")
+                    binding.tvTotalamount.text="₹${selectedInvoiceListData?.tripDetails?.freightAmount}"
+                    binding.tvBodyType.text = selectedInvoiceListData?.tripDetails?.vehicle?.bodyType?.name
+                    binding.tvVehicleType.text = selectedInvoiceListData?.tripDetails?.vehicle?.vehicleName
+                    binding.tvVehicleNumber.text = selectedInvoiceListData?.tripDetails?.vehicle?.vehicleNumber
+
+                    if (selectedInvoiceListData?.paymentDetails?.isNotEmpty() == true) {
+                        if (selectedInvoiceListData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
+                            binding.tvPaymentMode.setText("Online")
+                        } else if (selectedInvoiceListData?.paymentDetails?.get(0)?.paymentMode.equals(
+                                "2"
+                            )
+                        ) else if (selectedInvoiceListData?.paymentDetails?.get(0)?.paymentMode.equals(
+                                "3"
+                            )
+                        ) {
+                            binding.tvPaymentMode.setText("Cash")
+                        }
                     }
-                    binding.tvCgst.text = it.data?.bookingTime
+                    binding.tvCgst.text = selectedInvoiceListData?.bookingTime
 
 //                    downlloadpdf = it.data..toString()
 //                    if (it.data.builty.toString().isNullOrEmpty()){
@@ -144,31 +165,28 @@ class LoaderInvoiceSummaryActivity : BaseActivity() {
                 }catch (e:Exception){
                     e.printStackTrace()
                 }
-            } else {
-                toast(it.message!!)
-            }
-        }
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
 
-        viewModel.loaderDownloadInvoiceResponseModel.observe(this) {
-            if (it.status == 1) {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.url)))
-                toast("Invoice Downloaded successfully!")
-            } else {
-                toast(it.message!!)
-            }
-        }
+//        viewModel.loaderDownloadInvoiceResponseModel.observe(this) {
+//            if (it.status == 1) {
+//                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.url)))
+//                toast("Invoice Downloaded successfully!")
+//            } else {
+//                toast(it.message!!)
+//            }
+//        }
 
-        viewModel.loaderInvoiceDetailApi(
-            "Bearer " + userPref.user.apiToken,
-            selectedInvoiceListData.toString()
-        )
+//        viewModel.loaderInvoiceDetailApi(
+//            "Bearer " + userPref.user.apiToken,
+//            selectedInvoiceListData.toString()
+//        )
 
 
         binding.btnDownload.setOnClickListener {
-            viewModel.loader_invoice_url_second(
-                "Bearer " + userPref.user.apiToken,
-                booking_id
-            )
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(selectedInvoiceListData?.pdfUrl.toString())))
         }
 
 //        viewModel.loaderSendMailResponseModel.observe(this) {

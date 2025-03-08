@@ -1,6 +1,4 @@
 package com.govahanuser.com.activities
-
-
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Dialog

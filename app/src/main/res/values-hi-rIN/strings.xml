@@ -207,6 +207,7 @@
     <string name="total_loads">कुल भार</string>
     <string name="party_owner_name">पार्टी/स्वामी का नाम</string>
     <string name="driver">चालक</string>
+    <string name="driver_mobile">चालक नंबर</string>
     <string name="track_truck">ट्रैक ट्रक</string>
     <string name="cancel_trip">यात्रा रद्द करें</string>
     <string name="raise_complaint">"शिकायत उठाएँ"</string>

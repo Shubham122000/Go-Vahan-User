@@ -37,6 +37,7 @@ data class LoaderTripManagementData(
     @SerializedName("ride_code") var rideCode: String? = null,
     @SerializedName("created_at") var createdAt: String? = null,
     @SerializedName("updated_at") var updatedAt: String? = null,
+    @SerializedName("pdf_url") var pdfUrl: String? = null,
     @SerializedName("payment_details") var paymentDetails: ArrayList<PaymentDetails> = arrayListOf(),
     @SerializedName("trip_details") var tripDetails: TripDetails? = TripDetails()
 

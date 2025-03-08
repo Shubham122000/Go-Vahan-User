@@ -78,7 +78,7 @@ class PassengerInvoiceListFragment : BaseFragment(), PassengerInvoiceListAdapter
                 toast(requireContext(),it.message!!)
             }
         }
-        viewModel.passengerInvoiceListApi("Bearer " + userPref.user.apiToken)
+//        viewModel.passengerInvoiceListApi("Bearer " + userPref.user.apiToken)
 
         Log.d(TAG, "onCreateView: kbmb" +userPref.user.apiToken)
 

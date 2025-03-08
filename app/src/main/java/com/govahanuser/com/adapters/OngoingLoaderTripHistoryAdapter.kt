@@ -34,7 +34,7 @@ class OngoingLoaderTripHistoryAdapter (val list: List<LoaderTripManagementData>,
             context.startActivity(intent)
         })*/
 
-//        holder.binding.tvDate.text = data.bookingDate
+        holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
         holder.binding.tvTime.text = data.bookingTime
         holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
         holder.binding.tvUserName.text = data.bookingId
@@ -42,13 +42,9 @@ class OngoingLoaderTripHistoryAdapter (val list: List<LoaderTripManagementData>,
         holder.binding.tvFrom.text = data.tripDetails?.fromTrip
         holder.binding.tvTo.text = data.tripDetails?.toTrip
         holder.binding.tvVehicleNumber.text = data.tripDetails?.vehicle?.vehicleNumber
-
         holder.binding.linearItem.setOnClickListener(View.OnClickListener {
             listener.onDetailClicked(data)
         })
-
-
-
     }
 
     override fun getItemCount(): Int {

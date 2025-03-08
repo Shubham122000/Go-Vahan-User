@@ -92,7 +92,7 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
 
         binding.tvTotalfare.text =
             "₹ ${selectedLoaderOngoingHistoryData?.tripDetails?.freightAmount.toString()}"
-        binding.tvDate.text = selectedLoaderOngoingHistoryData?.tripDetails?.bookingDateTo
+        binding.tvDate.text = selectedLoaderOngoingHistoryData?.tripDetails?.bookingDateFrom
         binding.tvPickup.text = selectedLoaderOngoingHistoryData?.tripDetails?.fromTrip
         binding.tvDropoff.text = selectedLoaderOngoingHistoryData?.tripDetails?.toTrip
         binding.tvVehicleType.text =

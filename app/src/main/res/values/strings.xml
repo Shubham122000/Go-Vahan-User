@@ -265,6 +265,7 @@ Cancellation &amp; Refund Policy</string>
     <string name="total_loads">Total Loads</string>
     <string name="party_owner_name">Party/Owner Name</string>
     <string name="driver">Driver</string>
+    <string name="driver_mobile">Driver Mobile</string>
     <string name="track_truck">TRACK TRUCK</string>
     <string name="cancel_trip">Cancel Trip</string>
     <string name="raise_complaint">Raise Complaint</string>

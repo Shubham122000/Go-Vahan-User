@@ -524,10 +524,18 @@
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp">
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:singleLine="true"
+                            android:layout_weight="1"
+                            android:text="@string/driver_mobile"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp" />
                         <TextView
                             android:id="@+id/tv_driverNumber"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:singleLine="true"
@@ -882,6 +890,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:layout_weight="1"
+                        android:visibility="gone"
                         android:layout_gravity="center">
 
                         <LinearLayout
@@ -966,7 +975,7 @@
                                 android:layout_height="wrap_content"
                                 android:singleLine="true"
                                 android:layout_weight="1"
-                                android:text="Advance Payment Amount"
+                                android:text="Total Payment Amount"
                                 android:fontFamily="@font/roboto_bold"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13sdp" />

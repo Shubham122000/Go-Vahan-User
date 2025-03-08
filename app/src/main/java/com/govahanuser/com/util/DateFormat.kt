@@ -2,6 +2,9 @@ package com.govahanuser.com.util
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class DateFormat {
@@ -88,6 +91,11 @@ class DateFormat {
             result = destFormat.format(parsed)
             return result
         }
-
+        fun convertDate(isoDate: String): String {
+            val instant = Instant.parse(isoDate)
+            val formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy, h:mm a")
+                .withZone(ZoneId.of("UTC"))
+            return formatter.format(instant)
+        }
     }
 }
