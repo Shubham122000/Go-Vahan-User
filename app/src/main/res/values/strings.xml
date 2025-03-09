@@ -361,8 +361,9 @@ Cancellation &amp; Refund Policy</string>
     <string name="total_paid_amount">Total Paid Amount</string>
     <string name="amount">Amount</string>
     <string name="total_fare_inc_gst">Total Fare (Inc. GST)</string>
-    <string name="invite_your_friend_and_family">Invite Your Friend &amp; Family</string>
-    <string name="and_earn_cashback_on_your" translatable="false">Refer And Earn 10% Cash Back </string>
+    <string name="invite_your_friend_and_family">Invite &amp; Earn! 🎉</string>
+    <string name="invite_your_friend_and_family_heading">Invite &amp; Earn</string>
+    <string name="and_earn_cashback_on_your" translatable="false">Refer your friends and family and get rewards up to ₹100! 💰✨</string>
     <string name="next_trip">Next Trip</string>
     <string name="your_referral_code">Your Referral Code</string>
     <string name="tap_to_copy">Tap To Copy</string>

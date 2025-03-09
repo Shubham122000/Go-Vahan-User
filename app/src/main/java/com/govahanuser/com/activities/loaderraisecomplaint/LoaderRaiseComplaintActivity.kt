@@ -15,39 +15,21 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoaderRaiseComplaintActivity : BaseActivity() {
-    private lateinit var binding : ActivityRaiseComplaintBinding
-    private val viewModel : LoaderRaiseComplaitViewModel by viewModels()
-
-     lateinit var getBookingId : String
-
+    private lateinit var binding: ActivityRaiseComplaintBinding
+    private val viewModel: LoaderRaiseComplaitViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_raise_complaint)
-
         binding.header.ivBack.setOnClickListener(View.OnClickListener {
             finish()
-
         })
 
         binding.header.tvHeaderText.setText("Raise Complaint")
-
-
-
-       /* binding.btnSubmit.setOnClickListener(View.OnClickListener {
-
-            val intent = Intent(this, BookingConfirmationAndStatusActivity::class.java)
-            startActivity(intent)
-
-        })
-*/
-
-
         val getBookingId = intent.getStringExtra("BookingId")
-
-
+        binding.bookingid.setText(getBookingId)
         viewModel.progressBarStatus.observe(this) {
             if (it) {
                 showProgressDialog()
@@ -55,10 +37,8 @@ class LoaderRaiseComplaintActivity : BaseActivity() {
                 hideProgressDialog()
             }
         }
-
-
         viewModel.addLoaderComplaintResponse.observe(this) {
-            if (it.status == 1) {
+            if (it.error == false) {
                 toast(it.message!!)
                 finish()
 
@@ -67,41 +47,18 @@ class LoaderRaiseComplaintActivity : BaseActivity() {
                 toast(it.message!!)
             }
         }
-
-
         binding.btnSubmit.setOnClickListener(View.OnClickListener {
-
-
-
-
-
-            if(binding.etSubject.text.toString().isBlank()){
-                toast(this , "Please enter complaint subject.")
-            }
-            else if(binding.etComplaint.text.toString().isBlank()){
-                toast(this , "Please enter your complaint.")
-            }
-            else{
+            if (binding.etSubject.text.toString().isBlank()) {
+                toast(this, "Please enter complaint subject.")
+            } else if (binding.etComplaint.text.toString().isBlank()) {
+                toast(this, "Please enter your complaint.")
+            } else {
                 viewModel.raiseComplaintApi(
-                    "Bearer " + userPref.user.apiToken,getBookingId.toString(),
+                    "Bearer " + userPref.user.apiToken, getBookingId.toString(),
                     binding.etSubject.text.toString(),
                     binding.etComplaint.text.toString()
                 )
             }
-
-
-
-
-
         })
-
-
-
-
-
-
-
-
-
     }
 }

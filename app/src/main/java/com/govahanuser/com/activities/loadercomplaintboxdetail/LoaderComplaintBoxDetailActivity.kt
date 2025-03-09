@@ -85,7 +85,7 @@ class LoaderComplaintBoxDetailActivity : BaseActivity() {
 
 
       viewModel.resolvedResponse.observe(this){
-          if (it.status==1){
+          if (it.error==false){
               toast(it.message!!)
               finish()
           }else{
@@ -100,11 +100,11 @@ class LoaderComplaintBoxDetailActivity : BaseActivity() {
 
         binding.btnResolved.setOnClickListener {
             viewModel.complaint_resolved("Bearer " + userPref.user.apiToken,
-                loaderComplaintData?.bookingId.toString()  ,"1")
+                loaderComplaintData?.id.toString()  ,"1")
         }
         binding.btnNotResolved.setOnClickListener {
             viewModel.complaint_resolved("Bearer " + userPref.user.apiToken,
-                loaderComplaintData?.bookingId.toString()  ,"2")
+                loaderComplaintData?.id.toString()  ,"2")
         }
 
 

@@ -88,20 +88,10 @@ class PassengerComplaintBoxDetailActivity : BaseActivity() {
                 else{
                     binding.tvAdminRemarks.text = "Pending"
                 }
-
-                if(it.data[0].paymentMode.equals("1"))
+                if(it.data.get(0).paymentMode.equals("1"))
                 {binding.tvPaymentMethod.setText("Cash")}
-                else  if(it.data[0].paymentMode.equals("2"))
+                else  if(it.data.get(0).paymentMode.equals("2"))
                 {binding.tvPaymentMethod.setText("Online")}
-
-                /*if(it.data[0].adminRemarks.equals(" "))
-                { binding.btnResolved.visibility = View.GONE }
-                else
-                {binding.btnResolved.visibility = View.VISIBLE}*/
-
-
-
-
 
             } else {
                 toast(it.message!!)
@@ -115,9 +105,8 @@ class PassengerComplaintBoxDetailActivity : BaseActivity() {
             passengerComplaintData?.bookingId.toString()
         )
 
-
         viewModel1.resolvedResponse.observe(this){
-            if (it.status==1){
+            if (it.error == false){
                 toast(it.message!!)
                 finish()
             }else{

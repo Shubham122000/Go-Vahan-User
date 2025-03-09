@@ -603,8 +603,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST("complaint_resolved")
     suspend fun complaint_resolved(@Header("Authorization") token : String,
-                                        @Field("id") booking_id : String,
-                                        @Field("type") com_message : String
+                                        @Field("id") id : String,
+                                        @Field("type") com_message : String,
     ) : Response<LoaderAddRaiseComplaintResponseModel>
 
     //  @FormUrlEncoded
