@@ -36,12 +36,12 @@ class OngoingLoaderTripHistoryAdapter (val list: List<LoaderTripManagementData>,
         })*/
 
         holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
-//        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
-//            DateFormat.convertTimestampToTime(
-//                it
-//            )
-//        }
-        holder.binding.tvTime.text = data.tripDetails?.time
+        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
+            DateFormat.convertTimestampToTime(
+                it
+            )
+        }
+//        holder.binding.tvTime.text = data.tripDetails?.time
         holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
         holder.binding.tvUserName.text = data.bookingId
         holder.binding.tvDetail.text = data.tripDetails?.vehicle?.vehicleName

@@ -193,6 +193,7 @@
     <string name="distance_choose">दूरी: </string>
     <string name="booking_time">"बुकिंग का समय"</string>
     <string name="booking_status">"बुकिंग स्थिति"</string>
+    <string name="cancelling_text">यदि आप इस यात्रा को बुकिंग के 30 मिनट के भीतर रद्द करते हैं, तो धनवापसी शुरू नहीं की जाएगी। हालाँकि, यदि रद्दीकरण 30 मिनट के बाद होता है, तो हमारी धनवापसी नीति के अनुसार धनवापसी की प्रक्रिया की जाएगी।</string>
     <string name="booking_date">"बुक करने की तिथि"</string>
     <string name="body_type_choose">शरीर के प्रकार: </string>
     <string name="capacity_choose">"क्षमता:"</string>

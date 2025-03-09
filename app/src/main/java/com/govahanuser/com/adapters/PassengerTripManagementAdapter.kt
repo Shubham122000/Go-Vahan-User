@@ -10,6 +10,7 @@ import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowTripManagementBinding
 import com.govahanuser.com.model.tripmanagementpassengermodel.PassengerTripManagementData
 import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
+import com.govahanuser.com.util.DateFormat
 
 class PassengerTripManagementAdapter (
 
@@ -29,7 +30,12 @@ class PassengerTripManagementAdapter (
         val data = list[position]
 
         holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
-        holder.binding.tvTime.text = data.tripDetails?.time
+//        holder.binding.tvTime.text = data.tripDetails?.time
+        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
+            DateFormat.convertTimestampToTime(
+                it
+            )
+        }
 //        holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
         holder.binding.tvUsername.text = data.tripDetails?.driver?.name
         holder.binding.tvVehicleName.text = data.tripDetails?.vehicle?.vehicleName

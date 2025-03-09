@@ -334,6 +334,7 @@ Cancellation &amp; Refund Policy</string>
     <string name="ride_cancelled">Ride Cancelled</string>
     <string name="confirm_cancellation">Confirm Cancellation</string>
     <string name="terms_and_Conditions_apply">Terms and Conditions apply.</string>
+    <string name="cancelling_text">If you cancel this trip within 30 minutes of booking, a refund will not be initiated. However, if the cancellation occurs after 30 minutes, a refund will be processed as per our refund policy.</string>
     <string name="write_a_review">Write a Review</string>
     <string name="how_was_your_ride_with">How was your ride with</string>
     <string name="write_your_feedback">Write your feedback</string>

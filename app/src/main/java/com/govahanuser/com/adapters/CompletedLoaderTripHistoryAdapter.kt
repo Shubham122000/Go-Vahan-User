@@ -33,12 +33,12 @@ class CompletedLoaderTripHistoryAdapter (val list: List<CompletedLoaderHistoryDa
 
 
         holder.binding.tvDate.text = data.bookingDate
-//        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
-//            DateFormat.convertTimestampToTime(
-//                it
-//            )
-//        }
-        holder.binding.tvTime.text = data.bookingTime
+        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
+            DateFormat.convertTimestampToTime(
+                it
+            )
+        }
+//        holder.binding.tvTime.text = data.bookingTime
         holder.binding.tvPartyname.text = data.partyName
         holder.binding.tvUserName.text = data.bookingId
         holder.binding.tvDetail.text = data.vehicleNumbers

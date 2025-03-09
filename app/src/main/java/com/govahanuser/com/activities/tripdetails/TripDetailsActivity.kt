@@ -172,7 +172,7 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         val tvOwner: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_owner)!!
         val tvFrom: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_from)!!
         val tvTo: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_to)!!
-        val tv_ridesNumber: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_ridesNumber)!!
+//        val tv_ridesNumber: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_ridesNumber)!!
         val tvDriverNamee: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_driverNamee)!!
         val tvDriverRating: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_DriverRating)!!
         val tvPickLocation: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_pickLocation)!!
@@ -180,7 +180,7 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         val tvAmount: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.tv_amount)!!
         val llBtnCancel: LinearLayout = bottomSheetLoaderTripDetails.findViewById(R.id.ll_btnCancel)!!
         val btnCancel: Button = bottomSheetLoaderTripDetails.findViewById(R.id.btnCancel)!!
-        val btnReschedule: Button = bottomSheetLoaderTripDetails.findViewById(R.id.btnReschedule)!!
+//        val btnReschedule: Button = bottomSheetLoaderTripDetails.findViewById(R.id.btnReschedule)!!
         val cancel: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.cancel)!!
         val llCallDriver: LinearLayout = bottomSheetLoaderTripDetails.findViewById(R.id.llCallDriver)!!
         val status: TextView = bottomSheetLoaderTripDetails.findViewById(R.id.status)!!
@@ -227,22 +227,22 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
                 if (selectedLoaderTripData.status == 1){
                     status.text  = "Ride Pending"
                     llBtnCancel.visibility = View.VISIBLE
-                    btnReschedule.visibility = View.VISIBLE
+//                    btnReschedule.visibility = View.VISIBLE
 //                    cancel.visibility=View.GONE
                 }else if (selectedLoaderTripData.status == 2){
                     status.text  = "Ride Ongoing"
                     llBtnCancel.visibility = View.GONE
-                    btnReschedule.visibility = View.GONE
+//                    btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
                 }else if (selectedLoaderTripData.status == 3){
                     status.text  = "Ride Cancelled"
                     llBtnCancel.visibility = View.GONE
-                    btnReschedule.visibility = View.GONE
+//                    btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
                 }else if (selectedLoaderTripData.status == 4){
                     status.text  = "Ride Completed"
                     llBtnCancel.visibility = View.GONE
-                    btnReschedule.visibility = View.GONE
+//                    btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
                 }
 //                Glide.with(this).load(it.data[0].driv).into(ivDriverImage)
@@ -285,9 +285,9 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
         })
 
 
-        btnReschedule.setOnClickListener(View.OnClickListener {
-            clickDataPicker()
-        })
+//        btnReschedule.setOnClickListener(View.OnClickListener {
+//            clickDataPicker()
+//        })
 
         llCallDriver.setOnClickListener(View.OnClickListener {
             // callDriverNumber.let { it1 -> listener.onCallNowClicked(it1) }

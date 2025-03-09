@@ -183,7 +183,7 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
         val vehicleName: TextView = bottomSheetPassTripDetails.findViewById(R.id.vehicle_name)!!
         val vehicleNumber: TextView = bottomSheetPassTripDetails.findViewById(R.id.vehicle_number)!!
         val tvCapacity: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_capacity)!!
-        val tv_ridesNumber: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_ridesNumber)!!
+//        val tv_ridesNumber: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_ridesNumber)!!
         val bookingStatus: TextView = bottomSheetPassTripDetails.findViewById(R.id.bookingStatus)!!
         val tvDistance: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_distance)!!
         val tvDriverName: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_driverName)!!
@@ -193,7 +193,7 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
         val tvDriverNamee: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_driverNamee)!!
         val tvDriverRating: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_DriverRating)!!
         val tvAmount: TextView = bottomSheetPassTripDetails.findViewById(R.id.tv_amount)!!
-        val btnReschedule: Button = bottomSheetPassTripDetails.findViewById(R.id.btnReschedule)!!
+//        val btnReschedule: Button = bottomSheetPassTripDetails.findViewById(R.id.btnReschedule)!!
         val cancel: TextView = bottomSheetPassTripDetails.findViewById(R.id.cancel)!!
         val vehicleImage: ImageView = bottomSheetPassTripDetails.findViewById(R.id.vehicle_image)!!
         val ivDriverImage: ImageView = bottomSheetPassTripDetails.findViewById(R.id.iv_DriverImage)!!
@@ -312,22 +312,22 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
         if (selectedPassengerTripData?.status == 1){
             bookingStatus.text  = "Ride Pending"
             llBtnCancel.visibility = View.VISIBLE
-            btnReschedule.visibility = View.VISIBLE
+//            btnReschedule.visibility = View.VISIBLE
 //                    cancel.visibility=View.GONE
         }else if (selectedPassengerTripData?.status == 2){
             bookingStatus.text  = "Ride Ongoing"
             llBtnCancel.visibility = View.GONE
-            btnReschedule.visibility = View.GONE
+//            btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
         }else if (selectedPassengerTripData?.status == 3){
             bookingStatus.text  = "Ride Cancelled"
             llBtnCancel.visibility = View.GONE
-            btnReschedule.visibility = View.GONE
+//            btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
         }else if (selectedPassengerTripData?.status == 4){
             bookingStatus.text  = "Ride Completed"
             llBtnCancel.visibility = View.GONE
-            btnReschedule.visibility = View.GONE
+//            btnReschedule.visibility = View.GONE
 //                    cancel.visibility=View.VISIBLE
         }
 //                Glide.with(this).load(it.data[0].driv).into(ivDriverImage)
@@ -370,9 +370,9 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
         })
 
 
-        btnReschedule.setOnClickListener(View.OnClickListener {
-            clickDataPicker()
-        })
+//        btnReschedule.setOnClickListener(View.OnClickListener {
+//            clickDataPicker()
+//        })
 
         llCallDriver.setOnClickListener(View.OnClickListener {
             // callDriverNumber.let { it1 -> listener.onCallNowClicked(it1) }
@@ -386,9 +386,9 @@ class PassengerTripDetailsActivity : BaseActivity(), OnMapReadyCallback {
 //                it.putExtra("passengerTripUserId", selectedPassengerTripData?.userId!!)
             })
         })
-        btnReschedule.setOnClickListener(View.OnClickListener {
-            clickDataPicker()
-        })
+//        btnReschedule.setOnClickListener(View.OnClickListener {
+//            clickDataPicker()
+//        })
 
         btnCancel.setOnClickListener(View.OnClickListener {
             cancelReasonDialog()

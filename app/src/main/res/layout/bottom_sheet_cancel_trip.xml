@@ -139,8 +139,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-
-
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/terms_and_Conditions_apply"
                     android:textColor="@color/gray"
@@ -156,10 +154,16 @@
                     android:text="*"
                     android:textColor="#EA0215"
                     android:textSize="@dimen/_11sdp" />
-
-
             </LinearLayout>
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/cancelling_text"
+                    android:textColor="#EA0215"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:textSize="@dimen/_9sdp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

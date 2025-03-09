@@ -643,17 +643,17 @@
                                             android:gravity="start"
                                             android:layout_marginRight="@dimen/_5sdp">
 
-                                            <TextView
-                                                android:id="@+id/tv_ridesNumber"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_marginTop="@dimen/_1sdp"
-                                                android:fontFamily="@font/roboto_medium"
-                                                android:maxLines="1"
+<!--                                            <TextView-->
+<!--                                                android:id="@+id/tv_ridesNumber"-->
+<!--                                                android:layout_width="wrap_content"-->
+<!--                                                android:layout_height="wrap_content"-->
+<!--                                                android:layout_marginTop="@dimen/_1sdp"-->
+<!--                                                android:fontFamily="@font/roboto_medium"-->
+<!--                                                android:maxLines="1"-->
 
-                                                android:text="50"
-                                                android:textColor="@color/black"
-                                                android:textSize="@dimen/_10sdp" />
+<!--                                                android:text="50"-->
+<!--                                                android:textColor="@color/black"-->
+<!--                                                android:textSize="@dimen/_10sdp" />-->
                                             <TextView
                                                 android:id="@+id/bookingStatus"
                                                 android:layout_width="match_parent"

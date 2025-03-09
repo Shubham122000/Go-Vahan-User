@@ -364,7 +364,7 @@ interface ApiService {
 //    suspend fun getLoaderTripManagementApi(@Header("Authorization") token : String): Response<LoaderTripManagementResponseModel>
 
     @FormUrlEncoded
-    @POST("trip_management_loader_details")
+    @POST("trip_management_loader_details")get
     suspend fun loaderTripManagementDetailApi(@Header("Authorization") token : String,
                                       @Field("booking_id") booking_id : String
                                      ) : Response<LoaderTripManagementDetailResponse>

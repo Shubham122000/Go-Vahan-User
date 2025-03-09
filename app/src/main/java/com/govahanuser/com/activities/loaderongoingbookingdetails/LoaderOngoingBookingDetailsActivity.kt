@@ -86,8 +86,12 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
         binding.tvBookingId.text = selectedLoaderOngoingHistoryData?.bookingId
         if (selectedLoaderOngoingHistoryData?.status == 1) {
             binding.tvTripStatus.text = "Pending"
-        } else {
+        } else if (selectedLoaderOngoingHistoryData?.status == 2) {
             binding.tvTripStatus.text = "Ongoing"
+        }else if (selectedLoaderOngoingHistoryData?.status == 3) {
+            binding.tvTripStatus.text = "Cancelled"
+        }else if (selectedLoaderOngoingHistoryData?.status == 4) {
+            binding.tvTripStatus.text = "Completed"
         }
 
         binding.tvTotalfare.text =
