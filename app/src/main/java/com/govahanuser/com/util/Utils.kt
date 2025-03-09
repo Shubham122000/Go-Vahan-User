@@ -142,4 +142,5 @@ class Utils @Inject constructor(@ApplicationContext val context: Context) {
         var serviceID: String? = null
     }
 
+
 }

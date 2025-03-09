@@ -127,7 +127,7 @@ class LoaderInvoiceSummaryActivity : BaseActivity() {
                     binding.tvFuelcharges.text="₹${selectedInvoiceListData?.tripDetails?.fuelCharge}"
                     binding.driverCharges.text="₹${selectedInvoiceListData?.tripDetails?.driverFee}"
                     binding.fare.text="₹${selectedInvoiceListData?.tripDetails?.freightAmount}"
-                    binding.tax.text="₹${addNumberValueTwoDegit(selectedInvoiceListData?.tripDetails?.tollTax.toString())}"
+                    binding.tax.text="₹${addNumberValueTwoDegit(selectedInvoiceListData?.tripDetails?.tax.toString())}"
                     binding.tollCharges.text="₹${selectedInvoiceListData?.tripDetails?.tollTax.toString()}"
                     freightamount= selectedInvoiceListData?.tripDetails?.freightAmount.toString()
                         tolltax = selectedInvoiceListData?.tripDetails?.tollTax.toString()

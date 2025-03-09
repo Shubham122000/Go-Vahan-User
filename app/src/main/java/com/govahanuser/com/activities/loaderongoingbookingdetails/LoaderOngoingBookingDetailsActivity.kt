@@ -103,12 +103,17 @@ class LoaderOngoingBookingDetailsActivity : BaseActivity() {
             selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.vehicleNumber
         binding.tvTotalLoads.text = selectedLoaderOngoingHistoryData?.tripDetails?.vehicle?.capacity
 
-        if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
-            binding.tvPaymentMethod.setText("Cash")
-        } else if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("2")) {
-            binding.tvPaymentMethod.setText("Online")
-        } else {
-            binding.tvPaymentMethod.setText("Wallet")
+        if(selectedLoaderOngoingHistoryData?.paymentDetails?.isNotEmpty() == true) {
+            if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals("1")) {
+                binding.tvPaymentMethod.setText("online")
+            } else if (selectedLoaderOngoingHistoryData?.paymentDetails?.get(0)?.paymentMode.equals(
+                    "2"
+                )
+            ) {
+                binding.tvPaymentMethod.setText("Wallet")
+            } else {
+                binding.tvPaymentMethod.setText("Cash")
+            }
         }
 
         binding.tvDriverName.text = selectedLoaderOngoingHistoryData?.tripDetails?.driver?.name

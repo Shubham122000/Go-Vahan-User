@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowTriphistoryListBinding
 import com.govahanuser.com.model.completedloadertriphistorymodel.CompletedLoaderHistoryData
+import com.govahanuser.com.util.DateFormat
 
 class CompletedLoaderTripHistoryAdapter (val list: List<CompletedLoaderHistoryData>,
                                          private val listener: OnClick
@@ -32,6 +33,11 @@ class CompletedLoaderTripHistoryAdapter (val list: List<CompletedLoaderHistoryDa
 
 
         holder.binding.tvDate.text = data.bookingDate
+//        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
+//            DateFormat.convertTimestampToTime(
+//                it
+//            )
+//        }
         holder.binding.tvTime.text = data.bookingTime
         holder.binding.tvPartyname.text = data.partyName
         holder.binding.tvUserName.text = data.bookingId

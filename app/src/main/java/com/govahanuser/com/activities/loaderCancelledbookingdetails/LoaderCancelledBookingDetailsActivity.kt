@@ -66,11 +66,11 @@ class LoaderCancelledBookingDetailsActivity : BaseActivity() {
                         binding.tvTotalLoads.text = it.data?.capacity
 
                         if (it.data?.paymentMode.equals("1")) {
-                            binding.tvPaymentMethod.setText("Cash")
-                        } else if (it.data?.paymentMode.equals("2")) {
                             binding.tvPaymentMethod.setText("Online")
-                        } else {
+                        } else if (it.data?.paymentMode.equals("2")) {
                             binding.tvPaymentMethod.setText("Wallet")
+                        } else {
+                            binding.tvPaymentMethod.setText("Cash")
                         }
 
                         binding.tvDriverName.text = it.ownerDetails?.name

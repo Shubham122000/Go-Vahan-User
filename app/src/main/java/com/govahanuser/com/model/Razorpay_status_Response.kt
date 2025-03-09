@@ -62,6 +62,7 @@ data class TripDetails (
     @SerializedName("time"              ) var time            : String? = null,
     @SerializedName("fuel_charge"       ) var fuelCharge      : Int?    = null,
     @SerializedName("toll_tax"          ) var tollTax         : Int?    = null,
+    @SerializedName("tax"          ) var tax         : Int?    = null,
     @SerializedName("driver_fee"        ) var driverFee       : Int?    = null,
     @SerializedName("created_at"        ) var createdAt       : String? = null,
     @SerializedName("updated_at"        ) var updatedAt       : String? = null,

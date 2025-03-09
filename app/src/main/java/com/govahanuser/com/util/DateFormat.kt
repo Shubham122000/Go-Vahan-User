@@ -97,5 +97,10 @@ class DateFormat {
                 .withZone(ZoneId.of("UTC"))
             return formatter.format(instant)
         }
+        fun convertTimestampToTime(timestamp: Long): String {
+            val sdf = SimpleDateFormat("hh:mm a", Locale.getDefault()) // Format: 12:30 PM
+            val date = Date(timestamp)
+            return sdf.format(date)
+        }
     }
 }

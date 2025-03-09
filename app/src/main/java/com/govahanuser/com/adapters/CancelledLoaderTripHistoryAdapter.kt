@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowTriphistoryListBinding
 import com.govahanuser.com.model.cancelledloadertriphistorymodel.CancelledLoaderTripHistoryData
+import com.govahanuser.com.util.DateFormat.Companion.convertTimestampToTime
+import com.govahanuser.com.util.Utils
 
 class CancelledLoaderTripHistoryAdapter (val list: List<CancelledLoaderTripHistoryData>,
                                          private val listener: OnClick
@@ -23,7 +25,6 @@ class CancelledLoaderTripHistoryAdapter (val list: List<CancelledLoaderTripHisto
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val data = list[position]
         /*holder.binding.linearItem.setOnClickListener(View.OnClickListener {
            val intent = Intent(context, BookingDetailsActivity::class.java)
@@ -32,7 +33,7 @@ class CancelledLoaderTripHistoryAdapter (val list: List<CancelledLoaderTripHisto
         })*/
 
         holder.binding.tvDate.text = data.bookingDate
-        holder.binding.tvTime.text = data.bookingTime
+        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let { convertTimestampToTime(it) }
         holder.binding.tvPartyname.text = data.partyName
         holder.binding.tvUserName.text = data.bookingId
         holder.binding.tvDetail.text = data.vehicleNumbers
@@ -40,18 +41,9 @@ class CancelledLoaderTripHistoryAdapter (val list: List<CancelledLoaderTripHisto
         holder.binding.tvTo.text = data.dropLocation
         holder.binding.tvVehicleNumber.text = data.vehicleNumber
 
-
-
-
-
-
-
         holder.binding.linearItem.setOnClickListener(View.OnClickListener {
-
             listener.onCancelledDetailClicked(data)
-
         })
-
     }
 
     override fun getItemCount(): Int {

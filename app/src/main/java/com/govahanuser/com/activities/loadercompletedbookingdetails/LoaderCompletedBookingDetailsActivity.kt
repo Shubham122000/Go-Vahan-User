@@ -134,11 +134,11 @@ class LoaderCompletedBookingDetailsActivity : BaseActivity() {
                         binding.tvTotalLoads.text = it.data?.capacity
 
                         if (it.data?.paymentMode.equals("1")) {
-                            binding.tvPaymentMethod.text = "Cash"
-                        } else if (it.data?.paymentMode.equals("2")) {
                             binding.tvPaymentMethod.text = "Online"
-                        } else {
+                        } else if (it.data?.paymentMode.equals("2")) {
                             binding.tvPaymentMethod.text = "Wallet"
+                        } else {
+                            binding.tvPaymentMethod.text = "Cash"
                         }
 
                         binding.tvDriverName.text = it.ownerDetails?.name

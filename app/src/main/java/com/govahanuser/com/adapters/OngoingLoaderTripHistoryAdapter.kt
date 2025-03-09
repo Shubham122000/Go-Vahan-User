@@ -11,6 +11,7 @@ import com.govahanuser.com.databinding.RowTriphistoryListBinding
 import com.govahanuser.com.model.ongoingloadertriphistorymodel.OngoingLoaderHistoryData
 import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementData
 import com.govahanuser.com.model.tripmanagementloadermodel.LoaderTripManagementResponseModel
+import com.govahanuser.com.util.DateFormat
 
 
 class OngoingLoaderTripHistoryAdapter (val list: List<LoaderTripManagementData>,
@@ -35,7 +36,12 @@ class OngoingLoaderTripHistoryAdapter (val list: List<LoaderTripManagementData>,
         })*/
 
         holder.binding.tvDate.text = data.tripDetails?.bookingDateFrom
-        holder.binding.tvTime.text = data.bookingTime
+//        holder.binding.tvTime.text = data.bookingTime?.toLong()?.let {
+//            DateFormat.convertTimestampToTime(
+//                it
+//            )
+//        }
+        holder.binding.tvTime.text = data.tripDetails?.time
         holder.binding.tvPartyname.text = data.tripDetails?.driver?.name
         holder.binding.tvUserName.text = data.bookingId
         holder.binding.tvDetail.text = data.tripDetails?.vehicle?.vehicleName

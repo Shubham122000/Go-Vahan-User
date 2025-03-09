@@ -576,10 +576,18 @@
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp">
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:singleLine="true"
+                            android:layout_weight="1"
+                            android:text="@string/driver_mobile"
+                            android:textColor="@color/darkgray"
+                            android:textSize="@dimen/_11sdp" />
                         <TextView
                             android:id="@+id/tv_driverPhone"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_regular"
                             android:singleLine="true"
