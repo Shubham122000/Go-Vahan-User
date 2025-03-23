@@ -24,7 +24,6 @@ class LoaderWalletAdapter (val list: List<LoaderWalletListData>,var wallet_custo
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         val data = list[position]
         try {
            holder.binding.transactionId.text=data.transactionId.toString()

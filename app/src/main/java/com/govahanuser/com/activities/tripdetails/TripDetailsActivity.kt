@@ -276,8 +276,8 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
 //        }
 
         tvTripCode.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, RideCompletedActivity :: class.java).also {
-                it.putExtra("loaderTripBookingId", selectedLoaderTripData!!) })
+//            startActivity(Intent(this, RideCompletedActivity :: class.java).also {
+//                it.putExtra("loaderTripBookingId", selectedLoaderTripData!!) })
         })
 
         btnCancel.setOnClickListener(View.OnClickListener {
@@ -437,6 +437,8 @@ class TripDetailsActivity : BaseActivity(),OnMapReadyCallback {
             .from(this).inflate(R.layout.bottom_sheet_cancel_trip, null)
         bottomSheetCancelReason = BottomSheetDialog(this)
         bottomSheetCancelReason.setContentView(dialogBinding)
+        bottomSheetLoaderTripDetails.setCanceledOnTouchOutside(false)
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
 
         bottomSheetCancelReason.setOnShowListener { dia ->
             val bottomSheetDialog = dia as BottomSheetDialog
