@@ -11,7 +11,7 @@ import com.govahanuser.com.R
 import com.govahanuser.com.databinding.RowAvailableVehiclesBinding
 import com.govahanuser.com.model.searchvehiclemodel.SearchVehicleData
 
-class AvailableVehiclesAdapter(private val list: ArrayList<SearchVehicleData>,
+class  AvailableVehiclesAdapter(private val list: ArrayList<SearchVehicleData>,
                                private val listener : OnClick, var reviewsclick: OnClick) : RecyclerView.Adapter<AvailableVehiclesAdapter.ViewHolder>() {
 
 
