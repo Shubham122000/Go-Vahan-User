@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.govahanuser.com">
+    package="com.govahan">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -21,7 +21,7 @@
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <application
-        android:name="com.govahanuser.com.TransportUserApplication"
+        android:name="com.govahan.TransportUserApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/latest_logo"
@@ -37,42 +37,42 @@
             android:name="com.google.android.geo.API_KEY"
             android:value= "AIzaSyCZ8xV_LZJXXyFncpaMvdPBFMtKC_LSe3g" />
         <activity
-            android:name="com.govahanuser.com.activities.cancellation.CancellationPolicy"
+            android:name="com.govahan.activities.cancellation.CancellationPolicy"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.govahanuser.com.activities.TransactionHistoryActivity"
+            android:name="com.govahan.activities.TransactionHistoryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.govahanuser.com.activities.authorizedfranchise.AuthorizedFranchisesDetail"
+            android:name="com.govahan.activities.authorizedfranchise.AuthorizedFranchisesDetail"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.govahanuser.com.activities.bookingreview.PaymentThroughActivity"
+            android:name="com.govahan.activities.bookingreview.PaymentThroughActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.govahanuser.com.util.WebViewActivity"
+            android:name="com.govahan.util.WebViewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.govahanuser.com.activities.ReviewsActivity"
+            android:name="com.govahan.activities.ReviewsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -84,186 +84,186 @@
 <!--            android:value="AIzaSyDQ3IIA_XXoWXl5ZKrxINiuwrkswcPL8LA" />-->
 
         <activity
-            android:name="com.govahanuser.com.activities.passengerCancelledBookingDetails.PassengerCancelledBookingDetailsActivity"
+            android:name="com.govahan.activities.passengerCancelledBookingDetails.PassengerCancelledBookingDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".activities.loaderCancelledbookingdetails.LoaderCancelledBookingDetailsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.complaintboxlist.ComplaintBoxListActivity"
+            android:name="com.govahan.activities.complaintboxlist.ComplaintBoxListActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.passengercomplaintboxdetail.PassengerComplaintBoxDetailActivity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name="com.govahanuser.com.fragment.passengercomplaintboxlist.PassengerComplaintBoxListFragment"-->
-<!--            android:exported="false" />-->
-        <activity
-            android:name="com.govahanuser.com.activities.passengertracktruckdriver.PassengerTrackTruckDriverActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.passengerraisecomplaint.PassengerRaiseComplaintActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.invoicesummarypassenger.PassengerInvoiceSummaryActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.passengerOngoingBookingDetails.PassengerOngoingBookingDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.passengerCompletedBookingDetails.PassengerCompletedBookingDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.mainBookingHistory.MainBookingHistoryActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.passengers.passengerwritereview.PassengerWriteAReviewActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.govahanuser.com.activities.passengers.passengerRideCompleted.PassengerRideCompletedActivity"
+            android:name="com.govahan.activities.passengercomplaintboxdetail.PassengerComplaintBoxDetailActivity"
             android:exported="false" />
 <!--        <activity-->
-<!--            android:name="com.govahanuser.com.fragment.passengerTripDetails.PassengerTripDetailsActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name="com.govahanuser.com.fragment.loadercomplaintboxlist.LoaderComplaintBoxListFragment"-->
+<!--            android:name="com.govahan.fragment.passengercomplaintboxlist.PassengerComplaintBoxListFragment"-->
 <!--            android:exported="false" />-->
         <activity
-            android:name="com.govahanuser.com.activities.settings.SettingsActivity"
+            android:name="com.govahan.activities.passengertracktruckdriver.PassengerTrackTruckDriverActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.passengerraisecomplaint.PassengerRaiseComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.invoicesummarypassenger.PassengerInvoiceSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.passengerOngoingBookingDetails.PassengerOngoingBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.passengerCompletedBookingDetails.PassengerCompletedBookingDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.mainBookingHistory.MainBookingHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.passengers.passengerwritereview.PassengerWriteAReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.govahan.activities.passengers.passengerRideCompleted.PassengerRideCompletedActivity"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name="com.govahan.fragment.passengerTripDetails.PassengerTripDetailsActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name="com.govahan.fragment.loadercomplaintboxlist.LoaderComplaintBoxListFragment"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name="com.govahan.activities.settings.SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.govahanuser.com.activities.loaderWalletAddMoney.LoaderWalletAddMoneyActivity"
+            android:name="com.govahan.activities.loaderWalletAddMoney.LoaderWalletAddMoneyActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.loadercompletedbookingdetails.LoaderCompletedBookingDetailsActivity"
+            android:name="com.govahan.activities.loadercompletedbookingdetails.LoaderCompletedBookingDetailsActivity"
             android:exported="false" />
 
         <activity
-            android:name="com.govahanuser.com.activities.privacypolicy.PrivacyPolicyActivity"
+            android:name="com.govahan.activities.privacypolicy.PrivacyPolicyActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.termsconditions.TermsConditionsActivity"
+            android:name="com.govahan.activities.termsconditions.TermsConditionsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.referearn.ReferEarnActivity"
+            android:name="com.govahan.activities.referearn.ReferEarnActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.aboutus.AboutUsActivity"
+            android:name="com.govahan.activities.aboutus.AboutUsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.contactus.ContactUsActivity"
+            android:name="com.govahan.activities.contactus.ContactUsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.myoffers.MyOffersActivity"
+            android:name="com.govahan.activities.myoffers.MyOffersActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.notification.NotificationActivity"
+            android:name="com.govahan.activities.notification.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.favouritelocations.AddFavouriteLocationsActivity"
+            android:name="com.govahan.activities.favouritelocations.AddFavouriteLocationsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.editprofile.EditProfileActivity"
+            android:name="com.govahan.activities.editprofile.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.myprofile.MyProfileActivity"
+            android:name="com.govahan.activities.myprofile.MyProfileActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.wallet.LoaderWalletActivity"
+            android:name="com.govahan.activities.wallet.LoaderWalletActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailActivity"
+            android:name="com.govahan.activities.loadercomplaintboxdetail.LoaderComplaintBoxDetailActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.authorizedfranchise.AuthorizedFranchisesActivity"
+            android:name="com.govahan.activities.authorizedfranchise.AuthorizedFranchisesActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.invoicesummaryloader.LoaderInvoiceSummaryActivity"
+            android:name="com.govahan.activities.invoicesummaryloader.LoaderInvoiceSummaryActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.invoicelist.InvoiceListActivity"
+            android:name="com.govahan.activities.invoicelist.InvoiceListActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.loaderraisecomplaint.LoaderRaiseComplaintActivity"
+            android:name="com.govahan.activities.loaderraisecomplaint.LoaderRaiseComplaintActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.loadertracktruckdriver.LoaderTrackTruckDriverActivity"
+            android:name="com.govahan.activities.loadertracktruckdriver.LoaderTrackTruckDriverActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.loaderongoingbookingdetails.LoaderOngoingBookingDetailsActivity"
+            android:name="com.govahan.activities.loaderongoingbookingdetails.LoaderOngoingBookingDetailsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.bookinghistory.LoaderBookingHistoryActivity"
+            android:name="com.govahan.activities.bookinghistory.LoaderBookingHistoryActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.writereview.WriteAreviewActivity"
+            android:name="com.govahan.activities.writereview.WriteAreviewActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.ridecompleted.RideCompletedActivity"
+            android:name="com.govahan.activities.ridecompleted.RideCompletedActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.trackmap.TrackMapActivity"
+            android:name="com.govahan.activities.trackmap.TrackMapActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.passengers.passengertripdetails.PassengerTripDetailsActivity"
+            android:name="com.govahan.activities.passengers.passengertripdetails.PassengerTripDetailsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.bookingsuccessp.BookingSuccessPActivity"
+            android:name="com.govahan.activities.bookingsuccessp.BookingSuccessPActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.bookingsuccess.BookingSuccessActivity"
+            android:name="com.govahan.activities.bookingsuccess.BookingSuccessActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.tripdetails.TripDetailsActivity"
+            android:name="com.govahan.activities.tripdetails.TripDetailsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.tripmanagement.TripManagementActivity"
+            android:name="com.govahan.activities.tripmanagement.TripManagementActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.passengers.bookingconfirmationstatus.BookingConfirmationStatusPActivity"
+            android:name="com.govahan.activities.passengers.bookingconfirmationstatus.BookingConfirmationStatusPActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.passengers.paymentmethods.PaymentMethodsPActivity"
+            android:name="com.govahan.activities.passengers.paymentmethods.PaymentMethodsPActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.passengers.passengerbookingreview.BookingReviewPActivity"
+            android:name="com.govahan.activities.passengers.passengerbookingreview.BookingReviewPActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.passengers.passengervailablevehicle.PassengerAvailableVehicleActivity"
+            android:name="com.govahan.activities.passengers.passengervailablevehicle.PassengerAvailableVehicleActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.bookingconfirmationstatus.BookingConfirmationAndStatusActivity"
+            android:name="com.govahan.activities.bookingconfirmationstatus.BookingConfirmationAndStatusActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.paymentmethods.PaymentMethodsActivity"
+            android:name="com.govahan.activities.paymentmethods.PaymentMethodsActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.transportowner.TransportOwnerActivity"
+            android:name="com.govahan.activities.transportowner.TransportOwnerActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.bookingreview.BookingReviewActivity"
+            android:name="com.govahan.activities.bookingreview.BookingReviewActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.availablevehicles.AvailableVehiclesActivity"
+            android:name="com.govahan.activities.availablevehicles.AvailableVehiclesActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.bookvehicle.BookAVehicleActivity"
+            android:name="com.govahan.activities.bookvehicle.BookAVehicleActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.DashboardActivity"
+            android:name="com.govahan.activities.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.chooselanguage.ChooseLanguageActivity"
+            android:name="com.govahan.activities.chooselanguage.ChooseLanguageActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.auth.login.LoginActivity"
+            android:name="com.govahan.activities.auth.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.activities.HomeActivity"
+            android:name="com.govahan.activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name="com.govahanuser.com.SplashActivity"
+            android:name="com.govahan.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
@@ -296,7 +296,7 @@
         </service>
         -->
         <service
-            android:name="com.govahanuser.com.fcm.MyFirebaseMessagingService"
+            android:name="com.govahan.fcm.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
